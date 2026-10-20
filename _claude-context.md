@@ -17,6 +17,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 ## Voice and editorial guardrails
 
+- Consult and follow `notes/dev/editorial-voice-and-style-guide.md` before drafting or editing any manuscript sections.
 - Direct, technically precise - no hype language ("revolutionary," "unlock," etc.)
 - Vibe coding is not software engineering: treat this as settled, do not soften it
 - Distinguish always between: (a) tested in production, (b) adapted by analogy, (c) speculative
@@ -34,6 +35,8 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 ## Notes for Claude
 
+- Working dynamic: Human is the Navigator (holds judgment, priorities, architecture); Claude is the Driver (executes bounded tasks cleanly; never improvises priorities or assumes judgment).
+- Always consult `notes/dev/editorial-voice-and-style-guide.md` before starting any writing.
 - No em dashes anywhere - user writes with regular hyphens ('-').
 - Never edit or modify vault files unless the user specifically and explicitly asks for an edit.
 - File prefixes (e.g. 00.01, 00.02, 05.02) are solely Obsidian sort keys; skipped numbers do not matter and fractional numbers (e.g. 00.02.5) may be used for sorting insertions.
