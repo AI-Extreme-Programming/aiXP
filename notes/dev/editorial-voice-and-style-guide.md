@@ -47,9 +47,9 @@ When collaborating with an AI pair partner on this project:
 ## 4. Typography & Syntax Guardrails
 
 * **No Em-Dashes (`—`):** The author writes exclusively with standard ASCII hyphens (`-`). Never use `—` or `–`.
-* **File Prefixes as Sort Keys:** Prefixes like `00.01`, `00.02`, `05.02` are solely Obsidian sort keys. Skipped numbers are intentional sort boundaries, not missing content. Fractional numbers (e.g. `00.02.5`) are standard for intermediate insertions.
+* **Filename Prefixes as Sort Keys:** Prefixes like `00.01`, `00.02`, `05.02` are solely Obsidian sort keys. Skipped numbers are intentional sort boundaries, not missing content. Fractional numbers (e.g. `00.02.5`) are standard for intermediate insertions.
 * **Wikilinks:** Use bare `[[wikilink]]` syntax in Obsidian notes and chat discussions (no code backticks, no `file://`).
-* **Manuscript Callouts:** Use standard Obsidian/GitHub callouts (`> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, `> [!TODO]`). Use HTML comments (`<!-- TODO: ... -->`) for notes meant to stay hidden from the compiled VitePress book.
+* **Manuscript Callouts:** Use standard Obsidian/GitHub callouts (`> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, `> [!TODO]`). Use HTML comments (`<!-- TODO: ... -->`) for notes and annotations meant to stay hidden from the compiled VitePress book.
 
 ---
 
