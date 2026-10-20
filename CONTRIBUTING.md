@@ -1,6 +1,6 @@
-# Contributing to temp_name
+# Contributing to aiXP
 
-First off, thank you for considering contributing to temp_name! It's people like you that make this template better for everyone.
+First off, thank you for considering contributing to aiXP! It's people like you that make this template better for everyone.
 
 ## Code of Conduct
 
@@ -78,7 +78,7 @@ feat!: change template initialization workflow
 ## Project Structure
 
 ```
-temp_name/
+aiXP/
 ├── .github/
 │   ├── gitignore-templates/  # Example .gitignore files
 │   ├── ISSUE_TEMPLATE/       # Issue templates

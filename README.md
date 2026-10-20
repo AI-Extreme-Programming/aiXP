@@ -1,30 +1,30 @@
-﻿# temp_name [![starline](https://raw.githubusercontent.com/ScottKirvan/temp_name/refs/heads/starlines/ScottKirvan/temp_name/starline.svg)](https://github.com/qoomon/starlines)
+﻿# aiXP [![starline](https://raw.githubusercontent.com/ScottKirvan/aiXP/refs/heads/starlines/ScottKirvan/aiXP/starline.svg)](https://github.com/qoomon/starlines)
 <div align="center">
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
-    <h1><a href="https://github.com/ScottKirvan/temp_name">ScottKirvan/temp_name</a></h1>
+    <h1><a href="https://github.com/ScottKirvan/aiXP">ScottKirvan/aiXP</a></h1>
   <h3>Nulla nobis dicta iste minus dolor repellendus aspernatur atque</h3>
   
   
 <!-- Badges -->
 <p>
-  <a href="https://github.com/ScottKirvan/temp_name/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/ScottKirvan/temp_name" alt="contributors" />
+  <a href="https://github.com/ScottKirvan/aiXP/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/ScottKirvan/aiXP" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/ScottKirvan/temp_name" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/ScottKirvan/aiXP" alt="last update" />
   </a>
-  <a href="https://github.com/ScottKirvan/temp_name/network/members">
-    <img src="https://img.shields.io/github/forks/ScottKirvan/temp_name" alt="forks" />
+  <a href="https://github.com/ScottKirvan/aiXP/network/members">
+    <img src="https://img.shields.io/github/forks/ScottKirvan/aiXP" alt="forks" />
   </a>
-  <a href="https://github.com/ScottKirvan/temp_name/stargazers">
-    <img src="https://img.shields.io/github/stars/ScottKirvan/temp_name" alt="stars" />
+  <a href="https://github.com/ScottKirvan/aiXP/stargazers">
+    <img src="https://img.shields.io/github/stars/ScottKirvan/aiXP" alt="stars" />
   </a>
-  <a href="https://github.com/ScottKirvan/temp_name/issues/">
-    <img src="https://img.shields.io/github/issues/ScottKirvan/temp_name" alt="open issues" />
+  <a href="https://github.com/ScottKirvan/aiXP/issues/">
+    <img src="https://img.shields.io/github/issues/ScottKirvan/aiXP" alt="open issues" />
   </a>
-  <a href="https://github.com/ScottKirvan/temp_name/blob/main/LICENSE.md">
-    <img src="https://img.shields.io/github/license/ScottKirvan/temp_name.svg" alt="license" />
+  <a href="https://github.com/ScottKirvan/aiXP/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/github/license/ScottKirvan/aiXP.svg" alt="license" />
   </a>
   <a href="https://discord.gg/TN6XJSNK5Y">
     <!--<img src="https://img.shields.io/discord/704680098577514527?style=flat-square&label=%F0%9F%92%AC%20discord&color=00ACD7">-->
@@ -35,15 +35,15 @@
 <h4>
     <a href="https://tinyurl.com/3vf7whyd">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/temp_name/blob/main/README.md">Documentation</a>
+    <a href="https://github.com/ScottKirvan/aiXP/blob/main/README.md">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/temp_name/issues/new?template=bug_report.md">Report Bug</a>
+    <a href="https://github.com/ScottKirvan/aiXP/issues/new?template=bug_report.md">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/temp_name/issues/new?template=feature_request.md">Request Feature</a>
+    <a href="https://github.com/ScottKirvan/aiXP/issues/new?template=feature_request.md">Request Feature</a>
   </h4>
 </div>
 
-**temp_name** is voluptatibus magni nemo est. Nulla nobis dicta iste minus dolor repellendus aspernatur atque. Earum expedita aut inventore tempora fugiat deleniti. Molestias minima nam expedita beatae totam ipsa reprehenderit animi. Occaecati quibusdam beatae ducimus voluptate ut doloribus vitae amet. Quia ut ut voluptate dignissimos adipisci dolorum rem.
+**aiXP** is voluptatibus magni nemo est. Nulla nobis dicta iste minus dolor repellendus aspernatur atque. Earum expedita aut inventore tempora fugiat deleniti. Molestias minima nam expedita beatae totam ipsa reprehenderit animi. Occaecati quibusdam beatae ducimus voluptate ut doloribus vitae amet. Quia ut ut voluptate dignissimos adipisci dolorum rem.
 
 ## Getting Started with This Template
 
@@ -64,12 +64,12 @@
 
 Branches
 --------
-`main` is the [deployed](https://ScottKirvan.github.io/temp_name/) branch.  The repo doesn't currently contain any other historic or dev branches.
+`main` is the [deployed](https://ScottKirvan.github.io/aiXP/) branch.  The repo doesn't currently contain any other historic or dev branches.
 
 Repo Layout
 -----------
 ```
-temp_name
+aiXP
 ├───_layouts                     # Jekyll layouts for GitHub Pages
 ├───.github
 │   ├───gitignore-templates      # Example .gitignore files (Unreal, Unity, Python, etc.)
@@ -133,7 +133,7 @@ Usage
 
 Contributions / Contact
 -----------------------
-- Please [file an issue](https://github.com/ScottKirvan/temp_name/issues/new), or [grab a fork](https://github.com/ScottKirvan/temp_name/fork), hack away, and submit a [pull request](https://github.com/ScottKirvan/temp_name/pulls).
+- Please [file an issue](https://github.com/ScottKirvan/aiXP/issues/new), or [grab a fork](https://github.com/ScottKirvan/aiXP/fork), hack away, and submit a [pull request](https://github.com/ScottKirvan/aiXP/pulls).
 - Contact me at [linkedin.com/in/scottkirvan/](https://www.linkedin.com/in/scottkirvan/)
 - You can also contact me at my [discord](https://discord.gg/TN6XJSNK5Y) server, I'm cptvideo.
 
@@ -142,6 +142,6 @@ Credits
 **[ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate) Copyright (c) (2025):** [Scott Kirvan](https://github.com/ScottKirvan)  - All rights reserved
 *ScooterGitTemplate is licensed under the [MIT License](LICENSE.md).*
 
-Project Link:  [temp_name](https://github.com/ScottKirvan/temp_name)  
+Project Link:  [aiXP](https://github.com/ScottKirvan/aiXP)  
 [CHANGELOG](notes/CHANGELOG.md)  
 [TODO](notes/TODO.md)

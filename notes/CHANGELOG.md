@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* todo: in these files breaks docs ([953c540](https://github.com/ScottKirvan/temp_name/commit/953c5408f62999e899208c254b7e62e865553dae))
+* todo: in these files breaks docs ([953c540](https://github.com/ScottKirvan/aiXP/commit/953c5408f62999e899208c254b7e62e865553dae))
 
 ## Changelog
 >[!NOTE]

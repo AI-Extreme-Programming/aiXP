@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'aiXP',
   description: 'Extreme Programming for Human-AI Teams of 1 to N',
-  base: '/temp_name/',
+  base: '/aiXP/',
 
   themeConfig: {
     search: {
@@ -23,7 +23,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Part I — Background',
+        text: 'Part I - Background',
         items: [
           { text: 'The Problem with Vibe Coding', link: '/aixp/01.01-vibe-coding' },
           { text: "XP's Original Bet", link: '/aixp/01.02-xp-background' },
@@ -31,13 +31,13 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Part II — The Manifesto',
+        text: 'Part II - The Manifesto',
         items: [
           { text: 'Pillars and Rejection Criteria', link: '/aixp/02.01-manifesto' },
         ]
       },
       {
-        text: 'Part III — The Practices',
+        text: 'Part III - The Practices',
         items: [
           { text: 'XP Practices Carried Over', link: '/aixp/03.01-xp-practices-carried-over' },
           { text: 'New Practices, Native to aiXP', link: '/aixp/03.02-new-practices' },
@@ -47,7 +47,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Part IV — Context and Comparison',
+        text: 'Part IV - Context and Comparison',
         items: [
           { text: 'aiXP vs. the AI-Native SDLC', link: '/aixp/04.01-comparison-ai-native-sdlc' },
           { text: 'Scaling Beyond the Solo Practitioner', link: '/aixp/04.02-scaling' },
@@ -58,7 +58,7 @@ export default defineConfig({
         text: 'Back Matter',
         items: [
           { text: 'Open Questions', link: '/aixp/05.01-open-questions' },
-          { text: 'Appendix — Original 12 XP Practices', link: '/aixp/05.02-appendix-original-12' },
+          { text: 'Appendix - Original 12 XP Practices', link: '/aixp/05.02-appendix-original-12' },
           { text: 'Bibliography', link: '/aixp/05.03-bibliography' },
         ]
       },

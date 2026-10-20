@@ -1,4 +1,4 @@
-# CLAUDE.md — temp_name (aiXP)
+# CLAUDE.md — aiXP (aiXP)
 
 ## Project
 
@@ -52,11 +52,11 @@ projects.
 - Production build: `cd docs && npm run docs:build`
 - Deployed to GitHub Pages via `.github/workflows/docs.yml` on push to `main`
   (uses reusable workflow at `ScottKirvan/.github`)
-- Live URL: `https://www.scottkirvan.com/temp_name/`
+- Live URL: `https://www.scottkirvan.com/aiXP/`
 
 ## Known Gotchas
 
-- `base: '/temp_name/'` in `docs/.vitepress/config.mts` is load-bearing for GitHub
+- `base: '/aiXP/'` in `docs/.vitepress/config.mts` is load-bearing for GitHub
   Pages asset resolution. Do not remove it — without it, CSS/JS 404 on the deployed
   site (the page loads but has no stylesheet).
 - Obsidian vault backup commits run automatically and push directly to `main`. They
