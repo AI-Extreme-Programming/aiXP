@@ -36,6 +36,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 - No em dashes anywhere - user writes with regular hyphens ('-').
 - Never edit or modify vault files unless the user specifically and explicitly asks for an edit.
+- File prefixes (e.g. 00.01, 00.02, 05.02) are solely Obsidian sort keys; skipped numbers do not matter and fractional numbers (e.g. 00.02.5) may be used for sorting insertions.
 - Theme: GitHubDHC v2.3.1 (installed from official Obsidian community theme release).
 
 ---

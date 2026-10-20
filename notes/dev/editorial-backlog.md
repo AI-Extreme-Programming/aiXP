@@ -9,7 +9,7 @@ This document tracks editorial tasks, section-by-section revisits, and manuscrip
 | Chapter | Title | Status | Primary Next Step |
 |---|---|---|---|
 | `00.01` | [[00.01-preface\|Preface]] | Polished | Audience and scope complete |
-| `00.02` | [[00.02-how-to-read\|How to Read This Book]] | Polished | Review against final chapter organization |
+| `00.02` | [[00.02-how-to-read\|How to Read This Book]] | Polished | Re-align cross-references to actual 4-part structure |
 | `01.01` | [[01.01-vibe-coding\|The Problem with Vibe Coding]] | Polished | Includes Kent Beck "Seed Corn" callout |
 | `01.02` | [[01.02-xp-background\|XP's Original Bet]] | Polished | Includes Kent Beck "Unsettled Frontier" callout |
 | `01.03` | [[01.03-what-changed\|What Changed When AI Joined the Team]] | Polished | Includes Kent Beck "Trust Deficit" callout |
@@ -30,7 +30,15 @@ This document tracks editorial tasks, section-by-section revisits, and manuscrip
 ## High-Priority Editorial Tasks
 
 - [x] **Fix Preface Fragment:** [[00.01-preface#Who is this for?]] smoothed out sentence fragment into a clean audience description.
-- [ ] **Expand [[03.01-xp-practices-carried-over|03.01 — XP Practices]]:** Transform the summary table into detailed narrative sections. High-leverage practices to give dedicated depth:
+- [ ] **Settle Practice Inventory & Numbering ("15 vs. 25"):** Reconcile the promise in [[00.02-how-to-read]] ("fifteen practices organized into three groups") with Part III's actual inventory:
+  - `03.01` currently has 10 classic practices (tabular, unnumbered).
+  - `03.02` has 10 native practices (numbered 1-10).
+  - `03.03` has 5 DevOps practices (numbered 11-15).
+  - Total = 25 practices. Settle whether to unify the numbering across all practices or curate a 15-practice core (e.g. 5 + 5 + 5).
+- [ ] **Re-align Legacy Outline Cross-References:** Update outdated section pointers left over from earlier outline drafts:
+  - In [[00.02-how-to-read]]: update reference to "Parts 4 and 5" (they are now `03.04` and `03.05` within Part III).
+  - In [[05.03-bibliography]]: update references to "Part 6" and "Part 5".
+- [ ] **Expand [[03.01-xp-practices-carried-over|03.01 — XP Practices]]:** Transform the summary table into detailed narrative sections matching the flow of Parts I, II, and IV. High-leverage practices to give dedicated depth:
   - TDD as load-bearing specification and fast verification loop.
   - Asymmetric Pairing (AI driving, human navigating for architectural drift).
   - Bounded Refactoring (screening for scope creep rather than effort).
@@ -50,9 +58,18 @@ Tracked in detail in [[notes/dev/open-questions|notes/dev/open-questions.md]]:
 
 ---
 
+## File Organization & Page Numbering Rules
+
+- **Numbering is for Obsidian sort order only:** File prefixes (`00.01`, `00.02`, `01.01`, `05.02`, etc.) exist solely to order notes properly in the Obsidian file explorer.
+- **Skipped numbers do not matter:** Gaps like skipping from `04.03` to `05.02` are intentional sort boundaries, not missing chapters.
+- **Fractional numbering for insertions:** Decimal/fractional keys (e.g. `00.02.5`) are valid and expected when inserting a page between two existing notes without requiring renumbering of subsequent files.
+
+---
+
 ## Conventions for Inline Notes
 
 When leaving notes in the manuscript text:
+- Use `> [!TODO]` callouts for visible editorial work items that should not be missed.
 - Use `<!-- TODO: ... -->` for notes that must stay hidden from VitePress readers.
 - Use `<!-- REVISIT: ... -->` for phrasing or flow checks.
 - Use `<!-- CITE: ... -->` for claims needing verification.
