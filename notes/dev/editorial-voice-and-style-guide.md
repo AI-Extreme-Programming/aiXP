@@ -48,7 +48,7 @@ When collaborating with an AI pair partner on this project:
 
 * **No Em-Dashes (`—`):** The author writes exclusively with standard ASCII hyphens (`-`). Never use `—` or `–`.
 * **Filename Prefixes as Sort Keys:** Prefixes like `00.01`, `00.02`, `05.02` are solely Obsidian sort keys. Skipped numbers are intentional sort boundaries, not missing content. Fractional numbers (e.g. `00.02.5`) are standard for intermediate insertions.
-* **Wikilinks:** Use bare `[[wikilink]]` syntax in Obsidian notes and chat discussions (no code backticks, no `file://`).
+* **Markdown Links (No Wikilinks):** Use standard Markdown link syntax `[Label](path.md)` throughout the manuscript, dev notes, and chat discussions. Do not use `[[wikilinks]]`. This ensures native compatibility with VitePress site generation and portability across tools while working seamlessly in Obsidian.
 * **Manuscript Callouts:** Use standard Obsidian/GitHub callouts (`> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, `> [!TODO]`). Use HTML comments (`<!-- TODO: ... -->`) for notes and annotations meant to stay hidden from the compiled VitePress book.
 
 ---

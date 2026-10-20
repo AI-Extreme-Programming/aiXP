@@ -37,6 +37,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 - Working dynamic: Human is the Navigator (holds judgment, priorities, architecture); Claude is the Driver (executes bounded tasks cleanly; never improvises priorities or assumes judgment).
 - Always consult `notes/dev/editorial-voice-and-style-guide.md` before starting any writing.
+- Use standard Markdown links `[Label](path.md)` everywhere (in manuscript, dev notes, and chat). Do not use `[[wikilinks]]`.
 - No em dashes anywhere - user writes with regular hyphens ('-').
 - Never edit or modify vault files unless the user specifically and explicitly asks for an edit.
 - File prefixes (e.g. 00.01, 00.02, 05.02) are solely Obsidian sort keys; skipped numbers do not matter and fractional numbers (e.g. 00.02.5) may be used for sorting insertions.
