@@ -48,7 +48,7 @@ In the post, Beck directly acknowledges the community movement to adapt XP for t
 **Source:** [The Genie Eats The Seed Corn - Tidy First?](https://tidyfirst.substack.com/p/the-genie-eats-the-seed-corn)
 
 ### Key Insights
-- **The Seed Corn Metaphor:** A farmer who eats seed corn to satisfy immediate hunger starves the following season. In software, "seed corn" is clean architecture, modularity, and refactored code—the investments that keep future development cheap and possible.
+- **The Seed Corn Metaphor:** A farmer who eats seed corn to satisfy immediate hunger starves the following season. In software, "seed corn" is clean architecture, modularity, and refactored code - the investments that keep future development cheap and possible.
 - **AI's Lack of Structural Incentives:** AI models have zero intrinsic payoff function for "code that is easy to change next month." They naturally choose the path of least resistance: local duplication, copy-pasting, God functions, and quick hacks that satisfy the immediate prompt.
 - **The Need for Bounded Refactoring:** If humans do not actively enforce refactoring and architectural hygiene, AI velocity creates a short-term spike in output followed by severe structural decay and gridlock.
 
@@ -56,8 +56,8 @@ In the post, Beck directly acknowledges the community movement to adapt XP for t
 
 ## Backlinks & Connections to aiXP
 
-- **Trust as the Core Deliverable:** Beck's framing in *"Trust Factory"* aligns directly with [[02.01-manifesto|02.01 — Manifesto]] (Pillar 1: *Verification is the work*). aiXP's practices (Spec-First Prompting, Executive Code Review, Merge Authority) are mechanisms to manufacture trust at the speed of AI generation.
-- **Vibe Coding Critique:** [[01.01-vibe-coding|01.01 — The Problem with Vibe Coding]] shares Beck's exact diagnostic from *"Beyond the Vibes"*: surface-level plausibility is not engineering, and vigilance fatigue makes rubber-stamping an invisible trap.
-- **Cost Inversion & The Economic Shift:** [[01.03-what-changed|01.03 — What Changed When AI Joined the Team]] explores Beck's premise: generation is cheap, but verification and trust are the real work.
-- **Bounding Refactoring & Structural Health:** [[03.01-xp-practices-carried-over|03.01 — XP Practices Carried Over]] addresses Beck's "seed corn" warning—shifting refactoring from an effort problem to an unreviewed-volume and scope-bounding problem.
-- **Settling the Methodology:** Beck's remark that *"the new set of practices is not yet settled"* directly connects to [[notes/dev/open-questions|Open Questions]] and the primary mission of this book.
+- **Trust as the Core Deliverable:** Beck's framing in *"Trust Factory"* aligns directly with [02.01 - Manifesto](../../docs/aixp/02.01-manifesto.md) (Pillar 1: *Verification is the work*). aiXP's practices (Spec-First Prompting, Executive Code Review, Merge Authority) are mechanisms to manufacture trust at the speed of AI generation.
+- **Vibe Coding Critique:** [01.01 - The Problem with Vibe Coding](../../docs/aixp/01.01-vibe-coding.md) shares Beck's exact diagnostic from *"Beyond the Vibes"*: surface-level plausibility is not engineering, and vigilance fatigue makes rubber-stamping an invisible trap.
+- **Cost Inversion & The Economic Shift:** [01.03 - What Changed When AI Joined the Team](../../docs/aixp/01.03-what-changed.md) explores Beck's premise: generation is cheap, but verification and trust are the real work.
+- **Bounding Refactoring & Structural Health:** [03.01 - XP Practices Carried Over](../../docs/aixp/03.01-xp-practices-carried-over.md) addresses Beck's "seed corn" warning - shifting refactoring from an effort problem to an unreviewed-volume and scope-bounding problem.
+- **Settling the Methodology:** Beck's remark that *"the new set of practices is not yet settled"* directly connects to [Open Questions](./open-questions.md) and the primary mission of this book.
