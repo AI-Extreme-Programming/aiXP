@@ -1,30 +1,30 @@
-# Claude Context — aiXP Writing Project
+# Claude Context - aiXP Writing Project
 
 ## What this vault is
 
-A writing project, not a codebase. The deliverable is a paper, talk, post, or book (format undecided) on **aiXP** — a proposed software engineering discipline for AI-assisted development, grounded in the author's months of daily practice pairing with Claude Code on real projects.
+A writing project, not a codebase. The deliverable is a paper, talk, post, or book (format undecided) on **aiXP** - a proposed software engineering discipline for AI-assisted development, grounded in the author's months of daily practice pairing with Claude Code on real projects.
 
 ## Vault structure
 
-- `docs/` — VitePress project root; dev server via `npm run docs:dev`
-- `docs/aixp/` — primary working source material (`01` through `06` are the methodology itself)
-- `docs/.vitepress/config.mts` — nav/sidebar config; update when adding pages under `docs/aixp/`
-- `docs/index.md` — site landing page
-- `notes/` — scratch/draft material (e.g. `aiXP-draft.md`)
-- `app.json` — project config (purpose TBD)
+- `docs/` - VitePress project root; dev server via `npm run docs:dev`
+- `docs/aixp/` - primary working source material (`01` through `06` are the methodology itself)
+- `docs/.vitepress/config.mts` - nav/sidebar config; update when adding pages under `docs/aixp/`
+- `docs/index.md` - site landing page
+- `notes/` - scratch/draft material (e.g. `aiXP-draft.md`)
+- `app.json` - project config (purpose TBD)
 
 New content pages go under `docs/aixp/`. Don't add top-level markdown without updating the sidebar.
 
 ## Voice and editorial guardrails
 
-- Direct, technically precise — no hype language ("revolutionary," "unlock," etc.)
+- Direct, technically precise - no hype language ("revolutionary," "unlock," etc.)
 - Vibe coding is not software engineering: treat this as settled, do not soften it
 - Distinguish always between: (a) tested in production, (b) adapted by analogy, (c) speculative
 - No invented examples, case studies, or fabricated citations
 - Every borrowed concept (Lean, SRE, Kanban, XP) gets attributed to its origin
-- Open questions live in `docs/aixp/open-questions.md` — surface them, don't resolve unilaterally
+- Open questions live in `docs/aixp/open-questions.md` - surface them, don't resolve unilaterally
 
-## Standing positions (settled — don't re-litigate)
+## Standing positions (settled - don't re-litigate)
 
 - TDD is load-bearing in aiXP, not merely one practice among many
 - Agent Role Topology stays flat by design
@@ -33,8 +33,9 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 ## Notes for Claude
 
-_Add session-specific preferences, recurring instructions, or vault conventions here._
+- User prefers regular hyphens (`-`) instead of em-dashes (`—`).
+- Theme: GitHubDHC v2.3.1 (installed from official Obsidian community theme release).
 
 ---
 
-_Last updated: 2026-08-23_
+_Last updated: 2026-10-19_
