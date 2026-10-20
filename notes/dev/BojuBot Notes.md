@@ -1,0 +1,2 @@
+- the look and feel of the session manager needs a revisit and maybe a major update - it's too crowded now
+- Gemini start up 
