@@ -1,6 +1,6 @@
 # Editorial Voice & Style Guide
 
-This guide defines the authorial voice, stylistic expectations, and structural standards for the **aiXP** manuscript, drawing heavily from the pragmatic, practitioner-first tradition of classic O'Reilly technical books.
+This guide defines the authorial voice, stylistic expectations, and structural standards for the **aiXP** manuscript, drawing heavily from the pragmatic, practitioner-first tradition of classic O'Reilly technical books (reference: [O'Reilly Style Guide](https://oreillymedia.github.io/production-resources/styleguide/)).
 
 Consult this document before drafting or editing any manuscript sections.
 
@@ -9,6 +9,7 @@ Consult this document before drafting or editing any manuscript sections.
 ## 1. Core Voice and Stance
 
 * **Practitioner-to-Practitioner:** Write as an engineer with dirt under their fingernails speaking directly to another engineer. Direct, unsentimental, unpretentious.
+* **Conversational First-Person:** Use first-person ("I" / "we"), active verbs, and contractions to maintain a readable, collaborative tone, as recommended in the O'Reilly guide.
 * **Zero Hype / Zero Marketing Fluff:** Absolutely no breathless AI enthusiasm ("revolutionary," "unlock," "game-changing," "seamless"). Treat AI as a fast, tireless, but context-blind collaborator that requires rigid guardrails.
 * **Firm on Settled Stances:** 
   * *Vibe coding is not software engineering:* Treat this as settled; do not soften it.
@@ -44,7 +45,17 @@ When collaborating with an AI pair partner on this project:
 
 ---
 
-## 4. Typography & Syntax Guardrails
+## 4. Headings & Formatting Rules (O'Reilly Conventions)
+
+* **No Code Font in Headings:** Headings must *never* contain inline code formatting, bold, italics, or raw filenames. Write `### Using CLAUDE.md in Sessions`, not `### Using `CLAUDE.md` in Sessions`. Save monospace backticks for body text.
+* **No Stacked Headings:** Every heading must be followed immediately by introductory body text. Never place an H2 directly above an H3, and never follow a heading directly with a bullet list or callout without an orienting sentence.
+* **Title Case for Headings:** Use standard Title Case for all major headings and chapter titles (e.g. *What Changed When AI Joined the Team* rather than sentence case).
+* **Expand Acronyms on First Use:** Spell out acronyms on their first occurrence in each chapter (e.g. *Architecture Decision Records (ADRs)*, *Test-Driven Development (TDD)*, *Software Development Life Cycle (SDLC)*).
+* **Descriptive Links:** Never use generic link text like "click here" or bare URLs. Use descriptive anchor text (e.g. `[Manifesto for Agile Software Development](https://agilemanifesto.org/)`).
+
+---
+
+## 5. Typography & Syntax Guardrails
 
 * **No Em-Dashes (`—`):** The author writes exclusively with standard ASCII hyphens (`-`). Never use `—` or `–`.
 * **Filename Prefixes as Sort Keys:** Prefixes like `00.01`, `00.02`, `05.02` are solely Obsidian sort keys. Skipped numbers are intentional sort boundaries, not missing content. Fractional numbers (e.g. `00.02.5`) are standard for intermediate insertions.
@@ -53,7 +64,7 @@ When collaborating with an AI pair partner on this project:
 
 ---
 
-## 5. Concrete Visuals & Field Notes
+## 6. Concrete Visuals & Field Notes
 
 * **Field Notes:** Include short, authentic anecdotes from real terminal sessions (e.g. hitting the 4-session working memory wall, catching subtle architectural drift, or handling a runaway subagent).
 * **Clear Diagrams:** Use simple Mermaid flowcharts and topologies (e.g. the human-AI verification loop, Agent Role Topology) to anchor complex ideas visually.
