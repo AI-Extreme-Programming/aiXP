@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'aiXP',
   description: 'Extreme Programming for Human-AI Teams of 1 to N',
-  base: '/temp_name/',
+  base: '/aiXP/',
 
   themeConfig: {
     search: {
