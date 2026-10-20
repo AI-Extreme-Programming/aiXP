@@ -1,3 +1,4 @@
-- the look and feel of the session manager needs a revisit and maybe a major update - it's too crowded now
+- the look and feel of the session manager needs a revisit and maybe a major update - it's too crowded now.  We can probably rethink the interface on this what where we do specific things.
 - At startup, first session in this vault, gemini was using backticks on it's links in replies again - breaking links.  #365 attempted to fix this, but it's back.
 - text entry: up arrow in multiline text doesn't work - it pops to the previous message
+- now that we can switch agents as easily as just clicking on an old 
