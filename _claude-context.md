@@ -34,7 +34,8 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 ## Notes for Claude
 
-- User prefers regular hyphens (`-`) instead of em-dashes (`—`).
+- No em dashes anywhere - user writes with regular hyphens ('-').
+- Never edit or modify vault files unless the user specifically and explicitly asks for an edit.
 - Theme: GitHubDHC v2.3.1 (installed from official Obsidian community theme release).
 
 ---

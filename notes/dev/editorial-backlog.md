@@ -23,7 +23,7 @@ This document tracks editorial tasks, section-by-section revisits, and manuscrip
 | `04.02` | [[04.02-scaling\|Scaling Beyond the Solo Practitioner]] | Review | Review desk-level vs. team coordination interface |
 | `04.03` | [[04.03-anti-patterns\|What aiXP Is Not]] | Polished | Catalog of failure modes complete |
 | `05.02` | [[05.02-appendix-original-12\|Appendix — Original 12 XP Practices]] | Polished | Reference complete |
-| `05.03` | [[05.03-bibliography\|Bibliography]] | Review | Updated with Kent Beck Substack; verify recency before final |
+| `05.03` | [[05.03-bibliography\|Bibliography]] | Polished | Hyperlinked all citations; cleaned out drafting prompts |
 
 ---
 
