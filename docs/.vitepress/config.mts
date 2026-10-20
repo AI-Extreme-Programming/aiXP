@@ -6,6 +6,10 @@ export default defineConfig({
   base: '/aiXP/',
 
   themeConfig: {
+editLink: {
+      pattern: 'https://github.com/ScottKirvan/aiXP/edit/main/docs/:path',
+      text: 'Edit this page on GitHub' // Optional: customize the link text
+    }
     search: {
       provider: 'local'
     },
