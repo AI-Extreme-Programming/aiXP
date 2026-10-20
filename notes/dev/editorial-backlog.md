@@ -6,24 +6,24 @@ This document tracks editorial tasks, section-by-section revisits, and manuscrip
 
 ## Manuscript Status Overview
 
-| Chapter | Title | Status | Primary Next Step |
-|---|---|---|---|
-| `00.01` | [[00.01-preface\|Preface]] | Polished | Audience and scope complete |
-| `00.02` | [[00.02-how-to-read\|How to Read This Book]] | Polished | Re-align cross-references to actual 4-part structure |
-| `01.01` | [[01.01-vibe-coding\|The Problem with Vibe Coding]] | Polished | Includes Kent Beck "Seed Corn" callout |
-| `01.02` | [[01.02-xp-background\|XP's Original Bet]] | Polished | Includes Kent Beck "Unsettled Frontier" callout |
-| `01.03` | [[01.03-what-changed\|What Changed When AI Joined the Team]] | Polished | Includes Kent Beck "Trust Deficit" callout |
-| `02.01` | [[02.01-manifesto\|Pillars and Rejection Criteria]] | Polished | Includes Kent Beck "Trust Factory" callout |
-| `03.01` | [[03.01-xp-practices-carried-over\|XP Practices Carried Over]] | Draft | Rewrite matrix into narrative loop based on Kent Beck comparison |
-| `03.02` | [[03.02-new-practices\|New Practices, Native to aiXP]] | Review | Add practitioner workflows & topology diagram |
-| `03.03` | [[03.03-devops-practices\|DevOps/SRE Practices Adopted]] | Review | Expand practical rollout examples |
-| `03.04` | [[03.04-testing-tiers\|Testing Tiers & Strategy]] | Polished | Primer complete |
-| `03.05` | [[03.05-versioning\|Versioning & Release Identity]] | Polished | Primer complete |
-| `04.01` | [[04.01-comparison-ai-native-sdlc\|Comparison: aiXP vs. AI-Native SDLC]] | Polished | Anthropic Aug 2026 playbook comparison |
-| `04.02` | [[04.02-scaling\|Scaling Beyond the Solo Practitioner]] | Review | Review desk-level vs. team coordination interface |
-| `04.03` | [[04.03-anti-patterns\|What aiXP Is Not]] | Polished | Catalog of failure modes complete |
-| `05.02` | [[05.02-appendix-original-12\|Appendix — Original 12 XP Practices]] | Polished | Reference complete |
-| `05.03` | [[05.03-bibliography\|Bibliography]] | Polished | Hyperlinked all citations; cleaned out drafting prompts |
+| Chapter | Title                                                                    | Status   | Primary Next Step                                                |
+| ------- | ------------------------------------------------------------------------ | -------- | ---------------------------------------------------------------- |
+| `00.01` | [[00.01-preface\|Preface]]                                               | Polished | Audience and scope complete                                      |
+| `00.02` | [[00.02-how-to-read\|How to Read This Book]]                             | Polished | Re-align cross-references to actual 4-part structure             |
+| `01.01` | [[01.01-vibe-coding\|The Problem with Vibe Coding]]                      | Polished | Includes Kent Beck "Seed Corn" callout                           |
+| `01.02` | [[01.02-xp-background\|XP's Original Bet]]                               | Polished | Includes Kent Beck "Unsettled Frontier" callout                  |
+| `01.03` | [[01.03-what-changed\|What Changed When AI Joined the Team]]             | Polished | Includes Kent Beck "Trust Deficit" callout                       |
+| `02.01` | [[02.01-manifesto\|Pillars and Rejection Criteria]]                      | Polished | Includes Kent Beck "Trust Factory" callout                       |
+| `03.01` | [[03.01-xp-practices-carried-over\|XP Practices Carried Over]]           | Draft    | Rewrite matrix into narrative loop based on Kent Beck comparison |
+| `03.02` | [[03.02-new-practices\|New Practices, Native to aiXP]]                   | Review   | Add practitioner workflows & topology diagram                    |
+| `03.03` | [[03.03-devops-practices\|DevOps/SRE Practices Adopted]]                 | Review   | Expand practical rollout examples                                |
+| `03.04` | [[03.04-testing-tiers\|Testing Tiers & Strategy]]                        | Polished | Primer complete                                                  |
+| `03.05` | [[03.05-versioning\|Versioning & Release Identity]]                      | Polished | Primer complete                                                  |
+| `04.01` | [[04.01-comparison-ai-native-sdlc\|Comparison: aiXP vs. AI-Native SDLC]] | Polished | Anthropic Aug 2026 playbook comparison                           |
+| `04.02` | [[04.02-scaling\|Scaling Beyond the Solo Practitioner]]                  | Review   | Review desk-level vs. team coordination interface                |
+| `04.03` | [[04.03-anti-patterns\|What aiXP Is Not]]                                | Polished | Catalog of failure modes complete                                |
+| `05.02` | [[05.02-appendix-original-12\|Appendix — Original 12 XP Practices]]      | Polished | Reference complete                                               |
+| `05.03` | [[05.03-bibliography\|Bibliography]]                                     | Polished | Hyperlinked all citations; cleaned out drafting prompts          |
 
 ---
 
@@ -74,11 +74,11 @@ Detailed comparison between Kent Beck's 8 trust-manufacturing practices in *Trus
 
 ### 3. Comparison & Alignment Matrix
 
-| Category | Practices | Notes for Chapter 03.01 Rewrite |
-|---|---|---|
-| **In both lists (6)** | Testing (TDD), Pairing, Continuous Integration, Customer on Team, Small Releases / Continuous Deployment, Refactoring | The core mechanical engine. Instantly recognizable to XP practitioners. This forms the primary spine of the rewrite. |
-| **In aiXP's 10, omitted by Beck (4)** | Simple Design / YAGNI, Sustainable Pace, Coding Standards, Collective Ownership | Beck skipped these in his trust essay. In aiXP: Sustainable Pace becomes Vigilance Budgeting; Coding Standards becomes context prompt enforcement; Collective Ownership is in tension with Agent Role Topology. |
-| **In Beck's 8, handled elsewhere in aiXP (2)** | Weekly Planning, Observability | aiXP handles planning under Spec-First Prompting / Prioritization Authority (`03.02`), and Observability under DevOps practices (`03.03`). |
+| Category                                       | Practices                                                                                                             | Notes for Chapter 03.01 Rewrite                                                                                                                                                                                 |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **In both lists (6)**                          | Testing (TDD), Pairing, Continuous Integration, Customer on Team, Small Releases / Continuous Deployment, Refactoring | The core mechanical engine. Instantly recognizable to XP practitioners. This forms the primary spine of the rewrite.                                                                                            |
+| **In aiXP's 10, omitted by Beck (4)**          | Simple Design / YAGNI, Sustainable Pace, Coding Standards, Collective Ownership                                       | Beck skipped these in his trust essay. In aiXP: Sustainable Pace becomes Vigilance Budgeting; Coding Standards becomes context prompt enforcement; Collective Ownership is in tension with Agent Role Topology. |
+| **In Beck's 8, handled elsewhere in aiXP (2)** | Weekly Planning, Observability                                                                                        | aiXP handles planning under Spec-First Prompting / Prioritization Authority (`03.02`), and Observability under DevOps practices (`03.03`).                                                                      |
 
 ### 4. Roadmap for Chapter 03.01 Rewrite
 - Claude originally drafted `03.01` as a dry, tabular 10-row compliance matrix starting from the 1999 textbook.
@@ -107,7 +107,6 @@ Tracked in detail in [[notes/dev/open-questions|notes/dev/open-questions.md]]:
 ## Conventions for Inline Notes
 
 When leaving notes in the manuscript text:
-- Use `> [!TODO]` callouts for visible editorial work items that should not be missed.
 - Use `<!-- TODO: ... -->` for notes that must stay hidden from VitePress readers.
 - Use `<!-- REVISIT: ... -->` for phrasing or flow checks.
 - Use `<!-- CITE: ... -->` for claims needing verification.
