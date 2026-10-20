@@ -9,4 +9,7 @@
 > - [ ] here?
 
 
+- maintainability
+- fatique
+
 
