@@ -22,7 +22,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 - Distinguish always between: (a) tested in production, (b) adapted by analogy, (c) speculative
 - No invented examples, case studies, or fabricated citations
 - Every borrowed concept (Lean, SRE, Kanban, XP) gets attributed to its origin
-- Open questions live in `docs/aixp/open-questions.md` - surface them, don't resolve unilaterally
+- Open questions live in `notes/dev/open-questions.md` - surface them, don't resolve unilaterally
 
 ## Standing positions (settled - don't re-litigate)
 
