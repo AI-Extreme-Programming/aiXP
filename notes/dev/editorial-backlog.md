@@ -27,7 +27,7 @@ This document tracks editorial tasks, section-by-section revisits, and manuscrip
 
 ---
 
-## High-Priority Editorial Tasks
+## Editorial Tasks
 
 - [x] **Fix Preface Fragment:** [[00.01-preface#Who is this for?]] smoothed out sentence fragment into a clean audience description.
 - [ ] **Rewrite [[03.01-xp-practices-carried-over|03.01 — XP Practices]]:** Transform from Claude's textbook matrix into an authentic XP developer loop inspired by Kent Beck's *Trust Factory* (see detailed breakdown below).
