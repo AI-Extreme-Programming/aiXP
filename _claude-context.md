@@ -23,6 +23,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 - No invented examples, case studies, or fabricated citations
 - Every borrowed concept (Lean, SRE, Kanban, XP) gets attributed to its origin
 - Open questions live in `notes/dev/open-questions.md` - surface them, don't resolve unilaterally
+- Editorial backlog and chapter status live in `notes/dev/editorial-backlog.md`
 
 ## Standing positions (settled - don't re-litigate)
 
