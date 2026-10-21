@@ -27,33 +27,33 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Introduction', link: '/aixp/01.00.5-introduction',
+        text: 'Introduction', link: '/aixp/00.10-introduction',
         items: [
-          { text: 'Overview', link: '/aixp/01.00.5-introduction' },
-          { text: 'The Problem with Vibe Coding', link: '/aixp/01.01-vibe-coding' },
-          { text: "XP's Original Bet", link: '/aixp/01.02-xp-background' },
-          { text: 'What Changed When AI Joined the Team', link: '/aixp/01.03-what-changed' },
+          { text: 'Overview', link: '/aixp/00.10-introduction' },
+          { text: 'The Problem with Vibe Coding', link: '/aixp/00.11-vibe-coding' },
+          { text: "XP's Original Bet", link: '/aixp/00.12-xp-background' },
+          { text: 'What Changed When AI Joined the Team', link: '/aixp/00.13-what-changed' },
         ]
       },
       {
         text: 'Chapters',
         items: [
-          { text: '1. The Manifesto', link: '/aixp/02.01-manifesto' },
-          { text: '2. Intent and Context', link: '/aixp/02.02-intent-and-context' },
-          { text: '3. The Terminal Loop', link: '/aixp/03.01-terminal-loop' },
-          { text: '4. Judgment, Roles, and Cognitive Budgeting', link: '/aixp/03.02-judgment-and-roles' },
-          { text: '5. Verification Strategy and Integration', link: '/aixp/03.03-verification-and-testing' },
-          { text: '6. Delivery, Release, and Observability', link: '/aixp/03.04-delivery-and-release' },
-          { text: '7. Scaling Beyond the Solo Practitioner', link: '/aixp/04.02-scaling' },
-          { text: '8. aiXP in the Modern Landscape', link: '/aixp/04.01-comparison-ai-native-sdlc' },
-          { text: '9. What aiXP Is Not', link: '/aixp/04.03-anti-patterns' },
+          { text: '1. The Manifesto', link: '/aixp/01.00-manifesto' },
+          { text: '2. Intent and Context', link: '/aixp/02.00-intent-and-context' },
+          { text: '3. The Terminal Loop', link: '/aixp/03.00-terminal-loop' },
+          { text: '4. Judgment, Roles, and Cognitive Budgeting', link: '/aixp/04.00-judgment-and-roles' },
+          { text: '5. Verification Strategy and Integration', link: '/aixp/05.00-verification-and-testing' },
+          { text: '6. Delivery, Release, and Observability', link: '/aixp/06.00-delivery-and-release' },
+          { text: '7. Scaling Beyond the Solo Practitioner', link: '/aixp/07.00-scaling' },
+          { text: '8. aiXP in the Modern Landscape', link: '/aixp/08.00-modern-landscape' },
+          { text: '9. What aiXP Is Not', link: '/aixp/09.00-anti-patterns' },
         ]
       },
       {
         text: 'Back Matter',
         items: [
-          { text: 'Appendix - Original 12 XP Practices', link: '/aixp/05.02-appendix-original-12' },
-          { text: 'Bibliography', link: '/aixp/05.03-bibliography' },
+          { text: 'Appendix - Original 12 XP Practices', link: '/aixp/10.01-appendix-original-12' },
+          { text: 'Bibliography', link: '/aixp/10.02-bibliography' },
         ]
       },
     ],

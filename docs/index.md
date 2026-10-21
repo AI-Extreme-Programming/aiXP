@@ -11,15 +11,15 @@ hero:
       link: /aixp/00.01-preface
     - theme: alt
       text: Bibliography
-      link: /aixp/05.03-bibliography
+      link: /aixp/10.02-bibliography
 
 features:
   - title: Premise
     details: Extreme Programming was built on one bet - tight feedback loops beat upfront certainty. AI makes that bet stronger, not weaker, and shifts the cost of software from writing code to verifying, bounding, and integrating it.
-  - title: XP practices, modified
-    details: Pairing, refactoring, sustainable pace, on-site customer, and more - carried over from classic XP and re-aimed at where AI actually changes the cost structure.
-  - title: New practices, native to aiXP
-    details: Spec-first prompting, domain gap surfacing, agent role topology, executive code review, and more - practices with no XP-era analog.
+  - title: The Practices
+    details: From Spec-First Prompting and Asymmetric Pairing to Agent Role Topology and Risk-Tiered Verification - engineering practices designed for machine-speed collaboration.
+  - title: The Trust Factory
+    details: Grounded in classic XP, Lean, and SRE. Software is bipedal - code and trust must advance together.
 ---
 
 ## A note on intent
