@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.1](https://github.com/ScottKirvan/aiXP/compare/v0.0.0...v0.0.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* repoint homepage links and resync CLAUDE.md after third revert by stale vault backup ([22462a5](https://github.com/ScottKirvan/aiXP/commit/22462a51b65dfba81fce25918e5c734488fd2d22))
+* repoint homepage start-reading/bibliography links to renamed aixp files ([95c2ac0](https://github.com/ScottKirvan/aiXP/commit/95c2ac0a233ae875aad9c1fcf326f19cfb277a06))
+
 ## 0.0.0 (2026-08-23)
 
 
