@@ -5,3 +5,4 @@
 - running multiple sessions concurrently - maybe this is what we need tabs for -- or a richer session manager that's more of a usable tool and it lets us know if a session we've switched away from is processesing or waiting for input
 - I have a note with query code in it - bojubot only sees the query code, not the rendered, resulting page, like I can - is there a way we can get the rendered result to bojubot?
 - gemini is falling back to trying to use shell tools (requires dangerous permissions) rather than the built in tools -- how do we harden this so it stops this behavior.  I think we're going to need a different base, built-in ruleset for gemini.
+- at session start, agy used file:///e:... links for everything as if it doesn't know it's inside a vault - none of the links worked as a result.
