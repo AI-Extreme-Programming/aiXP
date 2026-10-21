@@ -1,14 +1,9 @@
 # Table of Contents & File Map
 
-## Preface (`00.01-preface.md`)
-1. Origin & Field Context (lifetime in software, 1+ year pairing under fire, mobility reality)
-2. What This Is Not (not a claim AI makes software easy; volume vs. discipline)
-3. Who Is This For? (experienced engineers, juniors, leadership/architects)
-4. Tooling & Platform Assumptions (CLI-first, agent-agnostic)
-5. Conventions Used in This Book (Navigator/Driver, 3 confidence tiers, callout types)
-6. Living the Discipline (how this book was developed)
-7. Companion Repository & Feedback (source repo, templates, errata)
-8. How to Read This Book (`00.02-how-to-read.md`) (reading tracks for XP veterans, juniors, managers, and quick skim)
+## Front Matter
+- `00.01-preface.md` - Preface (Origin & Field Context, What This Is Not, Who Is This For)
+- `00.02-how-to-read.md` - How to Read This Book (Workflow system map, Chapter roadmap, Reading tracks)
+- `00.03-conventions.md` - Conventions and Assumptions (Navigator/Driver roles, 3 epistemic tiers, callout types, tooling assumptions, dogfooding note)
 
 ## Introduction
 - `00.10-introduction.md` - Overview: The Inversion (Generation is Cheap, Verification is Not)
