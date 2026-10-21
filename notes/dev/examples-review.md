@@ -6,8 +6,8 @@ This note captures an unvarnished assessment of how the production artifacts fro
 
 ## Executive Summary
 
-Two of the four examples are **rock solid, direct fits** (Spec-First Prompting and Context Stewardship).
-The other two (Domain Gap Surfacing and Coding Standards) are **valuable, authentic artifacts**, but reveal a slight conceptual stretch or title mismatch between the abstract chapter outline and actual repository practice.
+Three of the four examples are **rock solid, 10/10 direct fits** (Spec-First Prompting, Context Stewardship, and Coding Standards via CI/automated tests).
+The remaining one (Domain Gap Surfacing) is a **compelling, authentic artifact** showing how hardware boundaries and unconfirmed architectural conjectures are isolated under fire.
 
 ---
 
@@ -40,21 +40,17 @@ The other two (Domain Gap Surfacing and Coding Standards) are **valuable, authen
   - BojuBot's locked architecture list demonstrates the direct payoff: preventing stateless AI sessions from re-introducing Windows shell quoting bugs or wasting token budget re-debating settled decisions.
 
 ### 4. Coding Standards as Context Infrastructure
-- **Artifacts:** `QuKi-Notes/CLAUDE.md` (Autonomy bounds and "Two-strike auto-comply") and `BojuBot/CLAUDE.md` (5-step bug fix workflow)
-- **Rating:** 6.5/10 (Great material, but semantic mismatch with the title)
+- **Artifacts:** `QuKi-Notes/CLAUDE.md` (Theming rules, CI mandate, autonomy bounds, two-strike rule) and `QuKi-Notes/.github/workflows/ci.yml` (actionlint, typecheck, lint, test)
+- **Rating:** 10/10 (Rock solid after CI & mechanical test integration)
 - **Why It Works:**
-  - The "Two-strike auto-comply" rule, "STATE THE CONSTRAINT AND STOP", and the 5-step bug fix workflow are standout, battle-tested agent interaction constraints.
-- **Where the Mismatch Is:**
-  - The title is "Coding Standards as Context Infrastructure". Developers hear "coding standards" and think formatting, linting, naming conventions, or style rules.
-  - The featured excerpt actually demonstrates **Agent Autonomy Bounds and Interaction Protocols**.
-  - Note: QuKi Notes *does* have hard coding standards enforced by tests (e.g. the CSS variable rule requiring Obsidian `--background-primary` variables, with tests failing if literal fonts or undeclared colors are used), but those were not featured in favor of the autonomy rules.
+  - Solves the "soft prompt" failure mode: natural language admonitions to write clean code are backed by mechanical, automated verification.
+  - Demonstrates coding standards literally written as unit tests: `colourVariables.test.ts` fails in CI if an agent uses hardcoded colors or literal font families instead of Obsidian CSS variables.
+  - Documents the two-layer defense: `CLAUDE.md` directs the agent to discover and satisfy CI commands locally before committing; GitHub Actions CI (`actionlint` -> `typecheck` -> `test`) enforces it deterministically before merge.
+  - Pairs mechanical standards with explicit autonomy limits ("STATE THE CONSTRAINT AND STOP" and "Two-strike auto-comply") to prevent agent improvisation when hitting blockers.
 
 ---
 
-## Recommendations for Refinement
+## Current Status and Completed Refinements
 
-1. **Section 4 (Coding Standards):**
-   - *Option A (Adjust the content):* Keep the title "Coding Standards as Context Infrastructure" and incorporate QuKi Notes' automated theme/variable test rules alongside the red/green testing requirement.
-   - *Option B (Adjust the heading):* Rename the section to **"Operational Constraints as Context Infrastructure"** (or *Interaction Protocols*), making the "Two-Strike" and "Stop when blocked" rules a seamless fit.
-2. **Section 2 (Domain Gap Surfacing):**
-   - Add a brief bridging sentence clarifying that in cross-platform systems engineering, platform runtime boundaries (OS, hardware, WebView) represent the highest-risk domain gaps.
+1. **Section 4 (Coding Standards):** Updated in [[docs/aixp/02.00-intent-and-context|Chapter 2]] to feature the full two-layer architecture: prompt directives in `CLAUDE.md`, mechanical test suites enforcing styling (`colourVariables.test.ts`), and the automated multi-package CI pipeline (`ci.yml`).
+2. **Section 2 (Domain Gap Surfacing):** Grounded in the reality that for cross-platform client and developer tooling, platform runtime boundaries (OS, WebView, mobile IME) represent the highest-risk domain gaps where synthetic tests pass but only physical hardware verification holds truth.
