@@ -12,85 +12,68 @@
 
 ## Introduction
 1. The Inversion: Generation is Cheap, Verification is Not
-2. The Problem with Vibe Coding (predictable failure modes: correctness drift, scope creep, context collapse, vigilance fatigue)
-3. XP's Original Bet (why tight feedback loops beat upfront certainty; technical discipline vs. process)
-4. What Changed When AI Joined the Team (the trust deficit; software as bipedal; moving the bottleneck)
+2. The Problem with Vibe Coding (predictable failure modes: drift, creep, collapse, fatigue)
+3. XP's Original Bet (why tight feedback loops beat upfront certainty)
+4. What Changed When AI Joined the Team (the trust deficit; software as bipedal)
 
 ## Chapter 1: The Manifesto
-1. The Four Pillars & Rejection Criteria
-   - Pillar 1: Verification is the Work (rejection test: does this increase unverified change?)
-   - Pillar 2: Judgment is Not Delegatable (rejection test: real judgment vs. rubber stamp?)
-   - Pillar 3: The Discipline Scales with the Tools (rejection test: holds up if AI is 2x faster?)
-   - Pillar 4: Context is Infrastructure (rejection test: could a fresh session act without asking?)
-2. Putting Rejection Criteria into Daily Practice (the gating questions)
+1. The Four Pillars (Verification is the Work, Judgment is Non-Delegatable, Scales with Tools, Context is Infrastructure)
+2. Rejection Criteria as Operational Gating Tests
+3. Putting the Manifesto into Practice
 
-## Chapter 2: XP Practices Carried Over, Modified
-1. The Trust Factory Loop
-2. Pairing (asymmetric: AI drives, human navigates)
-3. Test-Driven Development (TDD as the load-bearing verification loop)
-4. Refactoring (bounding unrequested refactors vs. cheap edits)
-5. Continuous Integration (risk-tiered trunk integration)
-6. Small Releases (verified candidates vs. generated candidates)
-7. On-Site Customer (substituting domain gap surfacing)
-8. Simple Design / YAGNI (preventing speculative AI over-generation)
-9. Coding Standards (context prompt enforcement across agents)
-10. Collective Ownership (tension with Agent Role Topology: code vs. review authority)
-11. Sustainable Pace (protecting human vigilance vs. endless machine throughput)
+## Chapter 2: Intent and Context (Before the Code)
+1. Spec-First Prompting (grounding intent and acceptance criteria upfront)
+2. Domain Gap Surfacing (forcing the AI to interrogate missing business rules)
+3. Context Stewardship (maintaining repository memory, ADRs, and living context files)
+4. Coding Standards as Context Infrastructure (deterministic prompt constraints)
 
-## Chapter 3: Native aiXP Practices
-1. Spec-First Prompting (grounding intent before code generation)
-2. Domain Gap Surfacing (prompting the AI to identify missing business rules)
-3. Agent Role Topology (flat hierarchy: Lead/Spec, Scoped Implementers, Independent Reviewer)
-4. Executive Code Review (context-free evaluation: "make the code speak")
-5. Context Stewardship (maintaining repository memory and living CLAUDE.md infrastructure)
-6. Vigilance Budgeting (session limits, 4-item working memory wall, fatigue mitigation)
-7. Prioritization Authority (human retaining roadmap and judgment control)
+## Chapter 3: The Terminal Loop (Writing and Refactoring)
+1. Asymmetric Pairing (human Navigator holds intent; AI Driver executes)
+2. Test-Driven Development (TDD as the primary specification and verification engine)
+3. Bounded Refactoring (curbing unrequested refactors and scope creep)
+4. Simple Design and YAGNI (defending against machine-speed over-engineering)
 
-## Chapter 4: DevOps & SRE Practices Adopted
-1. Risk-Tiered Merge Authority (matching review rigor to blast radius)
-2. Observability & Traceability in Agent Sessions (logging prompts, decisions, and diffs)
-3. Deployment Gating & Production Verification (smoke tests and canary checks)
-4. Blameless Post-Mortems for AI Failures (debugging prompt and context failure modes)
+## Chapter 4: Judgment, Roles, and Cognitive Budgeting
+1. Agent Role Topology (flat hierarchy: Lead/Spec, Scoped Implementers, Independent Reviewers)
+2. Executive Code Review (context-free diff evaluation: "make the code speak")
+3. Vigilance Budgeting (session ceilings, the 4-item cognitive wall, fatigue mitigation)
+4. Prioritization Authority (preserving human ownership of the technical roadmap)
 
-## Chapter 5: Testing Strategy
-1. The Verification Bottleneck
+## Chapter 5: Verification Strategy and Integration
+1. The Verification Bottleneck (why tests are throughput, not tax)
 2. The Four Testing Tiers (Unit, Integration, Contract, E2E)
-3. TDD as Both Specification and Mechanical Safety Net
+3. Continuous Integration and Risk-Tiered Merge Authority (matching review rigor to blast radius)
 4. Regression Suite Maintenance at Machine Speed
-5. Test Flakiness and AI Hallucination Traps
 
-## Chapter 6: Versioning & Release Identity
-1. Shipping with Predictability
-2. Semantic Versioning in Rapid-Fire Cycles
-3. Release Candidates vs. Generated Candidates
-4. Traceability: Linking Commits, Prompts, and Release Notes
+## Chapter 6: Delivery, Release, and Observability
+1. Small Releases and Verified Candidates (why generated output is not a release)
+2. Semantic Versioning and Release Identity in Rapid Cycles
+3. Agent Session Observability and Traceability (audit trails for prompts and diffs)
+4. Deployment Gating and Blameless Post-Mortems for AI Failures
 
-## Chapter 7: aiXP in Context: The AI-Native SDLC
-1. Where aiXP Fits in the Industry Landscape
-2. Comparison with Enterprise AI Playbooks (e.g. Anthropic August 2026 framework)
-3. The Solo Practitioner vs. Enterprise Headcount
-4. Why Process Frameworks (Scrum/SAFe) Fail AI Teams
-
-## Chapter 8: Scaling Beyond the Solo Practitioner
+## Chapter 7: Scaling Beyond the Solo Practitioner
 1. Multi-Human, Multi-Agent Collaboration
 2. Desk-Level Discipline vs. Team Coordination
 3. Shared Context Infrastructure Across Developers
 4. Managing Concurrent Agent Swarms Without Chaos
 
-## Chapter 9: What aiXP Is Not (Anti-Patterns & Failure Modes)
+## Chapter 8: aiXP in the Modern Landscape
+1. Situating aiXP (practitioner discipline vs. enterprise process frameworks)
+2. Comparison with the AI-Native SDLC (e.g. Anthropic August 2026 playbook)
+3. Why Scrum and SAFe Miss the Terminal
+
+## Chapter 9: What aiXP Is Not (Anti-Patterns and Traps)
 1. Catalog of Failure Modes
 2. The Rubber-Stamp Reviewer
 3. The Undifferentiated Agent Swarm
-4. The Context-Free Prompt
+4. The Prompt-and-Pray Trap
 5. The Infinite Refactor Rabbit Hole
-6. "Faster Typing" vs. Engineering Velocity
 
 ## Appendix: The Original 12 XP Practices
-1. Kent Beck's 1999 Extreme Programming Practices Reference
-2. Mapping from 1999 Assumptions to AI-Native Realities
+1. Kent Beck's 1999 Extreme Programming Reference
+2. Historical Lineage Mapping (1999 Assumptions vs. AI-Native Realities)
 
 ## Bibliography & References
-1. Kent Beck / Tidy First & XP Lineage
-2. Lean, DevOps & SRE References
-3. Cognitive Load & Working Memory Research
-4. Industry AI Playbooks and Reports
+1. Lineage References (Beck, Fowler, Lean, SRE)
+2. Cognitive Load and Working Memory Research
+3. Industry Playbooks and Reports
