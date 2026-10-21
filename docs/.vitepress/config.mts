@@ -27,7 +27,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Part I - Background',
+        text: 'Introduction', link: '/aixp/01.00.5-introduction',
         items: [
           { text: 'The Problem with Vibe Coding', link: '/aixp/01.01-vibe-coding' },
           { text: "XP's Original Bet", link: '/aixp/01.02-xp-background' },
