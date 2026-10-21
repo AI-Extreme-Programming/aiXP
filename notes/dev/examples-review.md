@@ -6,8 +6,7 @@ This note captures an unvarnished assessment of how the production artifacts fro
 
 ## Executive Summary
 
-Three of the four examples are **rock solid, 10/10 direct fits** (Spec-First Prompting, Context Stewardship, and Coding Standards via CI/automated tests).
-The remaining one (Domain Gap Surfacing) is a **compelling, authentic artifact** showing how hardware boundaries and unconfirmed architectural conjectures are isolated under fire.
+All four examples in Chapter 2 are now **rock solid, 10/10 direct fits** grounded in authentic production work, practitioner experience, and technical reality.
 
 ---
 
@@ -20,17 +19,16 @@ The remaining one (Domain Gap Surfacing) is a **compelling, authentic artifact**
   - Authored on the `dev` branch *before* implementation code was generated.
   - Phased milestone gating (`Phase 0-3`) explicitly defines what is "Shippable on its own" versus internal milestones.
   - Documents empirical Windows CLI research findings (`--print` behavior) versus unverified design intent.
-  - Settle low-level NDJSON input/output contracts and explicit non-goals (e.g. forbidding SQLite database parsing).
+  - Settles low-level NDJSON input/output contracts and explicit non-goals (e.g. forbidding SQLite database parsing).
 
 ### 2. Domain Gap Surfacing
-- **Artifact:** `QuKi-Notes/CLAUDE.md` (Android WebView text input boundary and `[Proposed - unconfirmed]` convention)
-- **Rating:** 7.5/10 (Strong, with one nuance)
+- **Framework & Artifacts:** The 80/20 Polymath & Sandboxed Tutor protocol; Field Case: The Lunar Surface Shader; `QuKi-Notes/CLAUDE.md` (Android WebView boundary and `[Proposed - unconfirmed]` convention).
+- **Rating:** 10/10 (Rock solid after grounding in the 80/20 polymath workflow)
 - **Why It Works:**
-  - The `[Proposed - unconfirmed]` convention is an exact, mechanical hit for the core premise: forcing the AI to visibly tag speculative architectural proposals so they are not mistaken for settled decisions.
-  - The Android WebView input note isolates a physical hardware boundary where synthetic desktop test suites pass, but real mobile keyboard behavior can only be confirmed on a physical device.
-- **Where the Stretch Is:**
-  - "Domain Gap" in standard software architecture typically implies business domain rules (accounting, tax, healthcare regulations).
-  - In cross-platform client tooling, the platform runtime (OS, WebView, IME) effectively *is* the domain. However, a reader expecting a business-logic gap may feel the term is slightly reframed.
+  - Diagnoses the breakdown of Kent Beck's 1999 "On-Site Customer" and the AI inversion ("The Imposter Customer" that hallucinates domain rules with zero hesitation).
+  - Establishes a four-step teachable protocol: Gap Trigger -> Sandboxed Tutor (epistemic isolation) -> Reverse-Grill Feynman Bar ("you haven't learned it until you can teach it") -> Spec Authoring.
+  - Uses the lunar surface shader case study to show how naive AI generation (Lambertian billiard ball) fails physically without domain understanding of retroreflective regolith and the opposition surge.
+  - Bridges into client tooling via QuKi Notes' hardware isolation and proposal firewalling.
 
 ### 3. Context Stewardship
 - **Artifacts:** `QuKi-Notes/CLAUDE.md` ("Keeping This File Current") and `BojuBot/CLAUDE.md` ("Architecture (locked - don't revisit without discussion)")
@@ -53,4 +51,4 @@ The remaining one (Domain Gap Surfacing) is a **compelling, authentic artifact**
 ## Current Status and Completed Refinements
 
 1. **Section 4 (Coding Standards):** Updated in [[docs/aixp/02.00-intent-and-context|Chapter 2]] to feature the full two-layer architecture: prompt directives in `CLAUDE.md`, mechanical test suites enforcing styling (`colourVariables.test.ts`), and the automated multi-package CI pipeline (`ci.yml`).
-2. **Section 2 (Domain Gap Surfacing):** Grounded in the reality that for cross-platform client and developer tooling, platform runtime boundaries (OS, WebView, mobile IME) represent the highest-risk domain gaps where synthetic tests pass but only physical hardware verification holds truth.
+2. **Section 2 (Domain Gap Surfacing):** Restructured around the **80/20 Polymath and Sandboxed Tutor** protocol, featuring the **Lunar Surface Shader** field case (retroreflective regolith / opposition surge vs naive Lambertian AI generation) and backed by the automated reverse-grill Feynman bar ("until I can teach it"). Supported by QuKi Notes' hardware isolation and proposal firewalling.
