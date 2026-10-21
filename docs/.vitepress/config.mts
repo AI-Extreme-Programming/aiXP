@@ -24,6 +24,7 @@ export default defineConfig({
         items: [
           { text: 'Preface', link: '/aixp/00.01-preface' },
           { text: 'How to Read This Book', link: '/aixp/00.02-how-to-read' },
+          { text: 'Conventions and Assumptions', link: '/aixp/00.03-conventions' },
         ]
       },
       {
