@@ -29,33 +29,24 @@ export default defineConfig({
       {
         text: 'Introduction', link: '/aixp/01.00.5-introduction',
         items: [
+          { text: 'Overview', link: '/aixp/01.00.5-introduction' },
           { text: 'The Problem with Vibe Coding', link: '/aixp/01.01-vibe-coding' },
           { text: "XP's Original Bet", link: '/aixp/01.02-xp-background' },
           { text: 'What Changed When AI Joined the Team', link: '/aixp/01.03-what-changed' },
         ]
       },
       {
-        text: 'Part II - The Manifesto',
+        text: 'Chapters',
         items: [
-          { text: 'Pillars and Rejection Criteria', link: '/aixp/02.01-manifesto' },
-        ]
-      },
-      {
-        text: 'Part III - The Practices',
-        items: [
-          { text: 'XP Practices Carried Over', link: '/aixp/03.01-xp-practices-carried-over' },
-          { text: 'New Practices, Native to aiXP', link: '/aixp/03.02-new-practices' },
-          { text: 'DevOps/SRE Practices Adopted', link: '/aixp/03.03-devops-practices' },
-          { text: 'Testing Strategy', link: '/aixp/03.04-testing-tiers' },
-          { text: 'Versioning and Release Identity', link: '/aixp/03.05-versioning' },
-        ]
-      },
-      {
-        text: 'Part IV - Context and Comparison',
-        items: [
-          { text: 'aiXP vs. the AI-Native SDLC', link: '/aixp/04.01-comparison-ai-native-sdlc' },
-          { text: 'Scaling Beyond the Solo Practitioner', link: '/aixp/04.02-scaling' },
-          { text: 'What aiXP Is Not', link: '/aixp/04.03-anti-patterns' },
+          { text: '1. The Manifesto', link: '/aixp/02.01-manifesto' },
+          { text: '2. Intent and Context', link: '/aixp/02.02-intent-and-context' },
+          { text: '3. The Terminal Loop', link: '/aixp/03.01-terminal-loop' },
+          { text: '4. Judgment, Roles, and Cognitive Budgeting', link: '/aixp/03.02-judgment-and-roles' },
+          { text: '5. Verification Strategy and Integration', link: '/aixp/03.03-verification-and-testing' },
+          { text: '6. Delivery, Release, and Observability', link: '/aixp/03.04-delivery-and-release' },
+          { text: '7. Scaling Beyond the Solo Practitioner', link: '/aixp/04.02-scaling' },
+          { text: '8. aiXP in the Modern Landscape', link: '/aixp/04.01-comparison-ai-native-sdlc' },
+          { text: '9. What aiXP Is Not', link: '/aixp/04.03-anti-patterns' },
         ]
       },
       {
