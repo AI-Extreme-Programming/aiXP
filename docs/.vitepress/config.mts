@@ -19,23 +19,8 @@ export default defineConfig({
     ],
 
     sidebar: [
-      {
-        text: 'Preface', link: '/aixp/00.01-preface',
-        items: [
-          { text: 'Preface', link: '/aixp/00.01-preface' },
-          { text: 'How to Read This Book', link: '/aixp/00.02-how-to-read' },
-          { text: 'Conventions and Assumptions', link: '/aixp/00.03-conventions' },
-        ]
-      },
-      {
-        text: 'Introduction', link: '/aixp/00.10-introduction',
-        items: [
-          { text: 'Overview', link: '/aixp/00.10-introduction' },
-          { text: 'The Problem with Vibe Coding', link: '/aixp/00.11-vibe-coding' },
-          { text: "XP's Original Bet", link: '/aixp/00.12-xp-background' },
-          { text: 'What Changed When AI Joined the Team', link: '/aixp/00.13-what-changed' },
-        ]
-      },
+      { text: 'Preface', link: '/aixp/00.01-preface' },
+      { text: 'Introduction', link: '/aixp/00.10-introduction' },
       {
         text: 'Chapters',
         items: [

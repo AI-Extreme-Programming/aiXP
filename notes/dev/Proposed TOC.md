@@ -1,15 +1,15 @@
 # Table of Contents & File Map
 
-## Front Matter
-- `00.01-preface.md` - Preface (Origin & Field Context, What This Is Not, Who Is This For)
-- `00.02-how-to-read.md` - How to Read This Book (Workflow system map, Chapter roadmap, Reading tracks)
-- `00.03-conventions.md` - Conventions and Assumptions (Navigator/Driver roles, 3 epistemic tiers, callout types, tooling assumptions, dogfooding note)
+## Front Matter (Single Page: `00.01-preface.md`)
+- `00.01-preface.md` - Master Preface (Origin & Field Context, What This Is Not, Who Is This For)
+  - `<!--@include: ./00.02-how-to-read.md-->` (Workflow system map, Chapter roadmap, Reading tracks)
+  - `<!--@include: ./00.03-conventions.md-->` (Navigator/Driver roles, 3 epistemic tiers, callout types, tooling assumptions, dogfooding note)
 
-## Introduction
-- `00.10-introduction.md` - Overview: The Inversion (Generation is Cheap, Verification is Not)
-- `00.11-vibe-coding.md` - The Problem with Vibe Coding (drift, creep, collapse, fatigue)
-- `00.12-xp-background.md` - XP's Original Bet (why tight feedback loops beat upfront certainty)
-- `00.13-what-changed.md` - What Changed When AI Joined the Team (the trust deficit; software as bipedal)
+## Introduction (Single Page: `00.10-introduction.md`)
+- `00.10-introduction.md` - Master Introduction (Overview: The Inversion)
+  - `<!--@include: ./00.11-vibe-coding.md-->` (The Problem with Vibe Coding)
+  - `<!--@include: ./00.12-xp-background.md-->` (XP's Original Bet)
+  - `<!--@include: ./00.13-what-changed.md-->` (What Changed When AI Joined the Team)
 
 ## Chapter 1: The Manifesto (`01.00-manifesto.md`)
 1. The Four Pillars (Verification is the Work, Judgment is Non-Delegatable, Scales with Tools, Context is Infrastructure)
