@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/aiXP/',
 
   themeConfig: {
-editLink: {
+    editLink: {
       pattern: 'https://github.com/ScottKirvan/aiXP/edit/main/docs/:path',
       text: 'Edit this page on GitHub' // Optional: customize the link text
     },
@@ -20,7 +20,7 @@ editLink: {
 
     sidebar: [
       {
-        text: 'Front Matter',
+        text: 'Preface', link: '/aixp/00.01-preface',
         items: [
           { text: 'Preface', link: '/aixp/00.01-preface' },
           { text: 'How to Read This Book', link: '/aixp/00.02-how-to-read' },
