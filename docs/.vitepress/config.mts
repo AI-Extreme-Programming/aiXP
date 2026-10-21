@@ -13,6 +13,10 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
+    outline: {
+      level: [2, 3],
+      label: 'On this page'
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Start reading', link: '/aixp/00.01-preface' }
