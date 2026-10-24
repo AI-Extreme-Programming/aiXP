@@ -77,17 +77,16 @@ jobs:
     with:
       tag_name: ${{ needs.release-please.outputs.tag_name }}
       project_name: ${{ github.event.repository.name }}
-      # TODO: Replace with a one-sentence description of what this project does
-      project_context: "${{ github.event.repository.name }} is a project by ${{ github.repository_owner }}."
+      project_context: "aiXP is a working draft of a proposed software engineering discipline, Extreme Programming for human-AI teams of 1 to N, grounded in classic XP, Lean and SRE and published as a book-style site. Releases add or revise chapters and sections. Write for readers following the draft (engineers and team leads): say what's new to read or how the argument changed, not repository mechanics. Keep the project's plain voice, with no hype words."
       header: |
         ## ${{ github.event.repository.name }}
 
-        > TODO: Replace with your project tagline.
+        > Extreme Programming for Human-AI Teams of 1 to N. Working draft.
 
         ---
       footer: |
         ---
-        📖 [User Guide](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) · 💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/${{ github.repository }}/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/${{ github.repository }}/issues/new?template=feature_request.md)
+        📖 [Read the draft](https://www.scottkirvan.com/aiXP/) ·💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/${{ github.repository }}/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/${{ github.repository }}/issues/new?template=feature_request.md)
     secrets: inherit
 
   update-changelog-prs:
@@ -107,6 +106,6 @@ jobs:
     with:
       tag_name: ${{ needs.release-please.outputs.tag_name }}
       project_name: ${{ github.event.repository.name }}
-      emoji: "🚀"  # TODO: Replace with your project's emoji
+      emoji: "📘"
       discord_blurb: ${{ needs.apply-staged-notes.outputs.discord_blurb || needs.improve-release-notes.outputs.discord_blurb }}
     secrets: inherit

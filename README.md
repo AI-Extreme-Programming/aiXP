@@ -3,7 +3,7 @@
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
     <h1><a href="https://github.com/ScottKirvan/aiXP">ScottKirvan/aiXP</a></h1>
-  <h3>Nulla nobis dicta iste minus dolor repellendus aspernatur atque</h3>
+  <h3>Extreme Programming for Human-AI Teams of 1 to N</h3>
   
   
 <!-- Badges -->
@@ -33,9 +33,7 @@
 </p>
    
 <h4>
-    <a href="https://tinyurl.com/3vf7whyd">View Demo</a>
-  <span> · </span>
-    <a href="https://github.com/ScottKirvan/aiXP/blob/main/README.md">Documentation</a>
+    <a href="https://www.scottkirvan.com/aiXP/">Read the draft</a>
   <span> · </span>
     <a href="https://github.com/ScottKirvan/aiXP/issues/new?template=bug_report.md">Report Bug</a>
   <span> · </span>
@@ -43,93 +41,33 @@
   </h4>
 </div>
 
-**aiXP** is voluptatibus magni nemo est. Nulla nobis dicta iste minus dolor repellendus aspernatur atque. Earum expedita aut inventore tempora fugiat deleniti. Molestias minima nam expedita beatae totam ipsa reprehenderit animi. Occaecati quibusdam beatae ducimus voluptate ut doloribus vitae amet. Quia ut ut voluptate dignissimos adipisci dolorum rem.
+**aiXP** is a working draft of a proposed software engineering discipline: Extreme Programming for human-AI teams of 1 to N. It starts from XP's bet that tight feedback loops beat upfront certainty, argues that AI makes that bet stronger, and works out the practices for a world where the cost of software shifts from writing code to verifying, bounding and integrating it. It draws on classic XP, Lean and SRE, and on the author's daily practice pairing with Claude Code on real projects.
 
-## Getting Started with This Template
+The draft is at the brainstorm stage: chapters are incomplete, and open questions are kept in the text rather than resolved early.
 
->[!IMPORTANT]
-> **Customization Checklist** - After creating a repository from this template, customize these items:
->
-> - [ ] Update the project description (line 5 above and in repository settings)
-> - [ ] Replace `assets/media/logo.jpg` with your project logo
-> - [ ] Update or remove the "View Demo" link (line 35)
-> - [ ] Update or remove the Discord badge/link (lines 28-31)
-> - [ ] Choose and apply a `.gitignore` from `.github/gitignore-templates/` (see [gitignore templates](.github/gitignore-templates/))
-> - [ ] Update the version in `.release-please-manifest.json` to your starting version (e.g., "0.1.0")
-> - [ ] Fill in the Features, Installation, and Usage sections below
-> - [ ] Review and update the [Code of Conduct](CODE_OF_CONDUCT.md) contact information
-> - [ ] Enable GitHub Pages in repository settings if you want a project website
-> - [ ] Review and customize `CLAUDE.md` if using AI coding agents, or delete it if not
-> - [ ] Remove or update this checklist section
-
-Branches
---------
-`main` is the [deployed](https://ScottKirvan.github.io/aiXP/) branch.  The repo doesn't currently contain any other historic or dev branches.
+Reading
+-------
+Read the draft at **[scottkirvan.com/aiXP](https://www.scottkirvan.com/aiXP/)**. It's built from `docs/` with [VitePress](https://vitepress.dev/) and deployed to GitHub Pages on every change to `docs/`.
 
 Repo Layout
 -----------
 ```
 aiXP
-├───_layouts                     # Jekyll layouts for GitHub Pages
 ├───.github
-│   ├───gitignore-templates      # Example .gitignore files (Unreal, Unity, Python, etc.)
-│   ├───ISSUE_TEMPLATE           # Bug report and feature request templates
 │   ├───release-please           # Release-Please configuration
-│   ├───workflows                # GitHub Actions (release, template-init)
-│   ├───FUNDING.yml              # Sponsorship configuration
-│   └───PULL_REQUEST_TEMPLATE.md # PR template
-├───assets
-│   ├───css                      # Styling for GitHub Pages
-│   └───media                    # Images and logos
-├───notes                        # CHANGELOG, VERSION, TODO
-├───CLAUDE.md                    # AI agent context (optional — see Key Features)
-├───CODE_OF_CONDUCT.md           # Community guidelines
-├───CONTRIBUTING.md              # Contribution guidelines
-├───LICENSE.md                   # MIT License
-└───README.md                    # This file
+│   └───workflows                # Docs deploy, releases, pre-release staging, starline
+├───assets/media                 # Images and logos
+├───docs                         # VitePress site
+│   ├───.vitepress               # Site config (nav and sidebar)
+│   └───aixp                     # The chapters, PP.SS-slug.md in reading order
+├───notes                        # CHANGELOG, VERSION, drafts and archive
+├───CLAUDE.md                    # Context and editorial guardrails for AI agents
+├───CODE_OF_CONDUCT.md
+├───CONTRIBUTING.md
+└───LICENSE.md
 ```
 
-### Key Features
-
-**GitHub Pages Support**: The `_layouts` and `assets/css` folders enable GitHub Pages rendering with a custom dark theme similar to GitHub's [Dark High Contrast](https://github.blog/changelog/2021-08-25-dark-high-contrast-theme-ga/) theme. Enable Pages in your repo settings - see [GitHub's Jekyll documentation](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll).
-
-**Automated Release Management**: The `.github/workflows` folder includes [Release-Please](https://github.com/googleapis/release-please) for automated versioning and CHANGELOG updates based on conventional commits.
-
-**Template Initialization**: The `template-init.yml` workflow automatically updates repository references when you create a new repo from this template, then deletes itself.
-
-**.gitignore Templates**: The `.github/gitignore-templates/` folder contains ready-to-use `.gitignore` files for Unreal Engine, Unity, Python, Node.js, C++, and general development. See the [templates README](.github/gitignore-templates/) for usage.
-
-**AI Agent Context (optional)**: `CLAUDE.md` gives AI coding agents (e.g. [Claude Code](https://claude.ai/code)) a starting set of engineering standards — branching conventions, commit discipline, test-driven development, and a no-shortcuts ethos. The project name is automatically substituted on initialization. Customize it as your project evolves, or delete it if you're not using AI agents.
-
->[!NOTE]
-> When using this template project, do not clone the tags or branches. Stick with `main` as the name of your main release branch. Change the version number in the `.release-please-manifest.json` file to the version you want to start with.
->
-> Release-Please uses  [Conventional Commits](https://www.conventionalcommits.org/) with [Semantic Versioning](https://semver.org/) (version: MAJOR.MINOR.PATCH). Changes to version numbers are triggered by specific keywords in your commit messages:
-> - `feat:` (new feature) will bump the MINOR version number.
-> - `fix:` (bug fixes) will bump the PATCH number.
-> - `feat!:` `fix!:` or any `xxx!:` (major and breaking changes) will bump the MAJOR version number.
-
->[!TIP]
-> **Automatic Template Initialization**: When you create a new repository from this template, a GitHub Actions workflow automatically runs on your first push to update all repository references, URLs, and badges in the README with your new repository information. The workflow then deletes itself to keep your repo clean. No manual setup required!
-
-
-
-Table of Contents
------------------
-- [Branches](#branches)
-- [Repo Layout](#repo-layout)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributions / Contact](#contributions--contact)
-- [Credits](#credits)
-
-Features
---------
-Installation
-------------
-Usage
------
+Releases are cut by [Release-Please](https://github.com/googleapis/release-please) from [Conventional Commits](https://www.conventionalcommits.org/); see the [CHANGELOG](notes/CHANGELOG.md).
 
 Contributions / Contact
 -----------------------
@@ -139,8 +77,8 @@ Contributions / Contact
 
 Credits
 -------
-**[ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate) Copyright (c) (2025):** [Scott Kirvan](https://github.com/ScottKirvan)  - All rights reserved
-*ScooterGitTemplate is licensed under the [MIT License](LICENSE.md).*
+**aiXP Copyright (c) 2026:** [Scott Kirvan](https://github.com/ScottKirvan) - licensed under the [MIT License](LICENSE.md).
+*Repository scaffolding from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate).*
 
 Project Link:  [aiXP](https://github.com/ScottKirvan/aiXP)  
 [CHANGELOG](notes/CHANGELOG.md)  
