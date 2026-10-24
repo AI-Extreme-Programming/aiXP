@@ -62,8 +62,8 @@ projects.
 - Obsidian vault backup commits run automatically and push directly to `main`. They
   have previously removed the `base` setting accidentally. If the deployed site loses
   its stylesheet, check whether a vault backup commit touched `config.mts`.
-- `package.json` name is still `"scootergittemplate-docs"` — cosmetic, doesn't affect
-  builds, but worth updating when renaming the repo.
+- The docs package is named `"aixp-docs"` (`docs/package.json` and its lockfile); the
+  name is cosmetic and doesn't affect builds.
 
 ## Keeping This File Current
 
