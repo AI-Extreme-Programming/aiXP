@@ -1,4 +1,4 @@
-﻿# aiXP [![starline](https://raw.githubusercontent.com/ScottKirvan/aiXP/refs/heads/starlines/ScottKirvan/aiXP/starline.svg)](https://github.com/qoomon/starlines)
+# aiXP [![starline](https://raw.githubusercontent.com/ScottKirvan/aiXP/refs/heads/starlines/ScottKirvan/aiXP/starline.svg)](https://github.com/qoomon/starlines)
 <div align="center">
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
