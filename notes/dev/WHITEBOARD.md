@@ -23,4 +23,32 @@ question for every page:  is it telling a story, is it coherent, does it wander,
 - [ ]  monkeys
 - [ ] recording history
 - [ ] dropping engineer voice in lieu of a more narrative tone
-- [ ] building in shortcuts and dead ends:  "v1 doesn't include...." -- don't let the agent define v1 or take certain things off the table.  When it does so, it can be creating a design that builds you into a corner, requiring a rewrite for future growth -- remind it that we're engineers, we don't take shortcuts, we do the hard work now to mini
+- [ ] building in shortcuts and dead ends:  "v1 doesn't include...." -- don't let the agent define v1 or take certain things off the table.  When it does so, it can be creating a design that builds you into a corner, requiring a rewrite for future growth -- remind it that we're engineers, we don't take shortcuts, we do the hard work now to minimize user and maintainer friction in the future.
+
+
+formal spec type list:
+
+* Product & Requirements
+   * Product Requirement Documents (PRDs)
+   * User Stories & Acceptance Criteria (e.g., Gherkin)
+   * Functional Specifications
+ * Architecture & Technical Design
+   * Technical Design Documents (TDDs / RFCs)
+   * Architecture Decision Records (ADRs)
+   * System Context & Component Diagrams (e.g., C4 model)
+ * Interface & Contract Specifications
+   * OpenAPI / Swagger (REST)
+   * Protocol Buffers / gRPC
+   * GraphQL Schemas
+   * AsyncAPI (Event-driven architectures)
+   * JSON Schema / Apache Avro
+ * Testing & Behavioral Specifications
+   * BDD Executable Specifications (Cucumber / Behave)
+   * Consumer-Driven Contracts (Pact)
+ * Design & UI Specifications
+   * Design Tokens (Figma / Style Dictionary)
+   * Component Documentation & Variant Specs (Storybook)
+ * Infrastructure & Compliance Specifications
+   * Infrastructure as Code (Terraform / OpenTofu / Pulumi)
+   * Container Orchestration Manifests (Kubernetes YAML / Helm)
+   * Software Bill of Materials (SBOM / SPDX / CycloneDX)
