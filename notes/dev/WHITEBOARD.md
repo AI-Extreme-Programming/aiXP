@@ -26,9 +26,12 @@ question for every page:  is it telling a story, is it coherent, does it wander,
 - [ ] building in shortcuts and dead ends:  "v1 doesn't include...." -- don't let the agent define v1 or take certain things off the table.  When it does so, it can be creating a design that builds you into a corner, requiring a rewrite for future growth -- remind it that we're engineers, we don't take shortcuts, we do the hard work now to minimize user and maintainer friction in the future.
 - [ ] a good working boundary during spec design: 
 	- [ ] one question at a time, asked in full
+		- interview style works well, 
+		- allows you to explore a question until it's exhausted and fully scoped
+		- avoids questions with built in assumptions
 	- [ ] no release boundaries invented by the agent.
 	- [ ] plan ahead: design for requirements that can be seen coming. no built-in shortcuts.
-- [ ] SRS, SDD, FMT, ATS, roadmap, TBD
+- [ ] SRS, SDD, FMT, ATS, roadmap, TBD, README
 
 
 formal spec type list:
