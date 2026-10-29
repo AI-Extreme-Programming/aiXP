@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { diagramId, extractMermaid, uniqueDiagrams } from '../scripts/lib/mermaid.js';
+import { diagramAltText, diagramId, extractMermaid, uniqueDiagrams } from '../scripts/lib/mermaid.js';
 import { mmdcArgs, renderDiagrams } from '../scripts/lib/render-mermaid.js';
 import { assembleBook } from '../scripts/lib/assemble.js';
 import { BUILD, makeBook, tempDir } from './helpers.js';
@@ -38,8 +38,8 @@ test('assembled book references per-target image paths', (t) => {
   const epub = assembleBook({ root, target: 'epub', build: BUILD, outDir });
   const print = assembleBook({ root, target: 'print', build: BUILD, outDir });
   const id = diagramId('graph TD');
-  assert.match(epub.text, new RegExp(`^!\\[\\]\\(dist/epub/mermaid/mermaid-${id}\\.svg\\)$`, 'm'));
-  assert.match(print.text, new RegExp(`^!\\[\\]\\(dist/print/mermaid/mermaid-${id}\\.pdf\\)$`, 'm'));
+  assert.match(epub.text, new RegExp(`^!\\[\\]\\(dist/epub/mermaid/mermaid-${id}\\.svg\\)\\{alt="Flowchart: A"\\}$`, 'm'));
+  assert.match(print.text, new RegExp(`^!\\[\\]\\(dist/print/mermaid/mermaid-${id}\\.pdf\\)\\{alt="Flowchart: A"\\}$`, 'm'));
   assert.doesNotMatch(epub.text, /```mermaid/);
   assert.deepEqual(epub.diagrams.map((d) => d.id), [id]);
 });
@@ -76,4 +76,37 @@ test('renderDiagrams keeps mmdc output out of the error message', (t) => {
       return true;
     },
   );
+});
+
+test('diagramAltText uses accTitle and accDescr when present', () => {
+  const source = 'flowchart TD\n  accTitle: Review routing\n  accDescr: Changes flow to one of three review tiers\n  A --> B';
+  assert.equal(diagramAltText(source), 'Review routing. Changes flow to one of three review tiers');
+  assert.equal(diagramAltText('graph LR\naccTitle: Only a title\nA-->B'), 'Only a title');
+  assert.equal(diagramAltText('graph LR\naccDescr: Only a description\nA-->B'), 'Only a description');
+});
+
+test('diagramAltText reads a multi-line accDescr block', () => {
+  const source = 'sequenceDiagram\n  accTitle: Handshake\n  accDescr {\n    The client greets.\n    The server answers.\n  }\n  A->>B: hi';
+  assert.equal(diagramAltText(source), 'Handshake. The client greets. The server answers.');
+});
+
+test('diagramAltText falls back to the diagram type and section heading', () => {
+  assert.equal(diagramAltText('flowchart TD\nA-->B', { section: 'Review *Tiers*' }), 'Flowchart: Review Tiers');
+  assert.equal(diagramAltText('%% comment\nsequenceDiagram\nA->>B: x', { section: 'Calls' }), 'Sequence diagram: Calls');
+  assert.equal(diagramAltText('---\ntitle: T\n---\nflowchart TD\nA-->B'), 'Flowchart');
+  assert.equal(diagramAltText('somethingNew\nx'), 'Diagram');
+  assert.equal(diagramAltText(''), 'Diagram');
+});
+
+test('extractMermaid records alt text using the nearest preceding heading', () => {
+  const src = '# Part {#p}\n```mermaid\ngraph TD\n```\n## Second `code` {#s .x}\n```mermaid\ngraph LR\n```';
+  const { diagrams } = extractMermaid(lines(src), () => 'IMG');
+  assert.deepEqual(diagrams.map((d) => d.alt), ['Flowchart: Part', 'Flowchart: Second code']);
+});
+
+test('assembled diagram alt text is escaped for a Pandoc attribute', (t) => {
+  const body = '# A\n```mermaid\ngraph TD\naccTitle: Say "hi" \\ & <go>\n```\n';
+  const root = makeBook(t, { sidebar: ['/b/01-a'], docs: { 'b/01-a.md': body } });
+  const epub = assembleBook({ root, target: 'epub', build: BUILD, outDir: path.join(root, 'dist') });
+  assert.match(epub.text, /\{alt="Say &quot;hi&quot; &#92; &amp; <go>"\}$/m);
 });
