@@ -1,0 +1,89 @@
+name: Book Build
+
+# Interim (design doc section 9): builds on GitHub-hosted Ubuntu and, when
+# release_tag is set, attaches the EPUB and print PDF to that GitHub Release.
+# Never uploads Actions artifacts. Callers grant the token permissions:
+# contents: read for checks, contents: write when uploading.
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: Git ref to build (defaults to the triggering commit)
+        type: string
+        default: ''
+      version:
+        description: Book version vX.Y.Z (defaults to notes/VERSION.md)
+        type: string
+        default: ''
+      release_tag:
+        description: Release to attach the EPUB and print PDF to; empty builds without uploading
+        type: string
+        default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      AIXP_EPUB_SMOKE: '1'
+      AIXP_REQUIRE_PRINT_TOOLS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: book/package-lock.json
+
+      - name: Install book tooling
+        working-directory: book
+        run: npm ci
+
+      - name: Install EPUB toolchain
+        run: bash book/scripts/ci/install-epub-tools.sh
+
+      - name: Install print toolchain
+        run: bash book/scripts/ci/install-print-tools.sh
+
+      - name: Shell script lint
+        run: shellcheck book/scripts/ci/*.sh book/scripts/build-print.sh
+
+      - name: Node tests (preprocessor and EPUB)
+        working-directory: book
+        run: npm test
+
+      - name: Python tests (print and PDF/X checker)
+        run: python3 -m unittest discover -s book/test/print
+
+      - name: Resolve version
+        id: version
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if [ -z "$VERSION" ]; then
+            VERSION="v$(sed -n 's/^version=//p' notes/VERSION.md)"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Book version: $VERSION"
+
+      - name: Build EPUB
+        run: node book/scripts/build-epub.js --version "${{ steps.version.outputs.version }}"
+
+      - name: Build print interior
+        run: bash book/scripts/build-print.sh --version "${{ steps.version.outputs.version }}"
+
+      - name: Attach to release
+        if: inputs.release_tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.release_tag }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber \
+            "dist/aixp-$VERSION.epub" \
+            "dist/aixp-$VERSION-print-6x9.pdf"
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name'

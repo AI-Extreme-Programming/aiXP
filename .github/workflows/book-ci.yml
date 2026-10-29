@@ -6,6 +6,8 @@ on:
       - 'docs/**'
       - 'book/**'
       - '.github/workflows/book-ci.yml'
+      - '.github/workflows/book-build.yml'
+      - 'notes/VERSION.md'
 
 permissions:
   contents: read
@@ -35,3 +37,7 @@ jobs:
 
       - name: Include and internal link check
         run: npm run check
+
+  # Interim (design doc section 9): full EPUB and print build on PRs, no uploads.
+  book-build:
+    uses: ./.github/workflows/book-build.yml
