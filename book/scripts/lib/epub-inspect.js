@@ -87,6 +87,7 @@ export function inspectEpub(buffer) {
   let crossDocumentLinks = 0;
   const images = [];
   const classes = new Set();
+  const sectionTypes = new Set();
   for (const doc of documents) {
     const xhtml = text(doc.href);
     for (const m of xhtml.matchAll(/<a\s[^>]*>/g)) {
@@ -105,6 +106,7 @@ export function inspectEpub(buffer) {
       images.push({ document: doc.href, src, mediaType: items.find((i) => i.href === src)?.mediaType, alt: decodeEntities(attr(m[0], 'alt') ?? '') });
     }
     for (const m of xhtml.matchAll(/<(?:section|div)\s[^>]*class="([^"]+)"/g)) for (const c of m[1].split(/\s+/)) classes.add(c);
+    for (const m of xhtml.matchAll(/<section\s[^>]*epub:type="([^"]+)"/g)) for (const t of m[1].split(/\s+/)) sectionTypes.add(t);
   }
 
   const tocHrefs = nav ? topLevelTocHrefs(text(nav.href)).map((h) => resolve(nav.href, h)) : [];
@@ -130,6 +132,7 @@ export function inspectEpub(buffer) {
     brokenLinks,
     images,
     sectionClasses: classes,
+    sectionTypes,
   };
 }
 
@@ -148,5 +151,6 @@ export function structureProblems(summary, { chapterPrefixes }) {
     if (!image.mediaType) problems.push(`image ${image.src} in ${image.document} is not in the manifest`);
   }
   for (const cls of ['title-page', 'colophon']) if (!summary.sectionClasses.has(cls)) problems.push(`no ${cls} section`);
+  for (const type of ['titlepage', 'colophon']) if (!summary.sectionTypes.has(type)) problems.push(`no section with epub:type="${type}"`);
   return problems;
 }

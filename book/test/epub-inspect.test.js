@@ -43,7 +43,7 @@ function zip(entries) {
 
 const xhtml = (body) => `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><body>${body}</body></html>`;
 
-function sampleEpub({ alt = 'Flowchart: Two', link = 'ch003.xhtml#ch-02--two', tocOrder = ['ch-01', 'ch-02'], cover = true } = {}) {
+function sampleEpub({ alt = 'Flowchart: Two', link = 'ch003.xhtml#ch-02--two', tocOrder = ['ch-01', 'ch-02'], cover = true, epubTypes = true } = {}) {
   const tocItems = tocOrder.map((p, i) => `<li><a href="text/ch00${i + 2}.xhtml#${p}--x">x</a><ol><li><a href="text/ch00${i + 2}.xhtml#${p}--sub">s</a></li></ol></li>`).join('');
   return zip([
     ['mimetype', 'application/epub+zip', 0],
@@ -60,10 +60,10 @@ function sampleEpub({ alt = 'Flowchart: Two', link = 'ch003.xhtml#ch-02--two', t
       <item id="ch004_xhtml" href="text/ch004.xhtml" media-type="application/xhtml+xml" />
       </manifest><spine><itemref idref="nav" /><itemref idref="ch001_xhtml" /><itemref idref="ch002_xhtml" /></spine></package>`],
     ['EPUB/nav.xhtml', xhtml(`<nav epub:type="toc" id="toc"><ol>${tocItems}</ol></nav><nav epub:type="landmarks"><ol><li><a href="text/ch001.xhtml">l</a></li></ol></nav>`)],
-    ['EPUB/text/ch001.xhtml', xhtml('<section id="title-page--t" class="level1 title-page"><h1>T</h1></section>')],
+    ['EPUB/text/ch001.xhtml', xhtml(`<section id="title-page--t" class="level1 title-page"${epubTypes ? ' epub:type="titlepage"' : ''}><h1>T</h1></section>`)],
     ['EPUB/text/ch002.xhtml', xhtml(`<section id="ch-01--x"><h1 id="ch-01--sub">One</h1><a href="${link}">l</a><a href="https://example.com/">e</a></section>`)],
     ['EPUB/text/ch003.xhtml', xhtml(`<section id="ch-02--x"><h2 id="ch-02--two">Two</h2><h2 id="ch-02--sub">S</h2><p><img src="../media/d.svg" alt="${alt}" /></p></section>`)],
-    ['EPUB/text/ch004.xhtml', xhtml('<section id="colophon--c" class="colophon"><h1>C</h1></section>')],
+    ['EPUB/text/ch004.xhtml', xhtml(`<section id="colophon--c" class="colophon"${epubTypes ? ' epub:type="colophon"' : ''}><h1>C</h1></section>`)],
   ]);
 }
 
@@ -94,4 +94,10 @@ test('structureProblems reports broken links, empty alt text, TOC order and a mi
   assert.ok(problems.some((p) => /has empty alt text/.test(p)));
   assert.ok(problems.some((p) => /do not match sidebar order/.test(p)));
   assert.ok(problems.includes('no cover-image in the manifest'));
+});
+
+test('structureProblems reports a title page and colophon without EPUB structural semantics', () => {
+  const problems = structureProblems(inspectEpub(sampleEpub({ epubTypes: false })), { chapterPrefixes: PREFIXES });
+  assert.ok(problems.includes('no section with epub:type="titlepage"'), problems.join('\n'));
+  assert.ok(problems.includes('no section with epub:type="colophon"'), problems.join('\n'));
 });
