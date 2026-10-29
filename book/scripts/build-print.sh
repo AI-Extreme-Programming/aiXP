@@ -65,7 +65,9 @@ mkdir -p "$LOGS" "$TEX_DIR"
 
 meta() { sed -n "s/^$1: \"\(.*\)\"\$/\1/p" "$MANUSCRIPT" | head -n 1; }
 VERSION=$(meta book-version); DATE=$(meta date); SHA=$(meta git-commit); STAMP=$(meta build-timestamp)
-[ -n "$VERSION" ] && [ -n "$SHA" ] && [ -n "$STAMP" ] || fail "manuscript metadata block lacks version, commit or timestamp"
+if [ -z "$VERSION" ] || [ -z "$SHA" ] || [ -z "$STAMP" ]; then
+  fail "manuscript metadata block lacks version, commit or timestamp"
+fi
 OUT=dist/aixp-$VERSION-print-6x9.pdf
 log "version $VERSION, date $DATE, commit $SHA, gutter $GUTTER"
 
@@ -78,8 +80,14 @@ if [ ${#DIAGRAMS[@]} -gt 0 ]; then
   DIAGRAM_FONTS=$(for d in "${DIAGRAMS[@]}"; do pdffonts "$d" | tail -n +3 | awk '{ sub(/^[A-Z]{6}\+/, "", $1); print $1 }'; done | sort -u | tr '\n' ' ')
   log "diagram fonts: $DIAGRAM_FONTS"
   # Chromium silently falls back when TeX Gyre Heros is not a system font, which is acceptable locally but not in CI.
-  if [ "${AIXP_REQUIRE_PRINT_TOOLS:-0}" = 1 ] && [ -n "$(printf '%s\n' $DIAGRAM_FONTS | grep -v '^TeXGyreHeros')" ]; then
-    fail "diagram text is not set in TeX Gyre Heros: $DIAGRAM_FONTS"
+  if [ "${AIXP_REQUIRE_PRINT_TOOLS:-0}" = 1 ]; then
+    read -ra FONT_LIST <<<"$DIAGRAM_FONTS"
+    for font in "${FONT_LIST[@]}"; do
+      case "$font" in
+        TeXGyreHeros*) ;;
+        *) fail "diagram text is not set in TeX Gyre Heros: $DIAGRAM_FONTS" ;;
+      esac
+    done
   fi
 fi
 
