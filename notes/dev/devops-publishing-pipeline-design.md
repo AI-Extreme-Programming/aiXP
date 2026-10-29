@@ -1,236 +1,255 @@
 # aiXP DevOps Publishing Pipeline Design Document
 
-**Status:** Draft  
+**Status:** Draft v2  
 **Date:** 2026-10-28  
-**Author:** aiXP Project Team  
-**Deliverables:** Public VitePress Website, Gated EPUB3, Print-Ready Interior PDF/X-1a (6" x 9")
+**Publisher (placeholder):** Sptifyre Publishing  
+**Deliverables:** Public VitePress site, private EPUB3, private print-ready interior PDF/X-1a (paperback, 6" x 9")
 
 ---
 
 ## 1. Executive Summary
 
-This document specifies the automated publishing and DevOps architecture for the aiXP project. The pipeline maintains `docs/` as the single source of truth for the core manuscript, compiling it into three distinct publication targets:
+This document specifies the automated publishing pipeline for the aiXP manuscript. `docs/aixp/` is the single source of truth for the manuscript. The pipeline compiles it into three outputs:
 
-1. **Public Web:** Live documentation site built with VitePress and deployed automatically to GitHub Pages.
-2. **Digital Book (EPUB3):** Fully formatted electronic book for digital readers and e-commerce distribution.
-3. **Print-on-Demand Interior (PDF/X):** A 6" x 9" print-ready interior PDF meeting strict IngramSpark and Amazon KDP preflight specifications (PDF/X-1a:2001 or PDF/X-3, CMYK color space, 100% embedded fonts, exact trim geometry).
+1. **Public web:** the VitePress site, deployed from `main` to GitHub Pages on every push. It does not depend on tags or releases.
+2. **Digital book (EPUB3):** built for ebook distribution. Built binaries are private.
+3. **Print interior (PDF/X-1a:2001):** a 6" x 9" paperback interior, built for IngramSpark. Built binaries are private.
 
-Commercial binaries (EPUB and print PDF) remain gated from public distribution, built via GitHub Actions and delivered to private storage, while the public VitePress site deploys continuously.
+**Public-output rule:** built binaries (EPUB, print PDF) never appear in a public location. That means no GitHub Actions artifacts, no GitHub Release assets, and no logs that print manuscript content. The public GitHub Release created by release-please contains release notes and changelog only.
 
 ---
 
-## 2. Architectural Overview
+## 2. Decisions Recorded
+
+| Topic | Decision |
+|---|---|
+| Public outputs | VitePress site from `main`. GitHub Releases with notes only. |
+| Built binaries | Private only. Never in Actions artifacts or Release assets. |
+| Build host | Private self-hosted runner on the author's machine. |
+| Book build trigger | release-please release on `main` (`release_created == 'true'`), plus `workflow_dispatch` for manual rebuilds. |
+| Print format | Paperback only. Hardcover is out of scope and will be revisited separately. |
+| Trim | 6.0" x 9.0" (432 x 648 pt), exact trim, no bleed. |
+| Print standard | PDF/X-1a:2001. |
+| Color | CMYK for images. Text in 100% black. |
+| Print validator | veraPDF. Ghostscript generates the PDF/X output and is not used as the validator. |
+| Printer | IngramSpark. No outreach yet. |
+| Margins | Inside (gutter) 0.75" to 0.875" depending on page count. Outside 0.625". Top and bottom 0.75". |
+| Imprint | Sptifyre Publishing (placeholder, confirmed spelling). |
+| ISBN | Publisher-owned ISBNs. |
+| CIP data | Not included for now. |
+
+---
+
+## 3. Architectural Overview
 
 ```
                                 [ docs/aixp/ ] (Source of Truth)
                                        |
                                        v
                      +-----------------------------------+
-                     |  Stage 1: Pre-Processing Pipeline |
+                     |  Stage 1: Pre-Processing          |
                      |  - Resolve <!--@include: ...-->   |
-                     |  - Normalize Cross-References     |
-                     |  - Compile Mermaid to Vector Imgs |
-                     |  - Inject Version, Date, Metadata |
+                     |  - Normalize cross-references     |
+                     |  - Compile Mermaid to vector/PNG  |
+                     |  - Inject version, date, metadata |
                      +-----------------------------------+
                                        |
         +------------------------------+------------------------------+
         |                                                             |
         v                                                             v
 +-------------------------------+                             +-------------------------------+
-| Stage 2A: EPUB3 Compiler      |                             | Stage 2B: Print PDF/X Engine  |
-| - Pandoc (EPUB3)              |                             | - Pandoc + XeLaTeX            |
-| - book/styles/epub.css        |                             | - book/templates/interior.tex |
-| - Embedded Front Cover        |                             | - 6" x 9" Trim & Gutter       |
-| - NCX & Nav Table of Contents |                             | - CMYK / Embedded Vector Art  |
+| Stage 2A: EPUB3 Compiler      |                             | Stage 2B: Print PDF/X-1a      |
+| - Pandoc (EPUB3)              |                             | - Pandoc + XeLaTeX (RGB PDF)  |
+| - book/styles/epub.css        |                             | - Ghostscript: CMYK + PDF/X-1a|
+| - Embedded front cover        |                             | - book/templates/latex/*.tex  |
+| - Nav table of contents       |                             | - 6" x 9" trim, no bleed      |
 +-------------------------------+                             +-------------------------------+
         |                                                             |
         v                                                             v
 +-------------------------------+                             +-------------------------------+
 | Stage 3A: EPUB Preflight      |                             | Stage 3B: PDF/X Preflight     |
-| - epubcheck (W3C Validation)  |                             | - pdffonts (100% embedded)    |
-| - HTML5 / CSS linting         |                             | - pdfinfo (trim & bleed check)|
-|                               |                             | - Ghostscript PDF/X Validator |
+| - epubcheck                   |                             | - pdffonts (all embedded)     |
+|                               |                             | - pdfinfo -box (trim check)   |
+|                               |                             | - veraPDF (PDF/X-1a profile)  |
 +-------------------------------+                             +-------------------------------+
         |                                                             |
         +------------------------------+------------------------------+
                                        |
                                        v
                      +-----------------------------------+
-                     | Stage 4: Artifact Distribution    |
-                     | - Gated / Private Storage Delivery|
-                     |   (Cloudflare R2 / Private Host)  |
-                     | - GitHub Releases: Clean (No      |
-                     |   public binary book downloads)   |
+                     | Stage 4: Private Delivery         |
+                     | - Destination TBD (section 8)     |
+                     | - Never public                    |
                      +-----------------------------------+
 ```
 
 ---
 
-## 3. Core Requirements & Constraints
+## 4. Core Requirements
 
-### 3.1 Content & Single Source of Truth
-- **Manuscript Source:** All content resides under `docs/aixp/`.
-- **Book-Specific Elements:** Cover art, colophon/copyright pages, dedication, and padding pages reside under a dedicated `book/` directory.
-- **VitePress Directives:** Markdown files make extensive use of VitePress `<!--@include: ./file.md-->` directives. These must be resolved and assembled recursively before passing to Pandoc.
-- **Cross-References:** Web-style URLs (e.g., `/aixp/01.00-manifesto`) must be converted to internal anchor identifiers for both EPUB and PDF builds.
+### 4.1 Content and Single Source of Truth
+- **Manuscript source:** `docs/aixp/`. The manuscript is 00.x (front matter), 01.00 to 09.00 (chapters), and 10.x (back matter: appendix and bibliography).
+- **Reading order:** taken from the sidebar in `docs/.vitepress/config.mts`, not from filenames or a second list.
+- **Book-specific elements:** title page, colophon, cover, styles, and templates live under `book/`.
+- **VitePress directives:** `<!--@include: ./file.md-->` is resolved recursively before Pandoc runs.
+- **Cross-references:** web-style links (e.g. `/aixp/01.00-manifesto`) are rewritten to internal anchors for both EPUB and PDF builds.
 
-### 3.2 Typography & Fonts
-- **Constraint:** Use a 100% open-source, commercially permissive font stack with complete vector glyph outlines to guarantee license safety and seamless PDF/X embedding.
-- **Body Serif:** TeX Gyre Pagella (or EB Garamond).
-- **Headings (Sans):** TeX Gyre Heros (or Inter / Source Sans 3).
-- **Code (Monospace):** JetBrains Mono or Fira Code.
+### 4.2 Typography and Fonts
+- **Constraint:** open-source fonts with complete vector outlines, licensed for commercial embedding.
+- **Body serif:** TeX Gyre Pagella (or EB Garamond).
+- **Headings (sans):** TeX Gyre Heros (or Inter / Source Sans 3).
+- **Code (monospace):** JetBrains Mono or Fira Code.
+- **Build environment:** the TeX Gyre fonts must be installed on the self-hosted runner.
 
-### 3.3 Visuals & Diagrams
-- **Mermaid Source:** Diagrams authored in markdown using ```mermaid blocks (Chapters 4 and 5) must be extracted and compiled during pre-processing using `@mermaid-js/mermaid-cli`.
-- **Target Formats:**
-  - PDF: Vector PDF or SVG for infinite scaling at print resolution (300+ DPI equivalent).
-  - EPUB: Clean SVG or high-resolution PNG with dark/light legibility.
+### 4.3 Diagrams
+- **Source:** ` ```mermaid ` blocks in any manuscript file. They appear in `00.01`, `00.10`, `04.00`, and `05.00`.
+- **Compilation:** `@mermaid-js/mermaid-cli` (`mmdc`), which needs a headless Chromium on the runner.
+- **Targets:** vector PDF for the print interior (300+ DPI equivalent); clean SVG or high-resolution PNG for the EPUB.
 
-### 3.4 Print Interior Specifications (IngramSpark & Amazon KDP)
-- **Trim Size:** 6.0" x 9.0" (152.4 mm x 228.6 mm).
-- **Standards:** PDF/X-1a:2001 (preferred for flat CMYK) or PDF/X-3.
-- **Margins & Gutter:**
-  - Inside (Gutter): 0.75" to 0.875" (calculated to accommodate spine binding).
+### 4.4 Print Interior Specification (IngramSpark)
+- **Trim size:** 6.0" x 9.0" (152.4 mm x 228.6 mm), exact trim, no bleed. MediaBox and TrimBox must both be 432 x 648 pt.
+- **Standard:** PDF/X-1a:2001. IngramSpark's file creation guide lists PDF/X-1a:2001 or PDF/X-3:2002 as acceptable.
+- **Margins:**
+  - Inside (gutter): 0.75" to 0.875", set from the page count and the printer's binding table once the page count is known.
   - Outside: 0.625".
-  - Top / Bottom: 0.75".
-- **Color Space:** CMYK device color space using standard ICC profile (e.g., US Web Coated SWOP v2 or GRACoL). Zero RGB elements permitted in the final PDF stream.
-- **Fonts:** 100% fully embedded (no subsetting failures or system-dependent fallbacks).
-- **Cover Separation:** The automated PDF engine generates strictly the **interior manuscript**. The wrap-around cover PDF (front + spine + back) is created separately against the exact spine width template provided by IngramSpark once final page counts are locked.
+  - Top and bottom: 0.75".
+  - Check: every margin must be at least 0.5" from trim, which is IngramSpark's recommended safe zone.
+- **Color:** CMYK for all images. Text in 100% black. No RGB objects in the final PDF.
+- **Fonts:** all embedded. No substitution.
+- **Other IngramSpark rules:** no crop, registration, or printer marks. Page count padded to an even number.
+- **Scope:** the PDF is the interior manuscript only. The wrap-around cover is a separate file, built against IngramSpark's spine-width template once the page count is locked.
 
 ---
 
-## 4. Repository Layout
+## 5. Repository Layout
 
-Book-specific configuration and assets will live in a dedicated `book/` top-level directory:
+Existing workflows are kept. `release.yml` is extended, not replaced.
 
 ```
 aiXP/
 ├── .github/
-│   ├── workflows/
-│   │   ├── docs.yml                  # Continuous VitePress deployment to GitHub Pages
-│   │   ├── book-ci.yml               # PR validation and manual workflow_dispatch test builds
-│   │   └── release.yml               # release-please orchestration and production book compilation
+│   ├── release-please/               # existing release-please config and manifest
+│   └── workflows/
+│       ├── docs.yml                  # existing: VitePress deploy to GitHub Pages
+│       ├── release.yml               # existing: release-please; extended with build-book job
+│       ├── pre-release-staging.yml   # existing: staged release notes
+│       ├── update-starline.yml       # existing
+│       └── book-ci.yml               # proposed: PR checks (no binaries; see section 7.2)
 ├── book/
 │   ├── assets/
 │   │   ├── cover-front.png           # EPUB cover image (RGB, 1600x2560)
-│   │   ├── logo.svg                  # Publisher / imprint vector logo
-│   │   └── icc/                      # CMYK color profiles (e.g. USWebCoatedSWOP.icc)
+│   │   ├── logo.svg                  # publisher logo
+│   │   └── icc/                      # CMYK ICC profile (see section 8)
 │   ├── frontmatter/
-│   │   ├── title-page.md             # Book half-title and full title page
-│   │   ├── colophon.template.md      # Copyright, ISBN, edition, and metadata placeholders
-│   │   └── dedication.md             # Dedication / epigraph
-│   ├── backmatter/
-│   │   └── about-the-author.md       # Author bio and project notes
+│   │   ├── title-page.md             # half-title and title page
+│   │   └── colophon.template.md      # copyright, ISBN, edition, and version placeholders
+│   ├── metadata.yaml                 # Pandoc metadata for EPUB and PDF
 │   ├── styles/
-│   │   └── epub.css                  # Custom styling for EPUB3 readers
+│   │   └── epub.css
 │   ├── templates/
 │   │   └── latex/
-│   │       ├── interior.tex          # Master LaTeX template (6x9 geometry, headers, folios)
+│   │       ├── interior.tex          # 6x9 geometry, headers, folios
 │   │       └── pdfx.opt              # PDF/X configuration and metadata mapping
 │   └── scripts/
-│       ├── preprocess.js             # Resolves @include, rewrites links, extracts Mermaid
-│       └── preflight-verify.sh       # Runs epubcheck, pdffonts, and Ghostscript validation
+│       ├── preprocess.js             # includes, links, Mermaid, metadata
+│       ├── build-print.sh            # Ghostscript CMYK/PDF-X conversion
+│       └── preflight-verify.sh       # pdffonts, pdfinfo -box, veraPDF, epubcheck
 ├── docs/
 │   ├── .vitepress/
 │   │   └── config.mts
-│   └── aixp/                         # Single source of truth for manuscript content
+│   └── aixp/                         # manuscript source of truth
 └── notes/
     └── dev/
         └── devops-publishing-pipeline-design.md
 ```
 
+Build output goes to `dist/`, which is git-ignored and never uploaded anywhere public.
+
 ---
 
-## 5. Build & Pre-Processing Pipeline
-
-The compilation sequence consists of three tightly integrated steps executed in a reproducible environment:
+## 6. Build Pipeline
 
 ### Step 1: Pre-Processing (`book/scripts/preprocess.js`)
-1. Reads `docs/.vitepress/config.mts` to extract the canonical chapter ordering.
-2. Ingests `book/frontmatter/`, followed by the sequenced `docs/aixp/` files, followed by `book/backmatter/`.
-3. Recursively parses and resolves all `<!--@include: ./subfile.md-->` directives into a unified document tree.
-4. Identifies all ````mermaid` blocks:
-   - Invokes `@mermaid-js/mermaid-cli` (`mmdc`) with a clean print configuration.
-   - Emits standalone vector PDF files for the LaTeX pipeline and SVG/PNG files for the EPUB pipeline.
-   - Replaces the code blocks with markdown image references.
-5. Injects metadata:
-   - **Printed Page:** Injects human-readable Version (`vX.Y.Z`) and Publication Date into `book/frontmatter/colophon.template.md`.
-   - **XMP Metadata:** Writes the Git commit SHA, ISO timestamp, and build environment into document properties without showing it on the printed text.
+1. Reads `docs/.vitepress/config.mts` for the chapter order.
+2. Assembles, in order: `book/frontmatter/title-page.md`, the sidebar-ordered `docs/aixp/` files, then the colophon.
+3. Recursively resolves `<!--@include: ...-->` directives into `dist/unified-manuscript.md`.
+4. Compiles each ` ```mermaid ` block with `mmdc`, emitting vector PDF for print and SVG/PNG for EPUB, and replaces the blocks with image references.
+5. Injects version (`vX.Y.Z`) and publication date into the colophon, and writes the Git SHA and build timestamp into document metadata (XMP), not into printed text.
 
-### Step 2: Format Compilation
-- **EPUB3 Output:**
-  ```bash
-  pandoc unified-manuscript.md \
-    --to epub3 \
-    --epub-cover-image=book/assets/cover-front.png \
-    --css=book/styles/epub.css \
-    --metadata-file=book/metadata.yaml \
-    --toc --toc-depth=2 \
-    -o dist/aixp-v1.0.0.epub
-  ```
-- **Print PDF/X-1a Output:**
-  ```bash
-  pandoc unified-manuscript.md \
-    --to latex \
-    --template=book/templates/latex/interior.tex \
-    --pdf-engine=xelatex \
-    --top-level-division=chapter \
-    -o dist/aixp-v1.0.0-print-6x9.pdf
-  ```
+### Step 2A: EPUB3
+```bash
+pandoc dist/unified-manuscript.md \
+  --to epub3 \
+  --epub-cover-image=book/assets/cover-front.png \
+  --css=book/styles/epub.css \
+  --metadata-file=book/metadata.yaml \
+  --toc --toc-depth=2 \
+  -o dist/aixp-<version>.epub
+```
+
+### Step 2B: Print PDF/X-1a
+1. Pandoc with XeLaTeX produces an RGB PDF. The `.pdf` extension selects the PDF output, so `--to latex` is not used:
+   ```bash
+   pandoc dist/unified-manuscript.md \
+     --template=book/templates/latex/interior.tex \
+     --pdf-engine=xelatex \
+     --top-level-division=chapter \
+     -o dist/aixp-<version>-rgb.pdf
+   ```
+2. Ghostscript converts the RGB PDF to CMYK PDF/X-1a:2001 with the chosen ICC output intent (`book/scripts/build-print.sh`). Ghostscript's PDF/X definition file (`PDFX_def.ps`) defines the output intent. The exact invocation is confirmed during implementation.
+3. Output: `dist/aixp-<version>-print-6x9.pdf`.
 
 ---
 
-## 6. Quality Gates & Preflight Validation (CI)
+## 7. Quality Gates and CI
 
-To prevent rejected ingest by IngramSpark and Amazon KDP, the CI workflow enforces automated preflight checks. Any validation failure terminates the build immediately:
+### 7.1 Web Deployment (`docs.yml`, existing)
+- **Trigger:** push to `main` affecting `docs/**`.
+- **Action:** `npm run docs:build`, deployed to GitHub Pages. No tags or releases involved.
 
-1. **Link & Include Integrity:**
-   - Pre-processor verifies that every `<!--@include: ...-->` path exists on disk.
-   - Verifies that all internal links resolve to valid chapter anchors.
-2. **EPUB Compliance (`epubcheck`):**
-   - Official W3C validator checks IDPF compliance, well-formed XML, navigation landmarks, and image references.
-   - Command: `epubcheck dist/*.epub`
-3. **PDF Font Embedding Check (`pdffonts`):**
-   - Asserts that every font utilized in the PDF interior is embedded (column `emb` must be `yes` for all rows).
-   - Fails if any system font remains un-embedded or substituted.
-4. **PDF Trim & Geometry Check (`pdfinfo`):**
-   - Asserts that MediaBox and TrimBox equal exactly 6.00 x 9.00 inches (432 x 648 pt) or the specified bleed dimensions.
-5. **Ghostscript PDF/X Compliance Validation:**
-   - Runs Ghostscript preflight against the PDF/X definition file (`PDFX_def.ps`) to verify CMYK compliance, absence of forbidden transparency operators, and embedded ICC output intents.
+### 7.2 Pull Request Checks (`book-ci.yml`, proposed)
+- **Triggers:** pull requests touching `docs/**` or `book/**`.
+- **Runner:** GitHub-hosted. Self-hosted runners do not run on pull requests, because fork PRs would execute code on the author's machine.
+- **Action:** Markdown lint, dead-link check, and `@include` path check. These run without building binaries.
+- **Artifacts:** none. Full EPUB and PDF builds happen on the self-hosted runner, not in PR checks.
 
----
-
-## 7. Workflow Lifecycle & Triggers
-
-### 7.1 Web Deployment (`.github/workflows/docs.yml`)
-- **Trigger:** Push to `main` affecting `docs/**`.
-- **Action:** Runs `npm run docs:build` and deploys static HTML directly to GitHub Pages.
-- **Status:** Already active via `reusable-docs-deploy.yml`.
-
-### 7.2 Pull Request & Proofing CI (`.github/workflows/book-ci.yml`)
+### 7.3 Book Build (`release.yml`, extended)
 - **Triggers:**
-  - Pull requests modifying `docs/**` or `book/**`.
-  - Manual trigger via `workflow_dispatch`.
-- **Action:**
-  - Executes Markdown linting and dead link checks.
-  - Runs the complete pre-processing script.
-  - Builds test EPUB and PDF/X artifacts.
-  - Executes the full preflight test suite (`epubcheck`, `pdffonts`, `pdfinfo`).
-  - Uploads compiled binaries as temporary GitHub Actions run artifacts (retention: 7 days) so the author can download and inspect formatting changes.
+  - push to `main` where release-please creates a release (`release_created == 'true'`).
+  - `workflow_dispatch` for manual rebuilds of a given tag.
+- **Jobs:**
+  - `release-please` (existing) runs on GitHub-hosted `ubuntu-latest` and outputs `release_created` and `tag_name`.
+  - `build-book` (new) runs on `[self-hosted, book-builder]`, depends on `release-please`, and is gated on `release_created`. It checks out `tag_name`, runs sections 6 and 8, and delivers to private storage.
+  - Existing jobs (`apply-staged-notes`, `improve-release-notes`, `update-changelog-prs`, `discord-notify`) keep their current dependencies. The book build is not a dependency of any of them.
+- **Failure behavior:** a failed build leaves the GitHub Release published with notes and no binaries. A manual `workflow_dispatch` run rebuilds the artifacts for that tag.
+- **Public Release contents:** release notes and changelog only.
 
-### 7.3 Production Release Workflow (`.github/workflows/release.yml`)
-- **Trigger:** Push to `main` where `release-please` cuts a new version tag (`release_created == 'true'`).
-- **Action:**
-  - Extracts the authoritative semantic version (`tag_name`).
-  - Executes production build with strict version stamping.
-  - Runs all preflight gates.
-  - **Modular Delivery Step:** Uploads production EPUB and 6x9 PDF/X to the configured private location (e.g., Cloudflare R2 bucket via S3 API or private server via SSH/SCP).
-  - **Release Hygiene:** The public GitHub Release created by `release-please` contains release notes, changelog updates, and documentation links, but **no** commercial book binaries.
+### 7.4 Preflight Checks (run inside `build-book`)
+1. **Include and link integrity:** every `@include` path exists, and every internal link resolves to a chapter anchor.
+2. **EPUB:** `epubcheck dist/aixp-<version>.epub`.
+3. **Fonts:** `pdffonts` reports `emb` as `yes` for every row.
+4. **Trim:** `pdfinfo -box dist/aixp-<version>-print-6x9.pdf` reports MediaBox and TrimBox as 432 x 648 pt. Plain `pdfinfo` does not print TrimBox, so `-box` is required.
+5. **PDF/X-1a conformance:** veraPDF with the PDF/X-1a profile. Any failure stops the build.
 
 ---
 
-## 8. Open Items & Future Steps
+## 8. Open Items
 
-1. **Storage Credential Provisioning:** Select and configure the private destination secret (`CLOUDFLARE_R2_ACCESS_KEY` or `PRIVATE_HOST_KEY`) when distribution infrastructure is ready.
-2. **Colophon Metadata Draft:** Finalize publisher imprint name, cataloging-in-publication text, and ISBN assignment numbers.
-3. **IngramSpark Proofing:** Once the interior manuscript reaches page-lock, upload the generated PDF to IngramSpark to obtain the exact spine width template for wrap-around cover artwork.
+1. **Private delivery destination.** The design has an unnamed private store (Cloudflare R2, a private host over SSH, or another option). Choosing it is a future decision, so the pipeline's last step is a stub until then.
+2. **CMYK ICC profile.** Choose the output intent profile (e.g. US Web Coated SWOP v2 or GRACoL) and confirm that IngramSpark accepts it.
+3. **Gutter value.** Set the gutter from the page count and IngramSpark's binding guidance once the manuscript is laid out.
+4. **IngramSpark cover template.** Once the page count is locked, upload the interior to IngramSpark to get the spine-width template for the wrap-around cover. The cover is not part of this pipeline.
+5. **EPUB retailer targets.** Not decided. Affects EPUB metadata and any retailer-specific checks.
+6. **PR checks on GitHub-hosted runners.** Proposed in 7.2 and not yet confirmed.
+7. **Hardcover.** Out of scope. Revisit the procedure separately.
+8. **CIP data.** Out of scope for now. Library and Archives Canada handles CIP for Canadian publishers if you add it later.
+9. **Colophon details.** The ISBN, edition, and any final imprint wording are placeholders until the book is ready for print.
+10. **Verify before implementation:** IngramSpark's margin figures come from search snippets of their August 2026 file creation guide, not a full read. Check the full guide before the margin values are final.
+
+---
+
+## 9. Sources
+
+- IngramSpark File Creation Guide (Aug 2026): https://www.ingramspark.com/hubfs/downloads/file-creation-guide.pdf
+- IngramSpark, File Requirements for Print Books: https://www.ingramspark.com/blog/file-requirements-for-print-books
+- IngramSpark Trim Size Matrix: https://www.ingramspark.com/hubfs/downloads/trim-sizes.pdf
