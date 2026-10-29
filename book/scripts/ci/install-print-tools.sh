@@ -13,7 +13,7 @@ JBM_ZIP_SHA256=6f6376c6ed2960ea8a963cd7387ec9d76e3f629125bc33d1fdcd7eb7012f7bbf
 MONO_DIR=${AIXP_MONO_FONT_DIR:-$HOME/.local/share/fonts/aixp/jetbrains-mono}
 
 APT_PACKAGES=(
-  texlive-xetex texlive-latex-recommended texlive-latex-extra fonts-texgyre lmodern
+  texlive-xetex texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended fonts-texgyre lmodern
   ghostscript poppler-utils python3-pikepdf unzip curl ca-certificates
 )
 
@@ -60,7 +60,7 @@ else
 fi
 
 for file in texgyrepagella-regular.otf texgyreheros-regular.otf fvextra.sty titlesec.sty truncate.sty \
-    emptypage.sty footnotehyper.sty xurl.sty fancyhdr.sty microtype.sty fontspec.sty; do
+    emptypage.sty footnotehyper.sty xurl.sty fancyhdr.sty microtype.sty fontspec.sty pzdr.tfm; do
   kpsewhich "$file" >/dev/null || { log "ERROR: $file not found after install"; exit 1; }
 done
 
