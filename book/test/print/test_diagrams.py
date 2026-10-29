@@ -72,6 +72,15 @@ class Normalise(unittest.TestCase):
         self.assertEqual([float(v) for v in operands], [0.0, 1.0, -1.0, 0.0, 25.0, 0.0])
         self.assertEqual(report.exponents_rewritten, 3)
 
+    def test_tiny_numbers_become_zero_so_no_tool_writes_them_in_exponent_form(self):
+        tiny = b'0.00000000000000019134237'
+        pdf = diagram(content=b'q ' + tiny + b' 1 -1 ' + tiny + b' 0.5 0 cm [1 ' + tiny + b' 2] TJ Q')
+        report = normalise_pdf(pdf)
+        ops = {str(op): ops for ops, op in pikepdf.parse_content_stream(pdf.pages[0].obj)}
+        self.assertEqual([float(v) for v in ops['cm']], [0.0, 1.0, -1.0, 0.0, 0.5, 0.0])
+        self.assertEqual([float(v) for v in ops['TJ'][0]], [1.0, 0.0, 2.0])
+        self.assertEqual(report.tiny_numbers_zeroed, 3)
+
     def test_coloured_shading_is_left_and_counted(self):
         self.assertEqual(normalise_pdf(diagram(shading=rgb_shading(c0=(1, 0, 0)))).shadings_left, 1)
 

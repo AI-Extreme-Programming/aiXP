@@ -5,8 +5,9 @@ white label background. PDF/X-1a forbids transparency, and Ghostscript rasterise
 page that has it, so this pass removes it before LaTeX places the diagrams. Neutral RGB
 (r = g = b) is rewritten as DeviceGray so that black diagram text stays 100% K after the
 CMYK conversion instead of turning into four-colour black. Chromium on Linux also writes
-near-zero numbers in exponent form (1.9E-16), which PDF syntax does not allow; they are
-rewritten as plain decimals.
+near-zero numbers such as 1.9E-16, and older xdvipdfmx (TeX Live 2023) re-emits any
+tiny value in that exponent form, which PDF syntax does not allow. Such values are
+rewritten as plain decimals and anything below a millionth of a point becomes 0.
 """
 
 from __future__ import annotations
@@ -36,12 +37,13 @@ class Report:
     shadings_converted: int = 0
     shadings_left: int = 0
     exponents_rewritten: int = 0
+    tiny_numbers_zeroed: int = 0
 
     def summary(self) -> str:
         return (f'neutral-rgb->gray={self.neutral_colours} rgb-left={self.rgb_colours_left} '
                 f'alpha-removed={self.alpha_removed} groups-removed={self.groups_removed} '
                 f'shadings->gray={self.shadings_converted} rgb-shadings-left={self.shadings_left} '
-                f'exponents-rewritten={self.exponents_rewritten}')
+                f'exponents-rewritten={self.exponents_rewritten} tiny-numbers-zeroed={self.tiny_numbers_zeroed}')
 
 
 def is_neutral(values) -> bool:
@@ -72,9 +74,22 @@ def merge_exponent_numbers(operations, report: Report):
     return out
 
 
+TINY = Decimal('0.000001')
+
+
+def _no_tiny(value, report):
+    if isinstance(value, Decimal) and value != 0 and abs(value) < TINY:
+        report.tiny_numbers_zeroed += 1
+        return Decimal(0)
+    if isinstance(value, pikepdf.Array):
+        return pikepdf.Array([_no_tiny(item, report) for item in value])
+    return value
+
+
 def rewrite_colours(operations, report: Report):
     out = []
     for operands, operator in merge_exponent_numbers(operations, report):
+        operands = [_no_tiny(value, report) for value in operands]
         op = str(operator)
         if op in ('rg', 'RG'):
             values = _floats(operands)
