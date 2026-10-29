@@ -1,5 +1,5 @@
 ::: {.title-page}
-# {{title}} {.unnumbered .unlisted}
+# {{title}} {.unnumbered .unlisted epub:type=titlepage}
 
 {{subtitle}}
 

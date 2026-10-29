@@ -1,5 +1,5 @@
 ::: {.colophon}
-# Colophon {.unnumbered .unlisted}
+# Colophon {.unnumbered .unlisted epub:type=colophon}
 
 {{title}}: {{subtitle}}
 
