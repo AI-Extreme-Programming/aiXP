@@ -28,6 +28,7 @@ question for every page:  is it telling a story, is it coherent, does it wander,
 	- [ ] one question at a time, asked in full
 	- [ ] no release boundaries invented by the agent.
 	- [ ] plan ahead: design for requirements that can be seen coming. no built-in shortcuts.
+- [ ] SRS, SDD, FMT, ATS, roadmap, TBD
 
 
 formal spec type list:
