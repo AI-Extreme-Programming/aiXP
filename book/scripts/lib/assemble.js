@@ -12,7 +12,7 @@ import {
   vitepressSlugify,
 } from './markdown.js';
 import { rewriteLinks } from './links.js';
-import { extractMermaid, uniqueDiagrams } from './mermaid.js';
+import { extractMermaid, pandocAttributeValue, uniqueDiagrams } from './mermaid.js';
 import { fillTemplate, metadataBlock, readBookMetadata, templateValues } from './template.js';
 import { DIAGRAM_FORMAT } from './render-mermaid.js';
 
@@ -169,7 +169,7 @@ export function assembleBook({ root, target, build, outDir }) {
   let linkCount = 0;
   const format = DIAGRAM_FORMAT[target];
   const diagramDir = path.join(outDir, target, 'mermaid');
-  const imageLine = (d) => `![](${toPosix(path.relative(root, path.join(diagramDir, `mermaid-${d.id}.${format}`)))})`;
+  const imageLine = (d) => `![](${toPosix(path.relative(root, path.join(diagramDir, `mermaid-${d.id}.${format}`)))}){alt="${pandocAttributeValue(d.alt)}"}`;
   const diagrams = [];
 
   for (const part of parts) {
