@@ -1,6 +1,6 @@
 # Contributing to aiXP
 
-First off, thank you for considering contributing to aiXP! It's people like you that make this template better for everyone.
+Thank you for considering contributing to aiXP. It's a working draft, so corrections, counter-examples from real practice, and pointers to sources are as useful as new text.
 
 ## Code of Conduct
 
@@ -54,10 +54,9 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) with [Semant
 
 **Examples:**
 ```
-feat: add Python .gitignore template
-fix: correct LICENSE badge URL in README
-docs: update installation instructions
-feat!: change template initialization workflow
+feat: add a section on risk-tiered verification
+fix: correct a broken link in the bibliography
+docs: clarify the reading order in How to Read
 ```
 
 ### Pull Request Process
@@ -70,35 +69,32 @@ feat!: change template initialization workflow
 ## Development Setup
 
 1. Fork and clone the repository
-2. Create a new branch for your feature/fix
-3. Make your changes
-4. Test your changes by creating a new repository from your template
-5. Submit a pull request
+2. Create a new branch for your change
+3. Preview the site while you edit: `cd docs && npm ci && npm run docs:dev`
+4. Submit a pull request
 
 ## Project Structure
 
 ```
 aiXP/
 ├── .github/
-│   ├── gitignore-templates/  # Example .gitignore files
-│   ├── ISSUE_TEMPLATE/       # Issue templates
-│   ├── workflows/            # GitHub Actions
-│   └── PULL_REQUEST_TEMPLATE.md
-├── assets/                   # Images and CSS for GitHub Pages
-├── notes/                    # CHANGELOG, VERSION, TODO
+│   ├── release-please/       # Release-Please configuration
+│   └── workflows/            # Docs deploy, releases, pre-release staging, starline
+├── assets/media/             # Images and logos
+├── docs/                     # VitePress site
+│   ├── .vitepress/           # Site config: nav and sidebar
+│   └── aixp/                 # Chapters, PP.SS-slug.md in reading order
+├── notes/                    # CHANGELOG, VERSION, drafts and archive
 ├── README.md
 ├── LICENSE.md
 └── CONTRIBUTING.md
 ```
 
+A new chapter file needs a matching sidebar entry in `docs/.vitepress/config.mts`.
+
 ## Testing
 
-When making changes to the template initialization workflow, test by:
-
-1. Creating a new repository from your modified template
-2. Verifying the workflow runs successfully
-3. Checking that all repository references are updated correctly
-4. Confirming the workflow deletes itself after completion
+Before submitting, build the site: `cd docs && npm run docs:build`. The build fails on dead links, so it catches broken cross-references.
 
 ## Questions?
 
