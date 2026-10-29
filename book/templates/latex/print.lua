@@ -85,12 +85,8 @@ local inline_filter = {
   Code = function(code) return pandoc.RawInline('latex', breakable_tt(code.text)) end,
 }
 
-local function expand_tabs(text)
-  return (text:gsub('\t', '    '))
-end
-
 local function code_block(block)
-  return raw('\\begin{aixpcode}\n' .. expand_tabs(block.text) .. '\n\\end{aixpcode}')
+  return raw('\\begin{aixpcode}\n' .. block.text .. '\n\\end{aixpcode}')
 end
 
 local function sole_image(block)
