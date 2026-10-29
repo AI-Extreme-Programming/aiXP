@@ -52,7 +52,7 @@ projects.
 - Production build: `cd docs && npm run docs:build`
 - Deployed to GitHub Pages via `.github/workflows/docs.yml` on push to `main`
   (uses reusable workflow at `ScottKirvan/.github`)
-- Live URL: `https://www.scottkirvan.com/aiXP/`
+- Live URL: `https://ai-extreme-programming.github.io/aiXP/`
 
 ## Known Gotchas
 

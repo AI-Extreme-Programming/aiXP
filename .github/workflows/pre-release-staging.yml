@@ -29,5 +29,5 @@ jobs:
         ---
       footer: |
         ---
-        📖 [Read the draft](https://www.scottkirvan.com/aiXP/) ·💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/${{ github.repository }}/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/${{ github.repository }}/issues/new?template=feature_request.md)
+        📖 [Read the draft](https://ai-extreme-programming.github.io/aiXP/) ·💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/${{ github.repository }}/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/${{ github.repository }}/issues/new?template=feature_request.md)
     secrets: inherit

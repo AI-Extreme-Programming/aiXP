@@ -7,7 +7,7 @@ export default defineConfig({
 
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/ScottKirvan/aiXP/edit/main/docs/:path',
+      pattern: 'https://github.com/AI-Extreme-Programming/aiXP/edit/main/docs/:path',
       text: 'Edit this page on GitHub' // Optional: customize the link text
     },
     search: {
