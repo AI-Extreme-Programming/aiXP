@@ -34,6 +34,11 @@ class GState:
     render_mode: int = 0
 
 
+def entries(dictionary) -> list:
+    """Values of a PDF dictionary; pikepdf 8 (Ubuntu 24.04) has no Dictionary.values()."""
+    return [] if dictionary is None else [dictionary[key] for key in dictionary.keys()]
+
+
 def colour_space_family(space) -> str:
     if isinstance(space, pikepdf.Array):
         return str(space[0]) if len(space) else '/Unknown'
@@ -140,15 +145,15 @@ class Interpreter:
 
     def _declared(self, resources, where):
         """Colour spaces, images and shadings named in resources count even if unused."""
-        for space in (resources.get('/ColorSpace') or {}).values():
+        for space in entries(resources.get('/ColorSpace')):
             self.visitor.colour_space(space, f'{where} resources')
-        for shading in (resources.get('/Shading') or {}).values():
+        for shading in entries(resources.get('/Shading')):
             self.visitor.shading(shading, f'{where} resources')
-        for gs in (resources.get('/ExtGState') or {}).values():
+        for gs in entries(resources.get('/ExtGState')):
             self.visitor.ext_gstate(gs, f'{where} resources')
-        for font in (resources.get('/Font') or {}).values():
+        for font in entries(resources.get('/Font')):
             self._font(font, where)
-        for xobject in (resources.get('/XObject') or {}).values():
+        for xobject in entries(resources.get('/XObject')):
             if xobject.get('/Subtype') == Name.Image:
                 self.visitor.image(xobject, f'{where} resources')
 
@@ -161,7 +166,7 @@ class Interpreter:
         if font.get('/Subtype') == Name.Type3:
             resources = font.get('/Resources') or Dictionary()
             self._declared(resources, f'{where} Type3 font')
-            for proc in (font.get('/CharProcs') or {}).values():
+            for proc in entries(font.get('/CharProcs')):
                 self.run_stream(proc, resources, GState(), f'{where} Type3 glyph', 1)
 
     def _form(self, form, state, where, depth):

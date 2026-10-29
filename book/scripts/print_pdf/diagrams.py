@@ -14,6 +14,8 @@ from dataclasses import dataclass
 import pikepdf
 from pikepdf import Array, Name, Stream
 
+from .pdfwalk import entries
+
 NEUTRAL_TOLERANCE = 0.002
 
 
@@ -159,13 +161,13 @@ def normalise_pdf(pdf: pikepdf.Pdf) -> Report:
         return True
 
     for resources in _resource_dicts(pdf):
-        for gs in (resources.get('/ExtGState') or {}).values():
+        for gs in entries(resources.get('/ExtGState')):
             if once(gs):
                 _ext_gstate(gs, report)
-        for shading in (resources.get('/Shading') or {}).values():
+        for shading in entries(resources.get('/Shading')):
             if once(shading):
                 _convert_shading(shading, report)
-        for pattern in (resources.get('/Pattern') or {}).values():
+        for pattern in entries(resources.get('/Pattern')):
             if pattern.get('/PatternType') != 2:
                 continue
             if '/Shading' in pattern and once(pattern.Shading):
