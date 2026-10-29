@@ -21,6 +21,19 @@ projects.
   - `04.0x` — Part IV: Context and Comparison (AI-native SDLC, scaling, anti-patterns)
   - `05.0x` — Back Matter (open questions, appendix, bibliography)
 - `docs/index.md` — site landing page
+- `book/` — EPUB/print book pipeline (design: `notes/dev/devops-publishing-pipeline-design.md`).
+  Its own `package.json`, separate from `docs/package.json`:
+  - `book/metadata.yaml` — Pandoc metadata (title, author, publisher, rights, edition,
+    ISBN); placeholder values are marked `[PLACEHOLDER: ...]`
+  - `book/frontmatter/title-page.md`, `book/frontmatter/colophon.template.md` — book-only
+    furniture; `{{key}}` placeholders are filled by the preprocessor
+  - `book/scripts/preprocess.js` (+ `book/scripts/lib/`) — builds one Pandoc-ready
+    Markdown file per target. Reading order comes from the sidebar in `config.mts`
+    (parsed, not executed); resolves `<!--@include:-->`, rewrites internal links to
+    chapter-prefixed heading ids (`ch-<file-slug>--<vitepress-slug>`), renders Mermaid
+  - `book/config/` — Mermaid and Puppeteer settings used by `mmdc`
+  - `book/test/` — `node:test` unit tests and a check-mode integration test
+- `.github/workflows/book-ci.yml` — PR checks for `docs/**` and `book/**` (tests + check mode)
 - `notes/` — scratch/draft material (e.g. `notes/aiXP-draft.md`)
 - `app.json` — currently an empty placeholder (`{}`); purpose not yet decided
 - `_claude-context.md` — BojuBot's persistent memory across sessions (Obsidian plugin).
@@ -53,6 +66,15 @@ projects.
 - Deployed to GitHub Pages via `.github/workflows/docs.yml` on push to `main`
   (uses reusable workflow at `ScottKirvan/.github`)
 - Live URL: `https://www.scottkirvan.com/aiXP/`
+- Book tooling setup: `cd book && npm ci` (installs mermaid-cli and its Chromium)
+- Book tests: `cd book && npm test`
+- Book include/link check (no output written, no Mermaid rendering): `cd book && npm run check`
+- Book preprocess: `cd book && npm run preprocess -- [--target epub|print|all] [--version vX.Y.Z]
+  [--date YYYY-MM-DD] [--git-sha SHA] [--out-dir DIR]`. Writes
+  `dist/<target>/unified-manuscript.md` and `dist/<target>/mermaid/mermaid-<hash>.<svg|pdf>`;
+  image paths in the Markdown are relative to the repo root, so run Pandoc from there.
+  Version defaults to `notes/VERSION.md`; date to `SOURCE_DATE_EPOCH`, else HEAD's commit date.
+- Book logs and errors must never print manuscript text (file names, counts, link targets only)
 
 ## Known Gotchas
 
