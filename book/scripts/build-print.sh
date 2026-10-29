@@ -44,7 +44,7 @@ if [ -z "$GS" ]; then
 fi
 [ -n "$GS" ] || fail "Ghostscript not found (install it or set GS)"
 export GS
-for tool in node pandoc xelatex pdfinfo pdffonts "$PYTHON"; do
+for tool in node pandoc xelatex pdfinfo pdffonts pdfimages "$PYTHON"; do
   command -v "$tool" >/dev/null 2>&1 || fail "$tool not found; see book/scripts/ci/install-print-tools.sh"
 done
 
@@ -138,9 +138,17 @@ mkdir -p dist
 rm -f "$OUT"
 printf '%q ' "$GS" "${GS_ARGS[@]}" >"$LOGS/gs-command.txt"
 "$GS" "${GS_ARGS[@]}" >"$LOGS/ghostscript.log" 2>&1 || fail "Ghostscript failed; see $LOGS/ghostscript.log"
+# Ghostscript's diagnostics name PDF features and fonts, not page text, so they are shown.
 if grep -qiE 'error|warning|rasteri' "$LOGS/ghostscript.log"; then
-  log "Ghostscript reported $(grep -ciE 'error|warning|rasteri' "$LOGS/ghostscript.log") warning line(s); see $LOGS/ghostscript.log"
+  log "Ghostscript diagnostics:"
+  grep -iE 'error|warning|rasteri' "$LOGS/ghostscript.log" | sort | uniq -c | head -n 10 | cut -c1-160
 fi
+# Ghostscript renders any page it cannot express in PDF 1.3 (e.g. transparency) as an
+# image; the result still passes the PDF/X checks, so compare image counts instead.
+images() { pdfimages -list "$1" 2>/dev/null | tail -n +3 | wc -l; }
+before_images=$(images "$TEX_DIR/interior.pdf"); after_images=$(images "$OUT")
+[ "$after_images" -le "$before_images" ] || fail "Ghostscript added $((after_images - before_images)) image(s): a page was rasterised"
+log "images before/after Ghostscript: $before_images/$after_images"
 "$PYTHON" book/scripts/print-helper.py trimbox "$OUT"
 
 log "step 6/6: preflight"
