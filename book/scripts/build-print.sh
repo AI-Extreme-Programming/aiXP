@@ -141,7 +141,7 @@ printf '%q ' "$GS" "${GS_ARGS[@]}" >"$LOGS/gs-command.txt"
 # Ghostscript's diagnostics name PDF features and fonts, not page text, so they are shown.
 if grep -qiE 'error|warning|rasteri' "$LOGS/ghostscript.log"; then
   log "Ghostscript diagnostics:"
-  grep -iE 'error|warning|rasteri' "$LOGS/ghostscript.log" | sort | uniq -c | head -n 10 | cut -c1-160
+  grep -iE -A4 'error|warning|rasteri' "$LOGS/ghostscript.log" | head -n 20 | cut -c1-160
 fi
 # Ghostscript renders any page it cannot express in PDF 1.3 (e.g. transparency) as an
 # image; the result still passes the PDF/X checks, so compare image counts instead.
