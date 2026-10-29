@@ -62,6 +62,10 @@ projects.
 - Obsidian vault backup commits run automatically and push directly to `main`. They
   have previously removed the `base` setting accidentally. If the deployed site loses
   its stylesheet, check whether a vault backup commit touched `config.mts`.
+- The author's main checkout is a live Obsidian vault that stays on `main`. Never
+  switch branches, stash, or commit feature work there. Do branch work in separate
+  `git worktree`s outside the vault folder (e.g.
+  `D:\1\GitRepos\ScottKirvan\worktrees\aiXP\<branch>`), including for sub-agents.
 - `package.json` name is still `"scootergittemplate-docs"` — cosmetic, doesn't affect
   builds, but worth updating when renaming the repo.
 

@@ -1,3 +1,5 @@
 *.code-workspace
 .claude/
 .obsidian/
+dist/
+node_modules/
