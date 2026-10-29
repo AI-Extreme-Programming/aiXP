@@ -1,0 +1,160 @@
+% Print interior: 6 x 9 in paperback, exact trim, no bleed. Used with print.lua.
+\documentclass[10pt,twoside,openright]{book}
+
+% A missing glyph is an error, not a log warning, so no character is silently dropped.
+\tracinglostchars=3
+
+\usepackage[
+  paperwidth=6in, paperheight=9in,
+  inner=$if(gutter)$$gutter$$else$0.75in$endif$, outer=0.625in,
+  top=0.75in, bottom=0.75in,
+  includehead, headheight=11pt, headsep=13pt, footskip=16pt
+]{geometry}
+
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[
+  Extension=.otf, UprightFont=*-regular, BoldFont=*-bold,
+  ItalicFont=*-italic, BoldItalicFont=*-bolditalic, Ligatures=TeX]
+\setsansfont{texgyreheros}[
+  Extension=.otf, UprightFont=*-regular, BoldFont=*-bold,
+  ItalicFont=*-italic, BoldItalicFont=*-bolditalic, Ligatures=TeX]
+\setmonofont{JetBrainsMonoNL}[
+  $if(monofontpath)$Path=$monofontpath$,$endif$
+  Extension=.ttf, UprightFont=*-Regular, BoldFont=*-Bold,
+  ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic, Scale=MatchLowercase]
+\linespread{1.08}
+
+\usepackage[protrusion=true]{microtype}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage{longtable,booktabs,array}
+\usepackage{etoolbox}
+\usepackage{footnotehyper}
+\makesavenoteenv{longtable}
+\newcounter{none}
+\usepackage{fvextra}
+\usepackage{truncate}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage[explicit]{titlesec}
+\usepackage[draft]{hyperref}
+\usepackage{xurl}
+\urlstyle{tt}
+
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\widowpenalty=10000
+\clubpenalty=10000
+\setcounter{secnumdepth}{-\maxdimen}
+\setcounter{tocdepth}{1}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\makeatletter
+\newcommand\aixp@booktitle{$title$}
+\newcommand\aixp@headfont{\sffamily\fontsize{8}{10}\selectfont}
+\def\aixp@chapterlabel{}
+
+% Running heads: folio at the outside edge, book title on versos, chapter on rectos.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\aixp@headfont\thepage\hspace{1.2em}\aixp@booktitle}
+\fancyhead[RO]{\aixp@headfont\truncate{\headwidth-4em}{\nouppercase{\rightmark}}\hspace{1.2em}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\aixp@headfont\thepage}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{}
+
+\newcommand\aixp@chapterhead[1]{%
+  \ifx\aixp@chapterlabel\@empty\else{\normalsize\aixp@chapterlabel}\par\vspace{6pt}\fi
+  {\LARGE\bfseries #1}}
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\raggedright}{}{0pt}{\aixp@chapterhead{#1}}
+\titlespacing*{\chapter}{0pt}{36pt}{30pt}
+\titleformat{\section}{\normalfont\sffamily\bfseries\large\raggedright}{}{0pt}{#1}
+\titleformat{\subsection}{\normalfont\sffamily\bfseries\normalsize\raggedright}{}{0pt}{#1}
+\titleformat{\subsubsection}{\normalfont\sffamily\itshape\normalsize\raggedright}{}{0pt}{#1}
+\titleformat{\paragraph}[runin]{\normalfont\sffamily\bfseries\small}{}{0pt}{#1}
+\titlespacing*{\section}{0pt}{18pt plus 4pt minus 2pt}{6pt plus 2pt}
+\titlespacing*{\subsection}{0pt}{14pt plus 3pt minus 2pt}{4pt plus 2pt}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 3pt minus 2pt}{3pt plus 1pt}
+
+% #1 label, #2 chapter number or empty, #3 title, #4 running head, #5 id, #6 listed (1/0)
+\newcommand\aixpchapter[6]{%
+  \gdef\aixp@chapterlabel{#1}%
+  \chapter*{#3}%
+  \gdef\aixp@chapterlabel{}%
+  \ifnum#6=1
+    \if\relax\detokenize{#2}\relax
+      \addcontentsline{toc}{chapter}{#3}%
+    \else
+      \addcontentsline{toc}{chapter}{\protect\numberline{#2}#3}%
+    \fi
+  \fi
+  \chaptermark{#4}\label{#5}}
+
+\newcommand\aixptitlepage[4]{%
+  \begin{titlepage}
+    \raggedright\sffamily
+    \vspace*{1in}
+    {\fontsize{40}{44}\selectfont\bfseries #1\par}
+    \vspace{18pt}
+    {\large #2\par}
+    \vspace{48pt}
+    {\large #3\par}
+    \vfill
+    {\normalsize #4\par}
+  \end{titlepage}}
+
+\newcommand\aixpcontents{%
+  \cleardoublepage
+  \tableofcontents}
+
+\newcommand\aixpcolophon[2]{%
+  \clearpage
+  \thispagestyle{empty}%
+  \markboth{}{}%
+  \vspace*{\fill}
+  {\small\raggedright\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}%
+   {\sffamily\bfseries #1\par}\medskip
+   #2\par}}
+
+\newenvironment{aixpalert}[1]
+  {\begin{quote}\small\setlength{\parindent}{0pt}{\sffamily\bfseries #1}\par\nobreak\smallskip}
+  {\end{quote}}
+
+\newcommand\aixpbreak{\par\medskip\begin{center}*\quad*\quad*\end{center}\medskip}
+
+\newsavebox\aixp@box
+\newcommand\aixp@bounded[1]{%
+  \sbox\aixp@box{#1}%
+  \Gscale@div\@tempa{0.8\textheight}{\dimexpr\ht\aixp@box+\dp\aixp@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\aixp@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\aixp@box}\else\usebox{\aixp@box}\fi}
+\newcommand\aixpimage[1]{%
+  \par\medskip
+  {\centering\aixp@bounded{\includegraphics{#1}}\par}
+  \medskip}
+\newcommand*\pandocbounded[1]{\aixp@bounded{#1}}
+\makeatother
+
+\DefineVerbatimEnvironment{aixpcode}{Verbatim}{
+  fontsize=\footnotesize, breaklines, breakanywhere,
+  frame=leftline, framerule=0.4pt, framesep=0.6em, xleftmargin=0.2em,
+  breaksymbolleft={\tiny\symbol{"21AA}}}
+
+% PDF/X needs a TrimBox on every page; without one Ghostscript writes an ArtBox instead.
+\AddToHook{shipout/background}{\put(0,0){\special{pdf:put @thispage <<
+  /TrimBox [0 0 \fpeval{round(\paperwidth/1bp,3)} \fpeval{round(\paperheight/1bp,3)}] >>}}}
+
+\begin{document}
+$body$
+
+% IngramSpark requires an even page count.
+\clearpage
+\ifodd\ReadonlyShipoutCounter
+  \thispagestyle{empty}\null\clearpage
+\fi
+\end{document}
