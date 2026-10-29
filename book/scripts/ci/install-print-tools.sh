@@ -13,7 +13,7 @@ JBM_ZIP_SHA256=6f6376c6ed2960ea8a963cd7387ec9d76e3f629125bc33d1fdcd7eb7012f7bbf
 MONO_DIR=${AIXP_MONO_FONT_DIR:-$HOME/.local/share/fonts/aixp/jetbrains-mono}
 
 APT_PACKAGES=(
-  texlive-xetex texlive-latex-recommended texlive-latex-extra tex-gyre lmodern
+  texlive-xetex texlive-latex-recommended texlive-latex-extra fonts-texgyre lmodern
   ghostscript poppler-utils python3-pikepdf unzip curl ca-certificates
 )
 
