@@ -31,9 +31,26 @@ projects.
     Markdown file per target. Reading order comes from the sidebar in `config.mts`
     (parsed, not executed); resolves `<!--@include:-->`, rewrites internal links to
     chapter-prefixed heading ids (`ch-<file-slug>--<vitepress-slug>`), renders Mermaid
+    (SVG for EPUB, vector PDF for print)
   - `book/config/` — Mermaid and Puppeteer settings used by `mmdc`
-  - `book/test/` — `node:test` unit tests and a check-mode integration test
-- `.github/workflows/book-ci.yml` — PR checks for `docs/**` and `book/**` (tests + check mode)
+  - `book/scripts/build-epub.js` (+ `lib/epub-*.js`), `book/styles/epub.css`,
+    `book/assets/cover-front.png` (placeholder; regenerate with
+    `node book/scripts/generate-epub-cover.js`) — EPUB3 build, epubcheck and structure gate
+  - `book/scripts/build-print.sh`, `book/templates/latex/` (template, Lua filter, PDF/X
+    definition), `book/scripts/print_pdf/` + `check-pdfx.py` + `check-print-layout.py` —
+    6x9 print interior, Ghostscript PDF/X-1a, project-owned PDF/X-1a checker (not certified)
+  - `book/assets/icc/output-intent.json` — names and pins the interim CMYK profile
+    (Ghostscript's `default_cmyk.icc`)
+  - `book/scripts/ci/install-{epub,print}-tools.sh` — pinned toolchain installs for ubuntu-latest
+  - `book/test/` — `node:test` tests (preprocessor, EPUB); `book/test/print/` — Python
+    `unittest` tests (print, PDF/X checker red/green fixtures)
+- `.github/workflows/book-build.yml` — reusable full book build; uploads to a release only
+  when `release_tag` is set. Never uploads Actions artifacts.
+- `.github/workflows/book-ci.yml` — PR checks for `docs/**` and `book/**`: tests, check
+  mode, and (interim) the full book build via `book-build.yml`
+- `.github/workflows/release.yml` — `build-book` job attaches the EPUB and print PDF to
+  each release-please release (interim: public). Manual rebuild of an existing tag:
+  run the workflow with the `book_tag` input (skips release-please).
 - `notes/` — scratch/draft material (e.g. `notes/aiXP-draft.md`)
 - `app.json` — currently an empty placeholder (`{}`); purpose not yet decided
 - `_claude-context.md` — BojuBot's persistent memory across sessions (Obsidian plugin).
@@ -74,6 +91,16 @@ projects.
   `dist/<target>/unified-manuscript.md` and `dist/<target>/mermaid/mermaid-<hash>.<svg|pdf>`;
   image paths in the Markdown are relative to the repo root, so run Pandoc from there.
   Version defaults to `notes/VERSION.md`; date to `SOURCE_DATE_EPOCH`, else HEAD's commit date.
+- EPUB build (repo root): `node book/scripts/build-epub.js [--version vX.Y.Z]` →
+  `dist/aixp-<version>.epub`. Needs pandoc and epubcheck (or `EPUBCHECK_JAR` + Java).
+  `AIXP_EPUB_SMOKE=1 npm test` also runs the fixture smoke build.
+- Print build (repo root): `bash book/scripts/build-print.sh [--version vX.Y.Z]
+  [--gutter 0.75in]` → `dist/aixp-<version>-print-6x9.pdf`; tool logs in `dist/print/logs/`.
+  Needs pandoc, XeLaTeX, Ghostscript, poppler, Python 3 + pikepdf, JetBrains Mono NL
+  (`AIXP_MONO_FONT_DIR`), and TeX Gyre fonts (`fonts-texgyre` on Ubuntu).
+- Print tests: `python3 -m unittest discover -s book/test/print`. With
+  `AIXP_REQUIRE_PRINT_TOOLS=1` (set in CI) missing tools fail instead of skipping, and
+  diagram text falling back from TeX Gyre Heros fails the print build.
 - Book logs and errors must never print manuscript text (file names, counts, link targets only)
 
 ## Known Gotchas
