@@ -28,7 +28,7 @@ question for every page:  is it telling a story, is it coherent, does it wander,
 	- [ ] one question at a time, asked in full
 		- interview style works well, 
 		- allows you to explore a question until it's exhausted and fully scoped
-		- avoids questions with built in assumptions
+		- avoid the built in assumptions (answers to questions) that are required in order to ask every qeustion in one turn. Questions evolve.  Let them.
 	- [ ] no release boundaries invented by the agent.
 	- [ ] plan ahead: design for requirements that can be seen coming. no built-in shortcuts.
 - [ ] SRS, SDD, FMT, ATS, roadmap, TBD, README
