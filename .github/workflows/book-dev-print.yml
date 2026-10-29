@@ -1,0 +1,40 @@
+name: Book dev print (temporary)
+
+on:
+  push:
+    branches:
+      - feat/book-print-pdf
+
+permissions:
+  contents: read
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: book/package-lock.json
+
+      - name: Install print toolchain
+        run: bash book/scripts/ci/install-print-tools.sh
+
+      - name: Install book tooling
+        working-directory: book
+        run: npm ci
+
+      - name: Preprocessor unit tests
+        working-directory: book
+        run: npm test
+
+      - name: Print unit tests
+        env:
+          AIXP_REQUIRE_PRINT_TOOLS: '1'
+        run: python3 -m unittest discover -s book/test/print -v
+
+      - name: Print build and preflight
+        run: bash book/scripts/build-print.sh
