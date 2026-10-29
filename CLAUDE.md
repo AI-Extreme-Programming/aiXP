@@ -115,8 +115,8 @@ projects.
   switch branches, stash, or commit feature work there. Do branch work in separate
   `git worktree`s outside the vault folder (e.g.
   `D:\1\GitRepos\ScottKirvan\worktrees\aiXP\<branch>`), including for sub-agents.
-- `package.json` name is still `"scootergittemplate-docs"` — cosmetic, doesn't affect
-  builds, but worth updating when renaming the repo.
+- The docs package is named `"aixp-docs"` (`docs/package.json` and its lockfile); the
+  name is cosmetic and doesn't affect builds.
 
 ## Keeping This File Current
 
