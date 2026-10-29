@@ -37,6 +37,10 @@ This document specifies the automated publishing pipeline for the aiXP manuscrip
 | Imprint | Sptifyre Publishing (placeholder, confirmed spelling). |
 | ISBN | Publisher-owned ISBNs. |
 | CIP data | Not included for now. |
+| EPUB targets | Amazon KDP (Kindle), Leanpub, and direct sales. |
+| Direct sales | Ko-fi shop, which delivers files to buyers on purchase. |
+| Direct-sales PDF | A reading PDF, separate from the print PDF. The print PDF is never sold to readers. |
+| IngramSpark print wholesale | Deferred. Print-on-demand orders only for now. |
 
 ---
 
@@ -235,11 +239,12 @@ pandoc dist/unified-manuscript.md \
 
 ## 8. Open Items
 
-1. **Private delivery destination.** The design has an unnamed private store (Cloudflare R2, a private host over SSH, or another option). Choosing it is a future decision, so the pipeline's last step is a stub until then.
+1. **Private delivery destination.** Ko-fi is the direct-sales channel, but the build still needs a private store to upload to, and Ko-fi needs the files uploaded to its shop. Whether the store is Cloudflare R2, a private host over SSH, or a manual upload to Ko-fi is still open. The pipeline's last step stays a stub until then.
+   - Also open: a reading PDF for Ko-fi, built from the same manuscript with screen settings. It is not the print PDF.
 2. **CMYK ICC profile.** Choose the output intent profile (e.g. US Web Coated SWOP v2 or GRACoL) and confirm that IngramSpark accepts it.
 3. **Gutter value.** Set the gutter from the page count and IngramSpark's binding guidance once the manuscript is laid out.
 4. **IngramSpark cover template.** Once the page count is locked, upload the interior to IngramSpark to get the spine-width template for the wrap-around cover. The cover is not part of this pipeline.
-5. **EPUB retailer targets.** Not decided. Affects EPUB metadata and any retailer-specific checks.
+5. **EPUB retailer checks.** Targets are KDP, Leanpub, and Ko-fi (direct). Their specific upload and metadata rules still need checking against each platform's current docs before the metadata and preflight are final. Also check whether KDP and IngramSpark ebook distribution can both list the same ebook. Print wholesale through IngramSpark is deferred.
 6. **PR checks on GitHub-hosted runners.** Proposed in 7.2 and not yet confirmed.
 7. **Hardcover.** Out of scope. Revisit the procedure separately.
 8. **CIP data.** Out of scope for now. Library and Archives Canada handles CIP for Canadian publishers if you add it later.
