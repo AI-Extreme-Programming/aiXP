@@ -5,6 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      book_tag:
+        description: Rebuild the EPUB and print PDF for this existing release tag (e.g. v0.0.2) and skip release-please
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -13,6 +19,7 @@ permissions:
 
 jobs:
   release-please:
+    if: ${{ !inputs.book_tag }}
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -109,3 +116,18 @@ jobs:
       emoji: "📘"
       discord_blurb: ${{ needs.apply-staged-notes.outputs.discord_blurb || needs.improve-release-notes.outputs.discord_blurb }}
     secrets: inherit
+
+  # Interim (design doc section 9): GitHub-hosted build, assets attached to the public release.
+  # Not a dependency of any other job, so a failed book build leaves the release notes intact.
+  build-book:
+    needs: release-please
+    if: >-
+      always() &&
+      (needs.release-please.outputs.release_created == 'true' || inputs.book_tag)
+    permissions:
+      contents: write
+    uses: ./.github/workflows/book-build.yml
+    with:
+      ref: ${{ needs.release-please.outputs.tag_name || inputs.book_tag }}
+      version: ${{ needs.release-please.outputs.tag_name || inputs.book_tag }}
+      release_tag: ${{ needs.release-please.outputs.tag_name || inputs.book_tag }}
