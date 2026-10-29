@@ -60,3 +60,11 @@ formal spec type list:
    * Infrastructure as Code (Terraform / OpenTofu / Pulumi)
    * Container Orchestration Manifests (Kubernetes YAML / Helm)
    * Software Bill of Materials (SBOM / SPDX / CycloneDX)
+  
+
+PDF build:  colophon - I didn’t specify where that should go - move it to the front if that’s more common - I think that’s where I’m used to seeing it.  
+
+
+
+
+
