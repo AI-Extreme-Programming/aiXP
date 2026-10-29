@@ -73,7 +73,15 @@ log "step 2/6: prepare diagrams"
 shopt -s nullglob
 DIAGRAMS=("$WORK"/mermaid/*.pdf)
 shopt -u nullglob
-if [ ${#DIAGRAMS[@]} -gt 0 ]; then "$PYTHON" book/scripts/print-helper.py diagrams "${DIAGRAMS[@]}"; fi
+if [ ${#DIAGRAMS[@]} -gt 0 ]; then
+  "$PYTHON" book/scripts/print-helper.py diagrams "${DIAGRAMS[@]}"
+  DIAGRAM_FONTS=$(for d in "${DIAGRAMS[@]}"; do pdffonts "$d" | tail -n +3 | awk '{ sub(/^[A-Z]{6}\+/, "", $1); print $1 }'; done | sort -u | tr '\n' ' ')
+  log "diagram fonts: $DIAGRAM_FONTS"
+  # Chromium silently falls back when TeX Gyre Heros is not a system font, which is acceptable locally but not in CI.
+  if [ "${AIXP_REQUIRE_PRINT_TOOLS:-0}" = 1 ] && [ -n "$(printf '%s\n' $DIAGRAM_FONTS | grep -v '^TeXGyreHeros')" ]; then
+    fail "diagram text is not set in TeX Gyre Heros: $DIAGRAM_FONTS"
+  fi
+fi
 
 log "step 3/6: pandoc to LaTeX"
 pandoc "$MANUSCRIPT" -f markdown \

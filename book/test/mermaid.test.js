@@ -110,3 +110,9 @@ test('assembled diagram alt text is escaped for a Pandoc attribute', (t) => {
   const epub = assembleBook({ root, target: 'epub', build: BUILD, outDir: path.join(root, 'dist') });
   assert.match(epub.text, /\{alt="Say &quot;hi&quot; &#92; &amp; <go>"\}$/m);
 });
+
+test('Mermaid config sets the book heading font for diagram text', () => {
+  const config = JSON.parse(fs.readFileSync(new URL('../config/mermaid.json', import.meta.url), 'utf8'));
+  assert.match(config.themeVariables?.fontFamily ?? '', /^"TeX Gyre Heros"/);
+  assert.equal(config.fontFamily, config.themeVariables.fontFamily);
+});

@@ -1,5 +1,9 @@
 {
   "theme": "neutral",
+  "fontFamily": "\"TeX Gyre Heros\", Helvetica, Arial, sans-serif",
+  "themeVariables": {
+    "fontFamily": "\"TeX Gyre Heros\", Helvetica, Arial, sans-serif"
+  },
   "htmlLabels": false,
   "flowchart": {
     "htmlLabels": false
