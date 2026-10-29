@@ -4,12 +4,16 @@ Chromium writes diagrams in DeviceRGB with transparency groups and a half-transp
 white label background. PDF/X-1a forbids transparency, and Ghostscript rasterises any
 page that has it, so this pass removes it before LaTeX places the diagrams. Neutral RGB
 (r = g = b) is rewritten as DeviceGray so that black diagram text stays 100% K after the
-CMYK conversion instead of turning into four-colour black.
+CMYK conversion instead of turning into four-colour black. Chromium on Linux also writes
+near-zero numbers in exponent form (1.9E-16), which PDF syntax does not allow; they are
+rewritten as plain decimals.
 """
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
+from decimal import Decimal
 
 import pikepdf
 from pikepdf import Array, Name, Stream
@@ -31,11 +35,13 @@ class Report:
     groups_removed: int = 0
     shadings_converted: int = 0
     shadings_left: int = 0
+    exponents_rewritten: int = 0
 
     def summary(self) -> str:
         return (f'neutral-rgb->gray={self.neutral_colours} rgb-left={self.rgb_colours_left} '
                 f'alpha-removed={self.alpha_removed} groups-removed={self.groups_removed} '
-                f'shadings->gray={self.shadings_converted} rgb-shadings-left={self.shadings_left}')
+                f'shadings->gray={self.shadings_converted} rgb-shadings-left={self.shadings_left} '
+                f'exponents-rewritten={self.exponents_rewritten}')
 
 
 def is_neutral(values) -> bool:
@@ -46,9 +52,29 @@ def _floats(values):
     return [float(v) for v in values]
 
 
+EXPONENT_NUMBER = re.compile(r'[-+]?(?:\d+\.?\d*|\.\d+)[eE][-+]?\d+')
+
+
+def merge_exponent_numbers(operations, report: Report):
+    """qpdf does not read 1.9E-16 as a number: it yields it as an operator, splitting the
+    operands of the real operator that follows. Fold those back in as plain decimals."""
+    out, pending = [], []
+    for operands, operator in operations:
+        if EXPONENT_NUMBER.fullmatch(str(operator)):
+            pending.extend(operands)
+            pending.append(Decimal(f'{float(str(operator)):.6f}'))
+            report.exponents_rewritten += 1
+            continue
+        out.append((pending + list(operands), operator))
+        pending = []
+    if pending:
+        raise DiagramError('content stream ends with dangling numbers')
+    return out
+
+
 def rewrite_colours(operations, report: Report):
     out = []
-    for operands, operator in operations:
+    for operands, operator in merge_exponent_numbers(operations, report):
         op = str(operator)
         if op in ('rg', 'RG'):
             values = _floats(operands)

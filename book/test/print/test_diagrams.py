@@ -63,6 +63,15 @@ class Normalise(unittest.TestCase):
         self.assertEqual(str(out[0][1]), 'rg')
         self.assertEqual(report.rgb_colours_left, 1)
 
+    def test_exponent_form_numbers_are_rewritten_as_plain_decimals(self):
+        pdf = diagram(content=b'q 1.9134237E-16 1 -1 1.9134237E-16 2.5e1 0 cm 0 g 0 0 1 1 re f Q')
+        report = normalise_pdf(pdf)
+        data = pdf.pages[0].obj.Contents.read_bytes()
+        self.assertNotRegex(data, rb'\d[eE][-+]?\d')
+        operands = [ops for ops, op in pikepdf.parse_content_stream(pdf.pages[0].obj) if str(op) == 'cm'][0]
+        self.assertEqual([float(v) for v in operands], [0.0, 1.0, -1.0, 0.0, 25.0, 0.0])
+        self.assertEqual(report.exponents_rewritten, 3)
+
     def test_coloured_shading_is_left_and_counted(self):
         self.assertEqual(normalise_pdf(diagram(shading=rgb_shading(c0=(1, 0, 0)))).shadings_left, 1)
 
