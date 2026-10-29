@@ -1,30 +1,30 @@
-# aiXP [![starline](https://raw.githubusercontent.com/ScottKirvan/aiXP/refs/heads/starlines/ScottKirvan/aiXP/starline.svg)](https://github.com/qoomon/starlines)
+# aiXP [![starline](https://raw.githubusercontent.com/AI-Extreme-Programming/aiXP/refs/heads/starlines/AI-Extreme-Programming/aiXP/starline.svg)](https://github.com/qoomon/starlines)
 <div align="center">
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
-    <h1><a href="https://github.com/ScottKirvan/aiXP">ScottKirvan/aiXP</a></h1>
+    <h1><a href="https://github.com/AI-Extreme-Programming/aiXP">AI-Extreme-Programming/aiXP</a></h1>
   <h3>Extreme Programming for Human-AI Teams of 1 to N</h3>
   
   
 <!-- Badges -->
 <p>
-  <a href="https://github.com/ScottKirvan/aiXP/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/ScottKirvan/aiXP" alt="contributors" />
+  <a href="https://github.com/AI-Extreme-Programming/aiXP/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/AI-Extreme-Programming/aiXP" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/ScottKirvan/aiXP" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/AI-Extreme-Programming/aiXP" alt="last update" />
   </a>
-  <a href="https://github.com/ScottKirvan/aiXP/network/members">
-    <img src="https://img.shields.io/github/forks/ScottKirvan/aiXP" alt="forks" />
+  <a href="https://github.com/AI-Extreme-Programming/aiXP/network/members">
+    <img src="https://img.shields.io/github/forks/AI-Extreme-Programming/aiXP" alt="forks" />
   </a>
-  <a href="https://github.com/ScottKirvan/aiXP/stargazers">
-    <img src="https://img.shields.io/github/stars/ScottKirvan/aiXP" alt="stars" />
+  <a href="https://github.com/AI-Extreme-Programming/aiXP/stargazers">
+    <img src="https://img.shields.io/github/stars/AI-Extreme-Programming/aiXP" alt="stars" />
   </a>
-  <a href="https://github.com/ScottKirvan/aiXP/issues/">
-    <img src="https://img.shields.io/github/issues/ScottKirvan/aiXP" alt="open issues" />
+  <a href="https://github.com/AI-Extreme-Programming/aiXP/issues/">
+    <img src="https://img.shields.io/github/issues/AI-Extreme-Programming/aiXP" alt="open issues" />
   </a>
-  <a href="https://github.com/ScottKirvan/aiXP/blob/main/LICENSE.md">
-    <img src="https://img.shields.io/github/license/ScottKirvan/aiXP.svg" alt="license" />
+  <a href="https://github.com/AI-Extreme-Programming/aiXP/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/github/license/AI-Extreme-Programming/aiXP.svg" alt="license" />
   </a>
   <a href="https://discord.gg/TN6XJSNK5Y">
     <!--<img src="https://img.shields.io/discord/704680098577514527?style=flat-square&label=%F0%9F%92%AC%20discord&color=00ACD7">-->
@@ -33,11 +33,11 @@
 </p>
    
 <h4>
-    <a href="https://www.scottkirvan.com/aiXP/">Read the draft</a>
+    <a href="https://ai-extreme-programming.github.io/aiXP/">Read the draft</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/aiXP/issues/new?template=bug_report.md">Report Bug</a>
+    <a href="https://github.com/AI-Extreme-Programming/aiXP/issues/new?template=bug_report.md">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/aiXP/issues/new?template=feature_request.md">Request Feature</a>
+    <a href="https://github.com/AI-Extreme-Programming/aiXP/issues/new?template=feature_request.md">Request Feature</a>
   </h4>
 </div>
 
@@ -47,7 +47,7 @@ The draft is at the brainstorm stage: chapters are incomplete, and open question
 
 Reading
 -------
-Read the draft at **[scottkirvan.com/aiXP](https://www.scottkirvan.com/aiXP/)**. It's built from `docs/` with [VitePress](https://vitepress.dev/) and deployed to GitHub Pages on every change to `docs/`.
+Read the draft at **[ai-extreme-programming.github.io/aiXP](https://ai-extreme-programming.github.io/aiXP/)**. It's built from `docs/` with [VitePress](https://vitepress.dev/) and deployed to GitHub Pages on every change to `docs/`.
 
 Repo Layout
 -----------
@@ -71,7 +71,7 @@ Releases are cut by [Release-Please](https://github.com/googleapis/release-pleas
 
 Contributions / Contact
 -----------------------
-- Please [file an issue](https://github.com/ScottKirvan/aiXP/issues/new), or [grab a fork](https://github.com/ScottKirvan/aiXP/fork), hack away, and submit a [pull request](https://github.com/ScottKirvan/aiXP/pulls).
+- Please [file an issue](https://github.com/AI-Extreme-Programming/aiXP/issues/new), or [grab a fork](https://github.com/AI-Extreme-Programming/aiXP/fork), hack away, and submit a [pull request](https://github.com/AI-Extreme-Programming/aiXP/pulls).
 - Contact me at [linkedin.com/in/scottkirvan/](https://www.linkedin.com/in/scottkirvan/)
 - You can also contact me at my [discord](https://discord.gg/TN6XJSNK5Y) server, I'm cptvideo.
 
@@ -80,6 +80,6 @@ Credits
 **aiXP Copyright (c) 2026:** [Scott Kirvan](https://github.com/ScottKirvan) - licensed under the [MIT License](LICENSE.md).
 *Repository scaffolding from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate).*
 
-Project Link:  [aiXP](https://github.com/ScottKirvan/aiXP)  
+Project Link:  [aiXP](https://github.com/AI-Extreme-Programming/aiXP)  
 [CHANGELOG](notes/CHANGELOG.md)  
 [TODO](notes/TODO.md)

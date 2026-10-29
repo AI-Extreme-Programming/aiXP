@@ -82,7 +82,7 @@ projects.
 - Production build: `cd docs && npm run docs:build`
 - Deployed to GitHub Pages via `.github/workflows/docs.yml` on push to `main`
   (uses reusable workflow at `ScottKirvan/.github`)
-- Live URL: `https://www.scottkirvan.com/aiXP/`
+- Live URL: `https://ai-extreme-programming.github.io/aiXP/`
 - Book tooling setup: `cd book && npm ci` (installs mermaid-cli and its Chromium)
 - Book tests: `cd book && npm test`
 - Book include/link check (no output written, no Mermaid rendering): `cd book && npm run check`
