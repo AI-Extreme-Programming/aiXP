@@ -1,0 +1,51 @@
+name: Book EPUB dev (temporary)
+
+on:
+  push:
+    branches:
+      - feat/book-epub-build
+
+permissions:
+  contents: read
+
+jobs:
+  epub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: book/package-lock.json
+
+      - name: Install book node dependencies
+        working-directory: book
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: 'true'
+        run: npm ci
+
+      - name: Lint install script
+        run: shellcheck book/scripts/ci/install-epub-tools.sh
+
+      - name: Install EPUB toolchain
+        run: |
+          start=$(date +%s)
+          bash book/scripts/ci/install-epub-tools.sh
+          echo "install took $(( $(date +%s) - start ))s"
+
+      - name: Re-run EPUB toolchain install (idempotence)
+        run: |
+          start=$(date +%s)
+          bash book/scripts/ci/install-epub-tools.sh
+          echo "re-run took $(( $(date +%s) - start ))s"
+
+      - name: Unit tests and EPUB smoke build
+        working-directory: book
+        env:
+          AIXP_EPUB_SMOKE: '1'
+        run: npm test
+
+      - name: Build EPUB from the manuscript (epubcheck gate)
+        run: node book/scripts/build-epub.js
