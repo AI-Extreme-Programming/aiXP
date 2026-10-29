@@ -76,6 +76,7 @@ test('heading ids are unique across the concatenated book', (t) => {
   assert.equal(new Set(ids).size, ids.length);
   assert.deepEqual(ids, [
     'title-page--test-book',
+    'colophon--colophon',
     'ch-01-a--overview',
     'ch-01-a--details',
     'ch-01-a--details-1',
@@ -83,7 +84,6 @@ test('heading ids are unique across the concatenated book', (t) => {
     'ch-02-b--overview',
     'ch-02-b--details',
     'ch-02-b--setext',
-    'colophon--colophon',
   ]);
   assert.match(text, /^## Setext \{#ch-02-b--setext\}$/m);
   assert.doesNotMatch(text, /^------$/m);

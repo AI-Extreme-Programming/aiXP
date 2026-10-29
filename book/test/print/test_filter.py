@@ -7,6 +7,13 @@ from support import BOOK, require_tool
 
 FILTER = BOOK / 'templates' / 'latex' / 'print.lua'
 
+COLOPHON_MD = """::: {.colophon}
+# Colophon {.unnumbered .unlisted}
+
+Version: v1
+:::
+"""
+
 BOOK_MD = """::: {.title-page}
 # Book Title {.unnumbered .unlisted}
 
@@ -17,6 +24,7 @@ An Author
 A Publisher
 :::
 
+""" + COLOPHON_MD + """
 # Preface {#pre}
 
 Front matter text.
@@ -45,12 +53,6 @@ a	b
 ---
 
 Closing.
-
-::: {.colophon}
-# Colophon {.unnumbered .unlisted}
-
-Version: v1
-:::
 """
 
 
@@ -71,9 +73,15 @@ class PrintFilter(unittest.TestCase):
 
     def test_structure_order(self):
         tex = self.tex
-        order = [tex.index(s) for s in ('\\frontmatter', '\\aixptitlepage', '\\aixpcontents',
-                                         '{Preface}', '\\mainmatter', '{Chapter 1}', '\\aixpcolophon')]
+        order = [tex.index(s) for s in ('\\frontmatter', '\\aixptitlepage', '\\aixpcolophon',
+                                         '\\aixpcontents', '{Preface}', '\\mainmatter', '{Chapter 1}')]
         self.assertEqual(order, sorted(order))
+
+    def test_contents_follow_title_page_without_colophon(self):
+        tex = to_latex(BOOK_MD.replace(COLOPHON_MD, ''))
+        self.assertNotIn('\\aixpcolophon', tex)
+        self.assertLess(tex.index('\\aixptitlepage'), tex.index('\\aixpcontents'))
+        self.assertLess(tex.index('\\aixpcontents'), tex.index('{Preface}'))
 
     def test_title_page_fields(self):
         self.assertIn('\\aixptitlepage{Book Title}{A Subtitle}{An Author}{A Publisher}', self.tex)

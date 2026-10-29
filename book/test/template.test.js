@@ -60,5 +60,5 @@ test('colophon receives version and date; SHA and timestamp go only to metadata'
   assert.match(header, /^git-commit: "abc123"$/m);
   assert.match(header, /^build-timestamp: "2026-01-02T03:04:05.000Z"$/m);
   assert.doesNotMatch(body, /abc123|03:04:05/);
-  assert.ok(text.indexOf('# Test Book') < text.indexOf('# A') && text.indexOf('# A') < text.indexOf('# Colophon'));
+  assert.ok(text.indexOf('# Test Book') < text.indexOf('# Colophon') && text.indexOf('# Colophon') < text.indexOf('# A'));
 });

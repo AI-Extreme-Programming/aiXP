@@ -78,7 +78,10 @@ export function assembleBook({ root, target, build, outDir }) {
   const values = templateValues(readBookMetadata(paths.metadata), build);
   const expandOptions = { srcDir, display };
 
-  const parts = [templatePart(paths.titlePage, values, 'title-page', display)];
+  const parts = [
+    templatePart(paths.titlePage, values, 'title-page', display),
+    templatePart(paths.colophon, values, 'colophon', display),
+  ];
   for (const file of chapterFiles) {
     try {
       parts.push({ prefix: chapterPrefix(file), file, lines: expandFile(file, expandOptions) });
@@ -86,7 +89,6 @@ export function assembleBook({ root, target, build, outDir }) {
       errors.push(error.message);
     }
   }
-  parts.push(templatePart(paths.colophon, values, 'colophon', display));
 
   const bookPages = new Set();
   for (const part of parts) {

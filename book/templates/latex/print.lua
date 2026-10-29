@@ -1,5 +1,5 @@
 -- Pandoc Lua filter for the print interior (book/templates/latex/interior.tex).
--- It turns the preprocessor's book structure (title-page div, chapters, colophon div)
+-- It turns the preprocessor's book structure (title-page div, colophon div, chapters)
 -- into the template's book macros and makes inline content safe for a fixed text block.
 
 local stringify = pandoc.utils.stringify
@@ -211,12 +211,23 @@ function Pandoc(doc)
   local blocks = doc.blocks
   local out = pandoc.List({ raw('\\frontmatter') })
   local in_main = false
+  -- The colophon sits on the verso of the title page, so the contents wait for it.
+  local contents_pending = false
   for i, block in ipairs(blocks) do
+    local is_colophon = block.t == 'Div' and block.classes:includes('colophon')
+    if contents_pending and not is_colophon then
+      out:insert(raw('\\aixpcontents'))
+      contents_pending = false
+    end
     if block.t == 'Div' and block.classes:includes('title-page') then
       out:insert(title_page(block))
-      out:insert(raw('\\aixpcontents'))
-    elseif block.t == 'Div' and block.classes:includes('colophon') then
+      contents_pending = true
+    elseif is_colophon then
       out:insert(colophon(block))
+      if contents_pending then
+        out:insert(raw('\\aixpcontents'))
+        contents_pending = false
+      end
     elseif block.t == 'Header' and block.level == 1 then
       local rendered, numbered = chapter(block)
       if numbered and not in_main then
@@ -232,6 +243,7 @@ function Pandoc(doc)
       out:insert(block)
     end
   end
+  if contents_pending then out:insert(raw('\\aixpcontents')) end
   doc.blocks = out
   return doc
 end

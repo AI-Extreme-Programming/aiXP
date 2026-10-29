@@ -189,7 +189,7 @@ Build output goes to `dist/`, which is git-ignored and never uploaded as an Acti
 
 ### Step 1: Pre-Processing (`book/scripts/preprocess.js`)
 1. Reads the sidebar in `docs/.vitepress/config.mts` for the chapter order (parsed, not executed).
-2. Assembles, in order: `book/frontmatter/title-page.md`, the sidebar-ordered `docs/aixp/` files, then the colophon.
+2. Assembles, in order: `book/frontmatter/title-page.md`, the colophon (copyright page), then the sidebar-ordered `docs/aixp/` files. In print the colophon sits on the verso of the title page and the contents start on the next recto.
 3. Recursively resolves `<!--@include: ...-->` directives. A missing include or an include cycle fails the build.
 4. Rewrites internal links to chapter-prefixed heading IDs (`ch-<file-slug>--<vitepress-slug>`). An unresolvable link fails the build.
 5. Compiles each ` ```mermaid ` block with `mmdc` (vector PDF for print, SVG for EPUB) and replaces the block with an image reference. Alt text comes from the diagram's `accTitle`/`accDescr` when present; otherwise it names the diagram type and section. Diagram text is set in TeX Gyre Heros.
@@ -269,7 +269,7 @@ The generated `epub-metadata.yaml` supplies the typed title and subtitle and the
 11. **Cover.** `book/assets/cover-front.png` is a generated placeholder until the real cover exists.
 12. **Reading PDF for Ko-fi.** Deferred by the author on 2026-10-28; not part of the first build.
 13. **Diagram alt text.** Neither diagram has `accTitle`/`accDescr` yet, so both use generated alt text ("Flowchart: <section>"). Descriptive alt text is the author's to write.
-14. **Colophon position.** The colophon is at the end of the book, as section 4.1 specifies. Print books commonly put the copyright page on the verso of the title page.
+14. **Colophon position.** Resolved 2026-10-29: the colophon moved from the back of the book to the verso of the title page (EPUB: directly after the title page), at the author's request.
 15. **Print typographic interpretations to confirm:** "Chapter N - Title" headings render as a "Chapter N" label above the title; `> [!NOTE]` alerts become labelled asides (print only; the EPUB does not convert them yet); external links print their URL as a footnote; horizontal rules directly before a heading are dropped.
 
 ---
