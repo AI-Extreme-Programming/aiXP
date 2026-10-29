@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "AI Extreme Programming (aiXP)"
+  name: ”AI Extreme Programming"
   text: "Extreme Programming for Human-AI Teams of 1 to N"
   tagline: "Working draft - brainstorm stage."
   actions:
