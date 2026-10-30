@@ -23,6 +23,8 @@ question for every page:  is it telling a story, is it coherent, does it wander,
 	- [ ] no release boundaries invented by the agent.
 	- [ ] plan ahead: design for requirements that can be seen coming. no built-in shortcuts.
 - [ ] SRS, SDD, FMT, ATS, roadmap, TBD, README
+- [ ] writing your spec from a session with a lot of research context in it can often make the task difficult because of the agents propensity to make excuses and justify decisions.  
+- [ ] proposal - let the agent know that the spec is inherently a proposal, so it doesn't mark every ot
 
 
 formal spec type list:
