@@ -1,0 +1,5 @@
+aiXP v0.0.2 is live with the draft's new introduction and a new home on the web.
+- Introduction chapter added to the draft
+- Reading site relocated to aixp.scottkirvan.com/aiXP
+- Documentation updated and broken links repaired after the move
+Full notes + downloads →

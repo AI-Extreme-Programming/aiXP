@@ -1,0 +1,8 @@
+What's New:
+- Added the opening introduction chapter to the draft, presenting the core ideas for human and AI engineering practices
+- Relocated the reading draft site to a dedicated web address for easier access
+- Updated the project overview and contributor guides with clear information
+
+What's Fixed:
+- Fixed broken links and navigation errors across the documentation and site pages
+- Corrected changelog references to point directly to individual updates
