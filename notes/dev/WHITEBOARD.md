@@ -66,5 +66,21 @@ A recurring thread in developing this has been how few working engineers seem to
 
 "practitioner-first"
 
+---
+Acceptance Test-Driven Development (ATDD) & Specification by Example
+Unlike the singular lineage of Kent Beck and Extreme Programming, Acceptance Test-Driven Development emerged across overlapping branches that pulled customer intent directly into executable automation:
+Pugh, Ken. Lean-Agile Acceptance Test-Driven Development: Better Software Through Collaboration. Addison-Wesley, 2010.
+The foundational text codifying ATDD as a distinct practice, focusing on the "Three Amigos" cadence (business, developer, tester) to eliminate translation errors before writing code.
+Gärtner, Markus. ATDD by Example: A Practical Guide to Acceptance Test-Driven Development. Addison-Wesley Signature Series (Kent Beck), 2012.
+The direct structural sister volume to Beck’s TDD by Example, demonstrating real-world acceptance test harnesses and refactoring loops.
+Cunningham, Ward, and Martin, Robert C. Fit / FitNesse. 2002–present.
+The early mechanical bridge between business tables and executable suites that proved acceptance tests could act as a living, automated specification long before modern agentic tooling.
+Adzic, Gojko. Specification by Example: How Successful Teams Deliver the Right Software. Manning, 2011.
+The definitive treatment on treating tests not as verification gates built after the fact, but as living, executable documentation that defines system boundaries.
+North, Dan. Introducing BDD (Behavior-Driven Development). Better Software, 2006.
+The root evolution of TDD that swapped verification jargon for human-readable behavioral contracts (Given/When/Then), later embodied in tools like Cucumber and JBehave.
+
+---
+
 
 
