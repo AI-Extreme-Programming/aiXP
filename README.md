@@ -33,7 +33,7 @@
 </p>
    
 <h4>
-    <a href="https://ai-extreme-programming.github.io/aiXP/">Read the draft</a>
+    <a href="https://aixp.scottkirvan.com/aiXP/">Read the draft</a>
   <span> · </span>
     <a href="https://github.com/AI-Extreme-Programming/aiXP/issues/new?template=bug_report.md">Report Bug</a>
   <span> · </span>
@@ -47,7 +47,7 @@ The draft is at the brainstorm stage: chapters are incomplete, and open question
 
 Reading
 -------
-Read the draft at **[ai-extreme-programming.github.io/aiXP](https://ai-extreme-programming.github.io/aiXP/)**. It's built from `docs/` with [VitePress](https://vitepress.dev/) and deployed to GitHub Pages on every change to `docs/`.
+Read the draft at **[aixp.scottkirvan.com/aiXP](https://aixp.scottkirvan.com/aiXP/)**. It's built from `docs/` with [VitePress](https://vitepress.dev/) and deployed to GitHub Pages on every change to `docs/`.
 
 Repo Layout
 -----------
