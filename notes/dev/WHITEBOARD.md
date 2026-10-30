@@ -66,6 +66,5 @@ A recurring thread in developing this has been how few working engineers seem to
 
 "practitioner-first"
 
-testing android
 
 
