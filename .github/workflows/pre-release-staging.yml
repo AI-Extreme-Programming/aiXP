@@ -30,4 +30,6 @@ jobs:
       footer: |
         ---
         📖 [Read the draft](https://aixp.scottkirvan.com/aiXP/) ·💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/${{ github.repository }}/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/${{ github.repository }}/issues/new?template=feature_request.md)
-    secrets: inherit
+    # Passed by name: `secrets: inherit` doesn't reach workflows owned by another org (ScottKirvan)
+    secrets:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
