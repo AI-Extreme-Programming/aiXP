@@ -7,7 +7,7 @@ A writing project, not a codebase. The deliverable is a paper, talk, post, or bo
 ## Vault structure
 
 - `docs/` - VitePress project root; dev server via `npm run docs:dev`
-- `docs/aixp/` - primary working source material (`01` through `06` are the methodology itself)
+- `docs/aixp/` - primary working source material (`01` through `09` arranged in three parts, followed by `10.xx` appendices)
 - `docs/.vitepress/config.mts` - nav/sidebar config; update when adding pages under `docs/aixp/`
 - `docs/index.md` - site landing page
 - `notes/` - scratch/draft material (e.g. `aiXP-draft.md`)

@@ -11,7 +11,7 @@ hero:
       link: /aixp/00.01-preface
     - theme: alt
       text: Bibliography
-      link: /aixp/10.02-bibliography
+      link: /aixp/10.03-bibliography
 
 features:
   - title: Premise
