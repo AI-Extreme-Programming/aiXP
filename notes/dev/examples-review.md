@@ -1,6 +1,6 @@
 # Examples Review: Chapter 2 (Intent and Context)
 
-This note captures an unvarnished assessment of how the production artifacts from sibling repositories (`BojuBot` and `QuKi-Notes`) map into [[docs/aixp/02.00-intent-and-context|Chapter 2 (Intent and Context)]].
+This note captures an unvarnished assessment of how the production artifacts from sibling repositories (`BojuBot` and `QuKi-Notes`) map into [[02.50-intent-and-context|Chapter 2 (Intent and Context)]].
 
 ---
 
@@ -50,5 +50,5 @@ All four examples in Chapter 2 are now **rock solid, 10/10 direct fits** grounde
 
 ## Current Status and Completed Refinements
 
-1. **Section 4 (Coding Standards):** Updated in [[docs/aixp/02.00-intent-and-context|Chapter 2]] to feature the full two-layer architecture: prompt directives in `CLAUDE.md`, mechanical test suites enforcing styling (`colourVariables.test.ts`), and the automated multi-package CI pipeline (`ci.yml`).
+1. **Section 4 (Coding Standards):** Updated in [[02.50-intent-and-context|Chapter 2]] to feature the full two-layer architecture: prompt directives in `CLAUDE.md`, mechanical test suites enforcing styling (`colourVariables.test.ts`), and the automated multi-package CI pipeline (`ci.yml`).
 2. **Section 2 (Domain Gap Surfacing):** Restructured around the **80/20 Polymath and Sandboxed Tutor** protocol, featuring the **Lunar Surface Shader** field case (retroreflective regolith / opposition surge vs naive Lambertian AI generation) and backed by the automated reverse-grill Feynman bar ("until I can teach it"). Supported by QuKi Notes' hardware isolation and proposal firewalling.
