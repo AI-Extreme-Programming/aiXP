@@ -28,25 +28,25 @@ export default defineConfig({
       {
         text: 'Part I: The Premise and the Loop',
         items: [
-          { text: '1. The Manifesto', link: '/aixp/01.00-manifesto' },
-          { text: '2. Intent and Context', link: '/aixp/02.00-intent-and-context' },
-          { text: '3. The Terminal Loop', link: '/aixp/03.00-terminal-loop' },
-          { text: '4. Judgment, Roles, and Cognitive Budgeting', link: '/aixp/04.00-judgment-and-roles' },
+          { text: '1. The Manifesto', link: '/aixp/01.50-manifesto' },
+          { text: '2. Intent and Context', link: '/aixp/02.50-intent-and-context' },
+          { text: '3. The Terminal Loop', link: '/aixp/03.50-terminal-loop' },
+          { text: '4. Judgment, Roles, and Cognitive Budgeting', link: '/aixp/04.50-judgment-and-roles' },
         ]
       },
       {
         text: 'Part II: The Speed of Trust',
         items: [
-          { text: '5. Verification Strategy and Integration', link: '/aixp/05.00-verification-and-testing' },
-          { text: '6. Delivery, Release, and Observability', link: '/aixp/06.00-delivery-and-release' },
-          { text: '7. What aiXP Is Not: Anti-Patterns and Traps', link: '/aixp/07.00-anti-patterns' },
+          { text: '5. Verification Strategy and Integration', link: '/aixp/05.50-verification-and-testing' },
+          { text: '6. Delivery, Release, and Observability', link: '/aixp/06.50-delivery-and-release' },
+          { text: '7. What aiXP Is Not: Anti-Patterns and Traps', link: '/aixp/07.50-anti-patterns' },
         ]
       },
       {
         text: 'Part III: The Horizon',
         items: [
-          { text: '8. Scaling Beyond the Solo Practitioner', link: '/aixp/08.00-scaling' },
-          { text: '9. The Future of the Craft', link: '/aixp/09.00-future-of-the-craft' },
+          { text: '8. Scaling Beyond the Solo Practitioner', link: '/aixp/08.50-scaling' },
+          { text: '9. The Future of the Craft', link: '/aixp/09.50-future-of-the-craft' },
         ]
       },
       {
