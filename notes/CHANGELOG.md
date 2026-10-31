@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.2](https://github.com/AI-Extreme-Programming/aiXP/compare/v0.0.1...v0.0.2) (2026-10-31)
+
+
+### Bug Fixes
+
+* finish the ScooterGitTemplate setup for aiXP ([fca8e35](https://github.com/AI-Extreme-Programming/aiXP/commit/fca8e35901f30717b2076cc593a2f272321b9706))
+* link to the draft at aixp.scottkirvan.com/aiXP ([ca366c5](https://github.com/AI-Extreme-Programming/aiXP/commit/ca366c58c25b9a0bfff5e31ab2248a7e899aa666))
+* pass secrets to shared workflows by name ([f6dcf17](https://github.com/AI-Extreme-Programming/aiXP/commit/f6dcf1760d6f6aa95fd275855ffecb7a608f6f51))
+* point links at AI-Extreme-Programming/aiXP after the org move ([abba4c6](https://github.com/AI-Extreme-Programming/aiXP/commit/abba4c69bde9655ab0776f69a434a779159c16a5))
+
 ## [0.0.1](https://github.com/ScottKirvan/aiXP/compare/v0.0.0...v0.0.1) (2026-10-21)
 
 
