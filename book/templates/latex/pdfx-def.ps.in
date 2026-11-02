@@ -1,0 +1,33 @@
+%!
+% PDF/X-1a:2001 definition for Ghostscript pdfwrite, adapted from Ghostscript's
+% lib/PDFX_def.ps. build-print.sh fills the @...@ placeholders; text values arrive as
+% UTF-16BE hex strings so no title or path can break PostScript string syntax.
+
+[ /GTS_PDFXVersion (PDF/X-1:2001)
+  /GTS_PDFXConformance (PDF/X-1a:2001)
+  /Title @TITLE@
+  /Author @AUTHOR@
+  /Subject @SUBJECT@
+  /Keywords @KEYWORDS@
+  /Trapped /False
+  /BookVersion @BOOK_VERSION@
+  /GitCommit @GIT_COMMIT@
+  /BuildTimestamp @BUILD_TIMESTAMP@
+/DOCINFO pdfmark
+
+/ICCProfile @ICC_PATH@ def
+
+[/_objdef {icc_PDFX} /type /stream /OBJ pdfmark
+[{icc_PDFX} << /N 4 >> /PUT pdfmark
+[{icc_PDFX} ICCProfile (r) file /PUT pdfmark
+
+[/_objdef {OutputIntent_PDFX} /type /dict /OBJ pdfmark
+[{OutputIntent_PDFX} <<
+  /Type /OutputIntent
+  /S /GTS_PDFX
+  /OutputCondition @OUTPUT_CONDITION@
+  /OutputConditionIdentifier (Custom)
+  /Info @OUTPUT_INFO@
+  /DestOutputProfile {icc_PDFX}
+>> /PUT pdfmark
+[{Catalog} << /OutputIntents [ {OutputIntent_PDFX} ] >> /PUT pdfmark
