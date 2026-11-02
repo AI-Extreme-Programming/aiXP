@@ -2,10 +2,22 @@ name: Book Build
 
 # Interim (design doc section 9): builds on GitHub-hosted Ubuntu and, when
 # release_tag is set, attaches the EPUB and print PDF to that GitHub Release.
-# Never uploads Actions artifacts. Callers grant the token permissions:
-# contents: read for checks, contents: write when uploading.
+# Run it by hand (Actions > Book Build > Run workflow) to build any branch and
+# download the EPUB and print PDF as an Actions artifact. PR and release builds
+# upload no artifact. Callers grant the token permissions: contents: read for
+# checks, contents: write when uploading to a release.
 
 on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Book version vX.Y.Z printed in the colophon (blank uses notes/VERSION.md)
+        type: string
+        default: ''
+      artifact:
+        description: Upload the EPUB and print PDF as a downloadable artifact
+        type: boolean
+        default: true
   workflow_call:
     inputs:
       ref:
@@ -20,6 +32,10 @@ on:
         description: Release to attach the EPUB and print PDF to; empty builds without uploading
         type: string
         default: ''
+      artifact:
+        description: Upload the EPUB and print PDF as a downloadable Actions artifact
+        type: boolean
+        default: false
 
 jobs:
   build:
@@ -68,6 +84,7 @@ jobs:
             VERSION="v$(sed -n 's/^version=//p' notes/VERSION.md)"
           fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "commit=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
           echo "Book version: $VERSION"
 
       - name: Build EPUB
@@ -75,6 +92,17 @@ jobs:
 
       - name: Build print interior
         run: bash book/scripts/build-print.sh --version "${{ steps.version.outputs.version }}"
+
+      - name: Upload artifact
+        if: inputs.artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aixp-book-${{ steps.version.outputs.version }}-${{ steps.version.outputs.commit }}
+          path: |
+            dist/aixp-${{ steps.version.outputs.version }}.epub
+            dist/aixp-${{ steps.version.outputs.version }}-print-6x9.pdf
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Attach to release
         if: inputs.release_tag != ''

@@ -15,9 +15,9 @@ This document specifies the automated publishing pipeline for the aiXP manuscrip
 2. **Digital book (EPUB3):** built for ebook distribution. Built binaries are private.
 3. **Print interior (PDF/X-1a:2001):** a 6" x 9" paperback interior, built for IngramSpark. Built binaries are private.
 
-**Public-output rule:** built binaries (EPUB, print PDF) never appear in a public location. That means no GitHub Actions artifacts, no GitHub Release assets, and no logs that print manuscript content. The public GitHub Release created by release-please contains release notes and changelog only.
+**Output rule:** release builds deliver the EPUB and print PDF to private storage, and the public GitHub Release created by release-please carries release notes and changelog only. Build logs never print manuscript content. A manual run of `book-build.yml` uploads both files as an Actions artifact, so a build of any branch can be downloaded and checked (section 7.5). The repo is public, so anyone signed in to GitHub can download that artifact; this was accepted by the author on 2026-11-01, since the manuscript itself is public on the site. PR and release builds upload no artifact.
 
-**Interim mode (in effect from 2026-10-28):** until the build moves to the private self-hosted runner, the book builds on GitHub-hosted runners and the EPUB and print PDF are attached to the public release-please GitHub Release. This is an explicit, temporary exception to the public-output rule above, decided by the author. Actions artifacts stay off in interim mode. Section 9 lists what changes when the build moves.
+**Interim mode (in effect from 2026-10-28):** until the build moves to the private self-hosted runner, the book builds on GitHub-hosted runners and the EPUB and print PDF are attached to the public release-please GitHub Release. This is an explicit, temporary exception to the output rule above, decided by the author. Section 9 lists what changes when the build moves.
 
 ---
 
@@ -26,9 +26,9 @@ This document specifies the automated publishing pipeline for the aiXP manuscrip
 | Topic | Decision |
 |---|---|
 | Public outputs | VitePress site from `main`. GitHub Releases with notes only. |
-| Built binaries | Private only. Never in Actions artifacts or Release assets. Interim: attached to the public GitHub Release (section 9). |
+| Built binaries | Release builds: private delivery, never Release assets. Interim: attached to the public GitHub Release (section 9). Manual builds: downloadable Actions artifact (section 7.5). |
 | Build host | Private self-hosted runner on the author's machine. Interim: GitHub-hosted `ubuntu-latest` (section 9). |
-| Book build trigger | release-please release on `main` (`release_created == 'true'`), plus `workflow_dispatch` for manual rebuilds. |
+| Book build trigger | release-please release on `main` (`release_created == 'true'`), plus `workflow_dispatch` on `release.yml` to rebuild a release and on `book-build.yml` to build any branch. |
 | Print format | Paperback only. Hardcover is out of scope and will be revisited separately. |
 | Trim | 6.0" x 9.0" (432 x 648 pt), exact trim, no bleed. |
 | Print standard | PDF/X-1a:2001. |
@@ -142,7 +142,7 @@ aiXP/
 │       ├── release.yml               # existing: release-please; extended with build-book job
 │       ├── pre-release-staging.yml   # existing: staged release notes
 │       ├── update-starline.yml       # existing
-│       ├── book-build.yml            # reusable book build (workflow_call)
+│       ├── book-build.yml            # book build: reusable (workflow_call) and manual (workflow_dispatch)
 │       └── book-ci.yml               # PR checks (see section 7.2)
 ├── book/
 │   ├── package.json                  # book tooling, separate from docs/package.json
@@ -181,7 +181,7 @@ aiXP/
         └── devops-publishing-pipeline-design.md
 ```
 
-Build output goes to `dist/`, which is git-ignored and never uploaded as an Actions artifact.
+Build output goes to `dist/`, which is git-ignored. Only a manual run of `book-build.yml` uploads it as an Actions artifact (section 7.5).
 
 ---
 
@@ -252,6 +252,11 @@ The generated `epub-metadata.yaml` supplies the typed title and subtitle and the
    - **Not checked:** overprint and OPM, ink coverage, image resolution, hairline widths, halftones, font licensing flags, JavaScript and actions, PDF syntax beyond what qpdf parses, XMP, and whether the output intent suits the press. Whether ISO 15930-1 itself forbids ArtBox alongside TrimBox has not been checked against the standard.
    - This is not a certified validator. Before files go to IngramSpark, a certified preflight (IngramSpark's own upload checks, or Acrobat/callas) remains the final check.
 
+### 7.5 Manual Build (`book-build.yml`)
+- **Trigger:** Actions > Book Build > Run workflow, on any branch. Optional `version` input for the colophon (blank uses `notes/VERSION.md`).
+- **Action:** the same toolchain install, tests, builds, and preflight as a release build. Nothing is attached to a release.
+- **Artifact:** `aixp-book-<version>-<commit>`, holding `aixp-<version>.epub` and `aixp-<version>-print-6x9.pdf`, kept for 30 days. Untick the `artifact` input to build without uploading.
+
 ---
 
 ## 8. Open Items
@@ -281,6 +286,8 @@ Interim mode (section 1) differs from the target design in three places. Moving 
 1. `build-book` in `release.yml` changes `runs-on` from `ubuntu-latest` to `[self-hosted, book-builder]`, and the toolchain install steps are replaced by a provisioned runner.
 2. The release upload step is replaced by private delivery (open item 1). Release assets already published stay public unless deleted by hand.
 3. `book-ci.yml` stops running the full book build, because self-hosted runners do not run PR code (section 7.2).
+
+The manual build's artifact (section 7.5) is not part of interim mode and stays after the move.
 
 ---
 

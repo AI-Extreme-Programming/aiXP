@@ -44,8 +44,10 @@ projects.
   - `book/scripts/ci/install-{epub,print}-tools.sh` — pinned toolchain installs for ubuntu-latest
   - `book/test/` — `node:test` tests (preprocessor, EPUB); `book/test/print/` — Python
     `unittest` tests (print, PDF/X checker red/green fixtures)
-- `.github/workflows/book-build.yml` — reusable full book build; uploads to a release only
-  when `release_tag` is set. Never uploads Actions artifacts.
+- `.github/workflows/book-build.yml` — full book build. Reusable: uploads to a release only
+  when `release_tag` is set. Run by hand (Actions > Book Build) on any branch: uploads the
+  EPUB and print PDF as a downloadable artifact (kept 30 days). PR and release builds
+  upload no artifact.
 - `.github/workflows/book-ci.yml` — PR checks for `docs/**` and `book/**`: tests, check
   mode, and (interim) the full book build via `book-build.yml`
 - `.github/workflows/release.yml` — `build-book` job attaches the EPUB and print PDF to
