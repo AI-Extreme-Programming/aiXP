@@ -29,7 +29,7 @@ This document tracks active architecture debates, resolved method questions, and
 2. **The "On-Site Customer" Resolution (Settled):**
    - *Decision:* In human-AI pairing (especially in teams of 1 to N), the On-Site Customer is neither an impossible full-time human in the bullpen nor an AI "imposter customer." It is replaced by the **80/20 Polymath and Sandboxed Tutor** protocol.
    - *Rationale:* The human Navigator uses an isolated, non-coding research session to rapidly acquire 80% domain competency, gated by the Feynman bar: *you haven't learned it until you can teach it.* Once the developer can pass an automated reverse-grill, they step into the coding loop as the authentic domain authority.
-   - *Location:* [[docs/aixp/02.00-intent-and-context|02.00-intent-and-context.md]].
+   - *Location:* [[02.50-intent-and-context|02.00-intent-and-context.md]].
 
 3. **Manuscript Format and Scope (Settled):**
    - *Decision:* A 9-chapter practitioner monograph published via VitePress and maintained in an Obsidian vault.
