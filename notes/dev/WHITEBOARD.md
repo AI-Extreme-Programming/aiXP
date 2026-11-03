@@ -92,4 +92,3 @@ this isn't prompt engineering: **Prompting isn’t what fails over a 3-hour sess
 
 " _Software engineering has never been about typing speed. If it were, the fastest typist in the room would be your lead architect. The hard part of software engineering is problem-solving, understanding requirements, and managing complexity—not generating syntax._" - Farley (paraphrased - can't really credit him with this - the spirit is right, but not a quote
 
-suggested
