@@ -1,0 +1,15 @@
+{
+  "status": "interim",
+  "file": "default_cmyk.icc",
+  "description": "Ghostscript's bundled default CMYK profile, used as the PDF/X output intent until the printer's profile is chosen.",
+  "note": "INTERIM output intent (design doc section 8, open item 2). It is not a registered printing condition and has not been confirmed with IngramSpark. Replace it with the agreed press profile (for example GRACoL or US Web Coated SWOP) before files go to the printer.",
+  "output_condition": "Ghostscript default CMYK (interim; not a registered printing condition)",
+  "sha256": [
+    "8472fa1493a024b800b67dee9424835ec0c41ab79490200ae8ec4a689fd1b9a9"
+  ],
+  "search": [
+    "/usr/share/color/icc/ghostscript/default_cmyk.icc",
+    "/usr/share/ghostscript/iccprofiles/default_cmyk.icc",
+    "/usr/local/share/ghostscript/iccprofiles/default_cmyk.icc"
+  ]
+}

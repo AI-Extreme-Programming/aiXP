@@ -1,0 +1,43 @@
+name: Book CI
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'book/**'
+      - '.github/workflows/book-ci.yml'
+      - '.github/workflows/book-build.yml'
+      - 'notes/VERSION.md'
+
+permissions:
+  contents: read
+
+jobs:
+  preprocess-checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: book
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: book/package-lock.json
+
+      - name: Install book tooling
+        run: npm ci
+
+      - name: Preprocessor unit tests
+        run: npm test
+
+      - name: Include and internal link check
+        run: npm run check
+
+  # Interim (design doc section 9): full EPUB and print build on PRs, no uploads.
+  book-build:
+    uses: ./.github/workflows/book-build.yml

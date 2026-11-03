@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Start reading
-      link: /aixp/00.01-preface
+      link: /aixp/00.01.50-preface
     - theme: alt
       text: Bibliography
-      link: /aixp/10.03-bibliography
+      link: /aixp/04.03.50-bibliography
 
 features:
   - title: Premise
