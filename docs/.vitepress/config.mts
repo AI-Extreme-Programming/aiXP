@@ -32,6 +32,7 @@ export default defineConfig({
           { text: '2. Intent and Context', link: '/aixp/01.02.50-intent-and-context' },
           { text: '3. The Terminal Loop', link: '/aixp/01.03.50-terminal-loop' },
           { text: '4. Judgment, Roles, and Cognitive Budgeting', link: '/aixp/01.04.50-judgment-and-roles' },
+          { text: 'Field Protocol: The Loop in Practice', link: '/aixp/01.05.50-field-protocol' },
         ]
       },
       {
