@@ -28,7 +28,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 ## Standing positions (settled - don't re-litigate)
 
-- TDD is load-bearing in aiXP, not merely one practice among many
+- ATDD is load-bearing in aiXP (governs intent and acceptance thresholds); unit-level TDD is an internal implementation tactic for the Driver
 - Agent Role Topology stays flat by design
 - Executive code review is context-free by design ("make the code speak")
 - aiXP is a practitioner-scale discipline within the broader AI-native movement
