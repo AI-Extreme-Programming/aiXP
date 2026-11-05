@@ -51,7 +51,7 @@ When collaborating with an AI pair partner on this project:
 * **No Code Font in Headings:** Headings must *never* contain inline code formatting, bold, italics, or raw filenames. Write `### Using CLAUDE.md in Sessions`, not `### Using `CLAUDE.md` in Sessions`. Save monospace backticks for body text.
 * **No Stacked Headings:** Every heading must be followed immediately by introductory body text. Never place an H2 directly above an H3, and never follow a heading directly with a bullet list or callout without an orienting sentence.
 * **Title Case for Headings:** Use standard Title Case for all major headings and chapter titles (e.g. *What Changed When AI Joined the Team* rather than sentence case).
-* **Expand Acronyms on First Use:** Spell out acronyms on their first occurrence in each chapter (e.g. *Architecture Decision Records (ADRs)*, *Test-Driven Development (TDD)*, *Software Development Life Cycle (SDLC)*).
+* **Expand Acronyms on First Use:** Spell out domain and methodology acronyms on their first occurrence in each chapter (e.g. *Architecture Decision Records (ADRs)*, *Test-Driven Development (TDD)*, *Acceptance Test-Driven Design (ATDD)*, *Software Development Life Cycle (SDLC)*). Skip expanding universally understood developer acronyms (*CLI*, *LLM*, *CI*, *API*, *UI*, *CSS*, *JSON*, *CPU*) per O'Reilly conventions. Note: *TDD* is always *Test-Driven Development*; *ATDD* is *Acceptance Test-Driven Design*.
 * **Descriptive Links:** Never use generic link text like "click here" or bare URLs. Use descriptive anchor text (e.g. `[Manifesto for Agile Software Development](https://agilemanifesto.org/)`).
 
 ---
