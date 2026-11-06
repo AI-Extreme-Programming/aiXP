@@ -46,6 +46,7 @@ The manuscript is organized into a cohesive 9-chapter practitioner workflow, fra
   - `QuKi-Notes`: "The Word Is Usually the Bug" (how "database" caused agents to build a stateful registry) & the 6-Tier Hierarchy of Truth for legacy rewrites.
   - `CambrianaCore`: Formal `SRS` / `SDD` / `FMT` / `ATS` spec constellations for zero-tolerance systems.
 - [ ] **Chapter 4 ([01.04.50-judgment-and-roles.md](docs/aixp/01.04.50-judgment-and-roles.md)):**
+  - Align `Agent Role Topology` and `Vigilance Budgeting` (*The 40th Diff Rule*) with Chapter 3's 3-tier risk-triage model (Primary Spec Agent reviewing Implementation Sub-Agent diffs; multiple independent review agents + heavy acceptance/PR interrogation for high-risk changes).
   - `QuKi-Notes_devops`: Physical session directories (`Agents/quiki-spec`, `quiki-dev`, `quiki-devops`, `quiki-docs`) + independent Spec A/B test verification.
   - `QuKi-Notes` & `CambrianaCore`: The **load-bearing vs. reversible** sub-agent briefing test.
   - `BojuStudio_devops_agent`: Portable git-tracked agent memory (`notes/dev/memory/MEMORY.md`).
