@@ -43,7 +43,11 @@
 
 \setlength{\parindent}{1.2em}
 \setlength{\parskip}{0pt}
-\setlength{\emergencystretch}{2em}
+% Prefer a slightly loose line to one that runs into the margin: with the defaults
+% (tolerance 200, 2em), a paragraph whose only good breaks fall around a long code span
+% overflowed the safe zone by 24pt.
+\tolerance=1000
+\setlength{\emergencystretch}{3em}
 \raggedbottom
 \widowpenalty=10000
 \clubpenalty=10000
