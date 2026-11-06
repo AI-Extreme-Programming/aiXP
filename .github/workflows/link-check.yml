@@ -1,0 +1,47 @@
+name: Manuscript Link Check
+
+# The vault commits straight to main, so PR checks never see those edits. This runs the
+# book's include and internal-link check (about 20 seconds) on each push to main that
+# touches the manuscript or the book tooling, so a broken link fails within minutes of the
+# vault backup instead of at the next book build. See notes/dev/mistakes.md (2026-11-06).
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'book/**'
+      - '.github/workflows/link-check.yml'
+
+permissions:
+  contents: read
+
+# The vault pushes every few minutes; only the newest push needs checking.
+concurrency:
+  group: link-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: book
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: 'true'
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: book/package-lock.json
+
+      - name: Install book tooling
+        run: npm ci
+
+      - name: Include and internal link check
+        run: npm run check

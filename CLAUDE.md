@@ -50,6 +50,10 @@ projects.
   upload no artifact.
 - `.github/workflows/book-ci.yml` — PR checks for `docs/**` and `book/**`: tests, check
   mode, and (interim) the full book build via `book-build.yml`
+- `.github/workflows/link-check.yml` — include and internal-link check on every push to
+  `main` touching `docs/**` or `book/**`, so vault edits (which skip PRs) are checked too.
+  Link to headings with the VitePress anchor (one dash per run of spaces/punctuation),
+  not GitHub's.
 - `.github/workflows/release.yml` — `build-book` job attaches the EPUB and print PDF to
   each release-please release (interim: public). Manual rebuild of an existing tag:
   run the workflow with the `book_tag` input (skips release-please).
