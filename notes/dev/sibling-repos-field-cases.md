@@ -89,7 +89,7 @@ Every repository shares a canonical spine in its `CLAUDE.md`:
 
 ## 3. Chapter-by-Chapter Catalog of Candidate Field Cases & Artifacts
 
-### Chapter 2 (`docs/aixp/01.02.50-intent-and-context.md`) - Intent, Context & Spec Constellations
+### Chapter 2 ([01.02.50-intent-and-context.md](docs/aixp/01.02.50-intent-and-context.md)) - Intent and Context
 - **`QuKi-Notes`: "The Word Is Usually the Bug" & 6-Tier Hierarchy of Truth**
   - *Source:* `../QuKi-Notes/CLAUDE.md` ("Hierarchy of Truth", "The Word Is Usually the Bug", "Vocabulary")
   - *Takeaway:* How using the word *"database"* in an early spec caused agents to build a stateful registry over a plain folder of `.md` files, and how to explicitly rank truth sources when rewriting a legacy codebase whose old ADRs and GitHub issues have become toxic context.
@@ -100,21 +100,35 @@ Every repository shares a canonical spine in its `CLAUDE.md`:
   - *Source:* `../GOMAC/CLAUDE.md`, `../GOMAC/notes/dev/gomac-project-overview.md`
   - *Takeaway:* Keeping `CLAUDE.md` strictly for agent behavioral rules while placing domain architecture in `notes/dev/` for multi-contributor and multi-tool teams.
 
-### Chapter 3 (`docs/aixp/01.03.50-terminal-loop.md`) - The Terminal Loop & TDD
-- **`CambrianaCore`: Determinism & Allocator Failure Injection**
+### Chapter 3 ([01.03.50-terminal-loop.md](docs/aixp/01.03.50-terminal-loop.md)) - The Terminal Loop
+- **`CambrianaCore`: Determinism & Allocator Failure Injection (`allocation_failure_test.cpp`)**
   - *Source:* `../CambrianaCore/tests/allocation_failure_test.cpp`, `../CambrianaCore/src/math/fp_guard.h`, `../CambrianaCore/src/math/elementary.h`
   - *Takeaway:* The Inner Loop at systems-programming rigor - proving leak-free `OutOfMemory` recovery by failing every Nth allocation in turn, and enforcing bit-exact floating-point determinism across MSVC, GCC, and Clang.
-- **`PosseRenkei`: When the Docs Lie (Live Sandbox & Read-Back Verification)**
-  - *Source:* `../PosseRenkei/CLAUDE.md` ("External API Gotchas (Learned the Hard Way)")
-  - *Takeaway:* Why mocked unit tests fail at third-party API boundaries (Bluesky's `video.bsky.app` upload protocol vs. `atproto` SDK docs; GitHub REST API's fake header version date) and why verification requires an independent read-back query.
-- **`QuKi-Notes_devops`: Knowing When to Kill a Requirement (Phase 3.59 Cold-Launch Focus)**
-  - *Source:* `../QuKi-Notes_devops/CLAUDE.md` (Phase 3.11, 3.20, 3.20a, 3.38, 3.59)
-  - *Takeaway:* What happens when the Red/Green widget test loop passes across four PRs while failing on physical Android hardware - and how the human architect stops the loop, deletes the dead `postFrameCallback` code, and changes the requirement to a splash screen.
+- **`UplinkStatus` (*Ping'd*): Pure-JVM Seam Extraction on Android**
+  - *Source:* `../UplinkStatus/CLAUDE.md`
+  - *Takeaway:* Keeping `ProbeConfig`, `ProbeEngine`, and `RollingWindow` 100% free of `android.*` imports so probe scheduling and state transitions run in sub-second JVM unit tests (`./gradlew testDebugUnitTest`) without an emulator.
+- **`CambrianaCore` + `UE_Cambriana`: The Engine-Independent Core Seam**
+  - *Source:* `../CambrianaCore/CLAUDE.md`, `../UE_Cambriana/CLAUDE.md`
+  - *Takeaway:* Isolating pure C++17 procedural math and L-system evaluation (`CambrianaCore`) from the massive Unreal Engine 5 header/build surface (`UE_Cambriana`), allowing 60+ acceptance tests to compile and run in milliseconds without booting Unreal.
 
-### Chapter 4 (`docs/aixp/02.04.50-outer-loops.md`) - Outer Loops, CI, and Visual/Physical Harnesses
+### Chapter 4 ([01.04.50-judgment-and-roles.md](docs/aixp/01.04.50-judgment-and-roles.md)) - Judgment, Roles, and Cognitive Budgeting
+- **`QuKi-Notes_devops`: Directory-Scoped Session Roles (`Agents/quiki-spec`, `quiki-dev`, `quiki-devops`, `quiki-docs`)**
+  - *Source:* `../QuKi-Notes_devops/CLAUDE.md`
+  - *Takeaway:* Physical launch folders with role-specific `CLAUDE.md` files that isolate Spec, Implementation, DevOps, and Docs sessions, paired with independent Spec session A/B test verification.
+- **`QuKi-Notes` & `CambrianaCore`: The Load-Bearing vs. Reversible Sub-Agent Test**
+  - *Source:* `../QuKi-Notes/CLAUDE.md`, `../CambrianaCore/CLAUDE.md` ("Sub-Agent Workflow")
+  - *Takeaway:* Operationalizing "brief on *what*, not *how*" with a concrete litmus test: if changing the decision later would cascade into sibling components, lock it in the brief; if it is local and reversible, delegate freely.
+- **`BojuStudio_devops_agent`: Portable Git-Tracked Agent Memory**
+  - *Source:* `../BojuStudio_devops_agent/CLAUDE.md`, `../BojuStudio_devops_agent/notes/dev/memory/MEMORY.md`
+  - *Takeaway:* Storing durable operational memory in git (`notes/dev/memory/`) so any workstation wakes up with the same institutional memory across 20 managed repositories.
+
+### Chapter 5 ([02.05.50-verification-and-testing.md](docs/aixp/02.05.50-verification-and-testing.md)) - Verification Strategy and Integration
 - **`GitHubDHC`: Mechanical TDD for a Buildless CSS Theme**
   - *Source:* `../GitHubDHC/CLAUDE.md`, `../GitHubDHC/qa/README.md`
   - *Takeaway:* Booting a real Obsidian AppImage under `xvfb-run` in CI across 3 viewports x 2 color schemes to enforce WCAG AA contrast and detect upstream DOM drift on a single CSS file.
+- **`PosseRenkei`: When the Docs Lie (Live Sandbox & Read-Back Verification)**
+  - *Source:* `../PosseRenkei/CLAUDE.md` ("External API Gotchas (Learned the Hard Way)")
+  - *Takeaway:* Why mocked unit tests fail at third-party API boundaries (Bluesky's `video.bsky.app` upload protocol vs. `atproto` SDK docs; GitHub REST API's fake header version date) and why verification requires an independent read-back query.
 - **`RepoWatch` (*Smokey*): Turning a 3-Time Recurring Bug into a Static Source Guard**
   - *Source:* `../RepoWatch/CLAUDE.md`, `../RepoWatch/tests/lint-repo-matching.spec.js`
   - *Takeaway:* Writing a 30-line Playwright static source-text check that scans `index.html` for bare `===` comparisons on `repo.name` after the `Ping-d` -> `UplinkStatus` rename broke matching three separate times.
@@ -122,35 +136,32 @@ Every repository shares a canonical spine in its `CLAUDE.md`:
   - *Source:* `../BojuVue/CLAUDE.md`, `../BojuVue/src/__tests__/package.exports.test.ts`
   - *Takeaway:* Outer-loop verification that packs the library and verifies SSR importability and export resolution as an external consumer experiences them.
 - **`aiXP`: Deterministic Print Preflight (`check-pdfx.py`)**
-  - *Source:* `CLAUDE.md`, `book/scripts/check-pdfx.py`, `book/tests/`
+  - *Source:* `CLAUDE.md`, `book/scripts/check-pdfx.py`, `book/test/`
   - *Takeaway:* Automated verification of PDF/X-1a compliance, trim/bleed boxes, embedded fonts, and zero glyph fallbacks.
 
-### Chapter 5 (`docs/aixp/02.05.50-architecture.md`) - Architecture for Agent Comprehension
-- **`CambrianaCore` + `UE_Cambriana`: The Engine-Independent Core Pattern**
-  - *Source:* `../CambrianaCore/CLAUDE.md`, `../UE_Cambriana/CLAUDE.md`
-  - *Takeaway:* Isolating pure C++17 procedural math and L-system evaluation (`CambrianaCore`) from the massive Unreal Engine 5 header/build surface (`UE_Cambriana`), allowing 60+ acceptance tests to compile and run in milliseconds without booting Unreal.
-- **`UplinkStatus` (*Ping'd*): Pure-JVM Seam Extraction on Android**
-  - *Source:* `../UplinkStatus/CLAUDE.md`
-  - *Takeaway:* Keeping `ProbeConfig`, `ProbeEngine`, and `RollingWindow` 100% free of `android.*` imports so probe scheduling and state transitions run in sub-second JVM unit tests (`./gradlew testDebugUnitTest`) without an emulator.
-- **`report-relay_dev`: Zero-Dependency Edge Boundaries**
+### Chapter 6 ([02.06.50-delivery-and-release.md](docs/aixp/02.06.50-delivery-and-release.md)) - Delivery, Release, and Observability
+- **`BojuStudio_devops_agent` & `ScottKirvan/.github`: Two-Stage Automated Release Pipeline**
+  - *Source:* `../BojuStudio_devops_agent/CLAUDE.md` ("Standard Release Pipeline")
+  - *Takeaway:* How `release-please` opens the version PR, and upon merge, `release-notes-ai.yml` generates user-facing notes onto a staging branch (`pre-release-staging/{tag}`) for human review before publishing to GitHub Releases and Discord.
+- **`RepoWatch` vs. `CambrianaCore`: Risk-Calibrated Merge Authority**
+  - *Source:* `../RepoWatch/CLAUDE.md` vs. `../CambrianaCore/CLAUDE.md`
+  - *Takeaway:* Side-by-side comparison of how `CLAUDE.md` calibrates merge ceremony - direct-to-`main` commits for a Tier-1 personal PWA dashboard vs. 3-compiler fingerprint gates and zero-tolerance spec locking for a foundational C++ geometry kernel.
+- **`report-relay_dev`: Zero-Dependency Edge Boundaries for In-App Bug Telemetry**
   - *Source:* `../report-relay_dev/CLAUDE.md`
-  - *Takeaway:* Designing a four-file Cloudflare Worker (`index.ts`, `github.ts`, `validate.ts`, `types.ts`) using native Web Crypto APIs so the entire service fits effortlessly inside a single context window with zero runtime dependencies.
+  - *Takeaway:* Designing a four-file Cloudflare Worker (`index.ts`, `github.ts`, `validate.ts`, `types.ts`) using native Web Crypto APIs so client apps can file structured GitHub issues without shipping tokens or heavy SDKs.
 
-### Chapter 6 (`docs/aixp/02.06.50-orchestration.md`) - Multi-Agent Orchestration & Memory
-- **`BojuStudio_devops_agent`: Cross-Repo Fleet Orchestrator & Git-Tracked Memory**
-  - *Source:* `../BojuStudio_devops_agent/CLAUDE.md`, `../BojuStudio_devops_agent/notes/dev/memory/MEMORY.md`
-  - *Takeaway:* Managing 20 sibling repositories from a dedicated DevOps agent workspace, storing portable session memory in git (`notes/dev/memory/`), and separating public reusable workflows (`ScottKirvan/.github`) from private agent state.
-- **`QuKi-Notes_devops`: Directory-Scoped Session Roles (`Agents/quiki-spec`, `quiki-dev`, `quiki-devops`, `quiki-docs`)**
-  - *Source:* `../QuKi-Notes_devops/CLAUDE.md`
-  - *Takeaway:* Physical launch folders with role-specific `CLAUDE.md` files that isolate Spec, Implementation, DevOps, and Docs sessions, paired with independent Spec session A/B test verification.
+### Chapter 7 ([02.07.50-anti-patterns.md](docs/aixp/02.07.50-anti-patterns.md)) - What aiXP Is Not: Anti-Patterns and Traps
+- **`QuKi-Notes_devops`: Knowing When to Kill a Requirement (Phase 3.59 Cold-Launch Focus)**
+  - *Source:* `../QuKi-Notes_devops/CLAUDE.md` (Phase 3.11, 3.20, 3.20a, 3.38, 3.59)
+  - *Takeaway:* The "Green Test Mirage" - four separate PRs marked cold-launch Android keyboard focus "Complete" in widget tests while failing on physical hardware, until the human architect deleted the `postFrameCallback` hacks and changed the UX requirement to a startup splash screen (`#342`).
+- **`GOMAC` & `UE_StageHand`: Respecting Air-Gapped Hardware & Unautomated Lifecycle Stages**
+  - *Source:* `../GOMAC/CLAUDE.md`, `../UE_StageHand/CLAUDE.md`
+  - *Takeaway:* Why pretending a cloud agent can verify CAN-bus MQTT messages on a physical Sprinter van (*TheFlea*) or Slate UI overlays inside a live Unreal Engine editor is an anti-pattern; unverified boundaries must be explicitly marked and gated on human-in-the-loop verification.
+
+### Chapter 8 ([03.08.50-scaling.md](docs/aixp/03.08.50-scaling.md)) - Scaling Beyond the Solo Practitioner
 - **`aiXP`: Worktree Isolation Against Background Daemons**
   - *Source:* `CLAUDE.md` ("Branch & Worktree Isolation (Obsidian Auto-Backup Hazard)")
   - *Takeaway:* Using `git worktree add ../aiXP-<slug>` so implementation agents never collide with Obsidian's `obsidian-git` 2-minute auto-backup commits on `main`.
-
-### Chapter 7 (`docs/aixp/03.07.50-governance.md`) & Chapter 8 (`docs/aixp/03.08.50-scaling.md`) - Governance & Scaling
-- **`RepoWatch` vs. `CambrianaCore`: Risk-Calibrated Governance**
-  - *Source:* `../RepoWatch/CLAUDE.md` vs. `../CambrianaCore/CLAUDE.md`
-  - *Takeaway:* Side-by-side comparison of how `CLAUDE.md` calibrates merge ceremony - direct-to-`main` commits for a Tier-1 personal PWA dashboard vs. 3-compiler fingerprint gates and zero-tolerance spec locking for a foundational C++ geometry kernel.
-- **`BojuStudio_devops_agent`: Two-Stage Automated Release Governance**
-  - *Source:* `../BojuStudio_devops_agent/CLAUDE.md` ("Standard Release Pipeline")
-  - *Takeaway:* How `release-please` opens the version PR, and upon merge, `release-notes-ai.yml` generates user-facing notes onto a staging branch (`pre-release-staging/{tag}`) for human review before publishing to GitHub Releases and Discord.
+- **`GOMAC`: Multi-Contributor Context Separation**
+  - *Source:* `../GOMAC/CLAUDE.md`, `../GOMAC/notes/dev/gomac-project-overview.md`
+  - *Takeaway:* Separating agent-specific behavioral rules (`CLAUDE.md`) from human and tool-agnostic project documentation (`notes/dev/gomac-project-overview.md`) when multiple humans and heterogeneous AI tools collaborate on the same repository.
