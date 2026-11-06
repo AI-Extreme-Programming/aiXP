@@ -8,23 +8,23 @@ This document tracks editorial tasks, section-by-section revisits, and manuscrip
 
 The manuscript is organized into a cohesive 9-chapter practitioner workflow, framed by Front Matter and Back Matter. Multi-part sections (Preface and Introduction) compile into single long-form pages in VitePress via `<!--@include: ...-->` while preserving atomic notes in Obsidian.
 
-| Section / Chapter | Master Page | Sub-Notes (Included via `<!--@include-->`) | Status | Primary Next Step |
-|---|---|---|---|---|
-| **Front Matter** | `00.01.50-preface.md` | `00.01.60-how-to-read.md`, `00.01.70-conventions.md` | Polished | Single-page roll-up complete; author voice preserved verbatim |
-| **Introduction** | `00.02.50-introduction.md` | `00.02.60-vibe-coding.md`, `00.02.70-xp-background.md`, `00.02.80-what-changed.md` | Polished | Single-page roll-up complete; Kent Beck callouts integrated |
-| **Chapter 1** | `01.01.50-manifesto.md` | n/a | Polished | Four pillars and operational rejection criteria complete |
-| **Chapter 2** | `01.02.50-intent-and-context.md` | n/a | Polished | Authentic artifacts integrated from BojuBot, QuKi-Notes, and Lunar Shader case study |
-| **Chapter 3** | `01.03.50-terminal-loop.md` | n/a | In Progress | Core bones, two-level loop, 3-tier risk triage, and BojuBot/QuKi-Notes artifacts in |
-| **Chapter 4** | `01.04.50-judgment-and-roles.md` | n/a | In Progress | Role topology, Load-Bearing vs. Reversible brief rule, multi-agent review interrogation, and Vigilance Budgeting aligned |
-| **Field Protocol** | `01.05.50-field-protocol.md` | n/a | In Progress | Replaced synthetic 2-terminal/BojuBot #84 walkthrough with Primary->Sub-Agent dispatch and real QuKi-Notes PR #350 case study |
-| **Chapter 5** | `02.05.50-verification-and-testing.md` | n/a | In Progress | Risk-tiered merge authority aligned with 3-tier risk triage; integrate additional CI harnesses |
-| **Chapter 6** | `02.06.50-delivery-and-release.md` | n/a | In Progress | ScooterGitTemplate commit/release-please rules and Zero Attribution + no-blame `mistakes.md` traceability integrated |
-| **Chapter 7** | `02.07.50-anti-patterns.md` | n/a | Draft | Catalog of failure modes and traps |
-| **Chapter 8** | `03.08.50-scaling.md` | n/a | Draft | Multi-human, multi-agent collaboration patterns |
-| **Chapter 9** | `03.09.50-future-of-the-craft.md` | n/a | Draft | Long-horizon craft synthesis |
-| **Appendix A** | `04.01.50-appendix-original-12.md` | n/a | Polished | Kent Beck 1999 Extreme Programming reference |
-| **Appendix B** | `04.02.50-appendix-ai-native-sdlc.md` | n/a | Draft | Compare against Anthropic AI-Native SDLC playbook and enterprise frameworks |
-| **Appendix C** | `04.03.50-bibliography.md` | n/a | Polished | Citations linked; drafting prompts removed |
+| Section / Chapter  | Master Page                            | Sub-Notes (Included via `<!--@include-->`)                                         | Status      | Primary Next Step                                                                                                             |
+| ------------------ | -------------------------------------- | ---------------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Front Matter**   | `00.01.50-preface.md`                  | `00.01.60-how-to-read.md`, `00.01.70-conventions.md`                               | Polished    | Single-page roll-up complete; author voice preserved verbatim                                                                 |
+| **Introduction**   | `00.02.50-introduction.md`             | `00.02.60-vibe-coding.md`, `00.02.70-xp-background.md`, `00.02.80-what-changed.md` | Polished    | Single-page roll-up complete; Kent Beck callouts integrated                                                                   |
+| **Chapter 1**      | `01.01.50-manifesto.md`                | n/a                                                                                | Polished    | Four pillars and operational rejection criteria complete                                                                      |
+| **Chapter 2**      | `01.02.50-intent-and-context.md`       | n/a                                                                                | Polished    | Authentic artifacts integrated from BojuBot, QuKi-Notes, and Lunar Shader case study                                          |
+| **Chapter 3**      | `01.03.50-terminal-loop.md`            | n/a                                                                                | Polished    | Core bones, two-level loop, 3-tier risk triage, and BojuBot/QuKi-Notes artifacts in                                           |
+| **Chapter 4**      | `01.04.50-judgment-and-roles.md`       | n/a                                                                                | In Progress | Role topology, Load-Bearing vs. Reversible brief rule, multi-agent review interrogation, and Vigilance Budgeting aligned      |
+| **Field Protocol** | `01.05.50-field-protocol.md`           | n/a                                                                                | In Progress | Replaced synthetic 2-terminal/BojuBot #84 walkthrough with Primary->Sub-Agent dispatch and real QuKi-Notes PR #350 case study |
+| **Chapter 5**      | `02.05.50-verification-and-testing.md` | n/a                                                                                | In Progress | Risk-tiered merge authority aligned with 3-tier risk triage; integrate additional CI harnesses                                |
+| **Chapter 6**      | `02.06.50-delivery-and-release.md`     | n/a                                                                                | In Progress | ScooterGitTemplate commit/release-please rules and Zero Attribution + no-blame `mistakes.md` traceability integrated          |
+| **Chapter 7**      | `02.07.50-anti-patterns.md`            | n/a                                                                                | Draft       | Catalog of failure modes and traps                                                                                            |
+| **Chapter 8**      | `03.08.50-scaling.md`                  | n/a                                                                                | Draft       | Multi-human, multi-agent collaboration patterns                                                                               |
+| **Chapter 9**      | `03.09.50-future-of-the-craft.md`      | n/a                                                                                | Draft       | Long-horizon craft synthesis                                                                                                  |
+| **Appendix A**     | `04.01.50-appendix-original-12.md`     | n/a                                                                                | Polished    | Kent Beck 1999 Extreme Programming reference                                                                                  |
+| **Appendix B**     | `04.02.50-appendix-ai-native-sdlc.md`  | n/a                                                                                | Draft       | Compare against Anthropic AI-Native SDLC playbook and enterprise frameworks                                                   |
+| **Appendix C**     | `04.03.50-bibliography.md`             | n/a                                                                                | Polished    | Citations linked; drafting prompts removed                                                                                    |
 
 ---
 
