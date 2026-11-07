@@ -59,10 +59,14 @@ jobs:
         working-directory: book
         run: npm ci
 
+      # Normally about a minute each; the limit stops a stalled package download from
+      # holding the job until its 30-minute timeout.
       - name: Install EPUB toolchain
+        timeout-minutes: 15
         run: bash book/scripts/ci/install-epub-tools.sh
 
       - name: Install print toolchain
+        timeout-minutes: 15
         run: bash book/scripts/ci/install-print-tools.sh
 
       - name: Shell script lint

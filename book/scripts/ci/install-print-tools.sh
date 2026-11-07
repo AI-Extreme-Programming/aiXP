@@ -17,6 +17,11 @@ APT_PACKAGES=(
   ghostscript poppler-utils python3-pikepdf unzip curl ca-certificates
 )
 
+# A stalled mirror download once hung the install until the job's 30-minute timeout.
+# These make a stalled transfer time out and retry instead.
+APT_OPTS=(-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30
+          -o DPkg::Lock::Timeout=120)
+
 log() { printf 'install-print-tools: %s\n' "$*"; }
 start=$(date +%s)
 tmp=$(mktemp -d)
@@ -28,8 +33,9 @@ for package in "${APT_PACKAGES[@]}"; do
 done
 if [ ${#missing[@]} -gt 0 ]; then
   log "apt: installing ${missing[*]}"
-  sudo apt-get update -qq
-  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends "${missing[@]}" >/dev/null
+  sudo apt-get "${APT_OPTS[@]}" update -qq
+  sudo DEBIAN_FRONTEND=noninteractive apt-get "${APT_OPTS[@]}" install -y -qq --no-install-recommends \
+    "${missing[@]}" >/dev/null
 else
   log "apt: all packages present"
 fi
