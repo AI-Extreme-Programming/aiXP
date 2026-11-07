@@ -27,12 +27,17 @@ APT_UPDATED=0
 
 log() { echo "install-epub-tools: $*"; }
 
+# A stalled mirror download once hung an apt install until the job's 30-minute timeout.
+# These make a stalled transfer time out and retry instead.
+APT_OPTS=(-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30
+          -o DPkg::Lock::Timeout=120)
+
 apt_install() {
   if [ "$APT_UPDATED" -eq 0 ]; then
-    $SUDO apt-get update -qq
+    $SUDO apt-get "${APT_OPTS[@]}" update -qq
     APT_UPDATED=1
   fi
-  $SUDO env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends "$@"
+  $SUDO env DEBIAN_FRONTEND=noninteractive apt-get "${APT_OPTS[@]}" install -y -qq --no-install-recommends "$@"
 }
 
 download() {
