@@ -11,8 +11,8 @@
   - `<!--@include: ./00.12-xp-background.md-->` (XP's Original Bet)
   - `<!--@include: ./00.13-what-changed.md-->` (What Changed When AI Joined the Team)
 
-## Chapter 1: The Manifesto (`01.00-manifesto.md`)
-1. The Four Pillars (Verification is the Work, Judgment is Non-Delegatable, Scales with Tools, Context is Infrastructure)
+## Chapter 1: The Manifesto (`01.01.50-manifesto.md`)
+1. The Five Pillars (Verification Is the Work, Judgment Cannot Be Delegated, Contracts Govern What Not How, The Discipline Scales with the Tools, Context Is Infrastructure)
 2. Rejection Criteria as Operational Gating Tests
 3. Putting the Manifesto into Practice
 
