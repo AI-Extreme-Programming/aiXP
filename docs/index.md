@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: aiXP
-  text: ”AI Extreme Programming"
+  text: "AI Extreme Programming"
   tagline: "Embracing Change at Machine Speeds"
   actions:
     - theme: brand

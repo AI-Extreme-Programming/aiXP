@@ -22,9 +22,9 @@ This document tracks active architecture debates, resolved method questions, and
 ## Settled Design Decisions
 
 1. **Manifesto Architecture (Settled):**
-   - *Decision:* Rejected the classic Agile Manifesto "A over B" value-pair syntax in favor of **Four Pillars paired with Operational Rejection Criteria**.
+   - *Decision:* Rejected the classic Agile Manifesto "A over B" value-pair syntax in favor of **Five Pillars paired with Operational Rejection Criteria**.
    - *Rationale:* In machine-speed development, value-pairs are too easily rationalized away. Rejection criteria provide concrete, falsifiable gating tests (e.g., *"If generated code cannot be verified mechanically, it is rejected"*).
-   - *Location:* [[docs/aixp/01.00-manifesto|01.00-manifesto.md]].
+   - *Location:* [[docs/aixp/01.01.50-manifesto|01.01.50-manifesto.md]].
 
 2. **The "On-Site Customer" Resolution (Settled):**
    - *Decision:* In human-AI pairing (especially in teams of 1 to N), the On-Site Customer is neither an impossible full-time human in the bullpen nor an AI "imposter customer." It is replaced by the **80/20 Polymath and Sandboxed Tutor** protocol.

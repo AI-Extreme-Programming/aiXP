@@ -11,15 +11,14 @@ projects.
 
 - `docs/` — VitePress project root; run with `npm run docs:dev` from inside `docs/`
 - `docs/.vitepress/config.mts` — nav/sidebar config; update when adding pages
-- `docs/aixp/` — primary content, filenames use a `PP.SS-slug.md` prefix (Part.Section)
+- `docs/aixp/` — primary content, filenames use an `AA.BB.CC-slug.md` prefix (Part.Chapter.SortSlot)
   that encodes reading order and must stay in sync with the sidebar in `config.mts`:
-  - `00.0x` — Front Matter (preface, how to read)
-  - `01.0x` — Part I: Background (vibe coding, XP background, what changed)
-  - `02.0x` — Part II: The Manifesto
-  - `03.0x` — Part III: The Practices (XP carryover, new practices, DevOps/SRE,
-    testing, versioning)
-  - `04.0x` — Part IV: Context and Comparison (AI-native SDLC, scaling, anti-patterns)
-  - `05.0x` — Back Matter (open questions, appendix, bibliography)
+  - `00.01.xx` — Preface (`00.01.50-preface.md` including `00.01.60-how-to-read.md`, `00.01.70-conventions.md`)
+  - `00.02.xx` — Introduction (`00.02.50-introduction.md` including `00.02.60-vibe-coding.md`, `00.02.70-xp-background.md`, `00.02.80-what-changed.md`)
+  - `01.01` - `01.05` — Part I: The Premise and the Loop (Manifesto, Intent and Context, The Terminal Loop, Judgment/Roles/Cognitive Budgeting, Field Protocol)
+  - `02.05` - `02.07` — Part II: The Speed of Trust (Verification and Testing, Delivery and Release, Anti-Patterns)
+  - `03.08` - `03.09` — Part III: The Horizon (Scaling, Future of the Craft)
+  - `04.01` - `04.03` — Appendices (Original 12 XP Practices, AI-Native SDLC Comparison, Bibliography)
 - `docs/index.md` — site landing page
 - `book/` — EPUB/print book pipeline (design: `notes/dev/devops-publishing-pipeline-design.md`).
   Its own `package.json`, separate from `docs/package.json`:
@@ -72,7 +71,7 @@ projects.
   (c) speculative
 - No invented examples, case studies, or fabricated citations
 - Every borrowed concept (Lean, SRE, Kanban, XP) gets attributed to its origin
-- Open questions live in `docs/aixp/05.01-open-questions.md` — surface them, don't
+- Open questions live in `notes/dev/open-questions.md` — surface them, don't
   resolve unilaterally
 
 ## Standing Positions (settled — don't re-litigate)
