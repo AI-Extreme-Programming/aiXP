@@ -11,7 +11,7 @@
     "preprocess": "node scripts/preprocess.js"
   },
   "dependencies": {
-    "@mermaid-js/mermaid-cli": "12.0.0",
+    "@mermaid-js/mermaid-cli": "12.2.0",
     "puppeteer": "25.16.0",
     "yaml": "2.9.1"
   }
