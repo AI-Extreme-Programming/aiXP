@@ -45,11 +45,11 @@ jobs:
       AIXP_EPUB_SMOKE: '1'
       AIXP_REQUIRE_PRINT_TOOLS: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.ref }}
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -99,7 +99,7 @@ jobs:
 
       - name: Upload artifact
         if: inputs.artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: aixp-book-${{ steps.version.outputs.version }}-${{ steps.version.outputs.commit }}
           path: |
