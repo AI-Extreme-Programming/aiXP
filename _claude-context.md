@@ -7,7 +7,7 @@ A writing project, not a codebase. The deliverable is a paper, talk, post, or bo
 ## Vault structure
 
 - `docs/` - VitePress project root; dev server via `npm run docs:dev`
-- `docs/aixp/` - primary working source material (`01` through `06` are the methodology itself)
+- `docs/aixp/` - primary working source material (`01` through `09` arranged in three parts, followed by `10.xx` appendices)
 - `docs/.vitepress/config.mts` - nav/sidebar config; update when adding pages under `docs/aixp/`
 - `docs/index.md` - site landing page
 - `notes/` - scratch/draft material (e.g. `aiXP-draft.md`)
@@ -28,7 +28,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 
 ## Standing positions (settled - don't re-litigate)
 
-- TDD is load-bearing in aiXP, not merely one practice among many
+- ATDD is load-bearing in aiXP (governs intent and acceptance thresholds); unit-level TDD is an internal implementation tactic for the Driver
 - Agent Role Topology stays flat by design
 - Executive code review is context-free by design ("make the code speak")
 - aiXP is a practitioner-scale discipline within the broader AI-native movement
@@ -40,7 +40,7 @@ New content pages go under `docs/aixp/`. Don't add top-level markdown without up
 - Use standard Markdown links `[Label](path.md)` everywhere (in manuscript, dev notes, and chat). Do not use `[[wikilinks]]`.
 - No em dashes anywhere - user writes with regular hyphens ('-').
 - Never edit or modify vault files unless the user specifically and explicitly asks for an edit.
-- File prefixes (e.g. 00.01, 00.02, 05.02) are solely Obsidian sort keys; skipped numbers do not matter and fractional numbers (e.g. 00.02.5) may be used for sorting insertions.
+- File prefixes follow the AA.BB.CC scheme (e.g. 01.02.50) where AA=section/part, BB=chapter number, CC=Dewey decimal sorting slot (.50 default), allowing seamless insertions.
 - Theme: GitHubDHC v2.3.1 (installed from official Obsidian community theme release).
 
 ---

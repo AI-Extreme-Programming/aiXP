@@ -1,12 +1,3 @@
->[!TODO xyz]
-> hello
-> - can
-> - I 
-> - put
-> - a 
-> - list
-> - in 
-> - [ ] here?
 
 
 - maintainability
@@ -32,6 +23,8 @@ question for every page:  is it telling a story, is it coherent, does it wander,
 	- [ ] no release boundaries invented by the agent.
 	- [ ] plan ahead: design for requirements that can be seen coming. no built-in shortcuts.
 - [ ] SRS, SDD, FMT, ATS, roadmap, TBD, README
+- [ ] writing your spec from a session with a lot of research context in it can often make the task difficult because of the agents propensity to make excuses and justify decisions - it will bring in unrelated references to projects and names it internally feels is important.
+- [ ] proposal - let the agent know that the spec is inherently a proposal, so it doesn't mark everything "proposed", which you'll just have to clean out and talk the agent through in the future.
 
 
 formal spec type list:
@@ -62,7 +55,6 @@ formal spec type list:
    * Software Bill of Materials (SBOM / SPDX / CycloneDX)
   
 
-PDF build:  colophon - I didn’t specify where that should go - move it to the front if that’s more common - I think that’s where I’m used to seeing it.  
 
 Extreme Programming for Machine-Speed Development  
 (or your current: Embrace Change at Machine Speed)
@@ -72,6 +64,79 @@ Extreme Programming for Machine-Speed Development
 
 A recurring thread in developing this has been how few working engineers seem to have a coherent model of practices like regression suite maintenance, tiered release strategy, or versioning discipline - not because these are obscure, but because they're rarely taught as a connected system, and AI tooling is what now makes running that full system affordable at small scale. Part of the goal here isn't just documenting one practitioner's method - it's making practices that used to require org-scale headcount teachable to individuals and small teams who now have the tooling to actually run them.
 
+"practitioner-first"
+
+---
+Acceptance Test-Driven Development (ATDD) & Specification by Example
+Unlike the singular lineage of Kent Beck and Extreme Programming, Acceptance Test-Driven Development emerged across overlapping branches that pulled customer intent directly into executable automation:
+Pugh, Ken. Lean-Agile Acceptance Test-Driven Development: Better Software Through Collaboration. Addison-Wesley, 2010.
+The foundational text codifying ATDD as a distinct practice, focusing on the "Three Amigos" cadence (business, developer, tester) to eliminate translation errors before writing code.
+Gärtner, Markus. ATDD by Example: A Practical Guide to Acceptance Test-Driven Development. Addison-Wesley Signature Series (Kent Beck), 2012.
+The direct structural sister volume to Beck’s TDD by Example, demonstrating real-world acceptance test harnesses and refactoring loops.
+Cunningham, Ward, and Martin, Robert C. Fit / FitNesse. 2002–present.
+The early mechanical bridge between business tables and executable suites that proved acceptance tests could act as a living, automated specification long before modern agentic tooling.
+Adzic, Gojko. Specification by Example: How Successful Teams Deliver the Right Software. Manning, 2011.
+The definitive treatment on treating tests not as verification gates built after the fact, but as living, executable documentation that defines system boundaries.
+North, Dan. Introducing BDD (Behavior-Driven Development). Better Software, 2006.
+The root evolution of TDD that swapped verification jargon for human-readable behavioral contracts (Given/When/Then), later embodied in tools like Cucumber and JBehave.
+
+---
+
+- **Farley, Dave.** _Continuous Delivery Pipelines: How to Build Better Software Faster._ Independent, 2021 (and _Continuous Delivery_ with Jez Humble, Addison-Wesley, 2010). Farley grounded acceptance testing firmly inside the deployment pipeline, stripping away QA theater in favor of fast, deterministic, executable specifications. His focus on isolating external dependencies at system boundaries and keeping acceptance suites running in minutes makes his work essential for maintaining feedback loops at machine speed.
+- or -
+- **Farley, Dave.** _Continuous Delivery Pipelines_ (2021) and Continuous Delivery commentary on AI-assisted engineering (2023–present). Farley approaches generative AI not as a replacement for engineering, but as a high-velocity generator that demands rigorous bounding. He treats TDD, deterministic acceptance suites, and radical modularity as the non-negotiable governors required to prevent machine speed from simply producing unverified technical debt faster.
+---
+this isn't prompt engineering: **Prompting isn’t what fails over a 3-hour session; the accumulated context is what fails.** - this is context stewardship in a nutshell
+
+ _The model’s weights are frozen, but its working memory is not. An unpruned context window acts like an over-trained network in real time: it overfits to its own dead ends, compiler errors, and discarded plans. Without Context Stewardship, attention dilutes, hallucinations compound, and the agent begins solving problems against a reality that only exists in its polluted session history."_
+
+" _Software engineering has never been about typing speed. If it were, the fastest typist in the room would be your lead architect. The hard part of software engineering is problem-solving, understanding requirements, and managing complexity—not generating syntax._" - Farley (paraphrased - can't really credit him with this - the spirit is right, but not a quote
 
 
+suggested
 
+```mermaid
+flowchart TD
+    %% Styling
+    classDef human fill:#1f3a60,stroke:#3b82f6,stroke-width:2px,color:#fff;
+    classDef ai fill:#2d1b4e,stroke:#a855f7,stroke-width:2px,color:#fff;
+    classDef gate fill:#2a2a2a,stroke:#64748b,stroke-width:2px,color:#fff;
+    classDef memory fill:#14342b,stroke:#10b981,stroke-width:2px,color:#fff;
+
+    subgraph OuterLoop ["Outer Intent Loop: Acceptance Test-Driven Design (ATDD)"]
+        A["Incoming Change: Feature or Bug"]:::human --> B{"Domain Gap Known?"}:::gate
+        B -->|"No"| C["Sandboxed Tutor Session: Reverse-Grill & Feynman Bar"]:::ai
+        B -->|"Yes"| D["Author Living Micro-Spec: Contracts & Invariants"]:::human
+        C --> D
+        D --> E["Context Stewardship: Update CLAUDE.md & Prune Obsolete History"]:::memory
+    end
+
+    subgraph InnerLoop ["Inner Terminal Loop: Asymmetric TDD & Pairing"]
+        E --> F["Navigator: Define Bounded Task from Spec"]:::human
+        F --> G["Driver (AI): Generate Red Test to Spec"]:::ai
+        G --> H["Mechanical Runner: Confirm Expected Failure"]:::gate
+        H --> I["Driver (AI): Minimal Implementation (Green)"]:::ai
+        I --> J["Mechanical Runner: Confirm Tests Pass"]:::gate
+        J --> K["Driver & Navigator: Bounded Refactor (Zero Scope Creep)"]:::ai
+        K --> L["Navigator: Audit Diff (4 Rules of Simple Design)"]:::human
+        L --> M{"Vigilance Exhausted? (40th Diff / 60 Min)"}:::gate
+        M -->|"Yes: Cognitive Ceiling"| N["Mandatory Reset: Commit Clean State & Pause"]:::human
+        N -.-> F
+    end
+
+    subgraph ReleaseGates ["Release & Integration Gates: Risk-Tiered Merge"]
+        M -->|"No: Vigilance Intact"| O["Executive Code Review: Isolated, Context-Free Inspection"]:::ai
+        O --> P{"Risk Tier Assessment"}:::gate
+        P -->|"Tier 1: Low Risk"| Q["Autonomous Fast Path: Unit Tests + Lint"]:::gate
+        P -->|"Tier 2: Medium Risk"| R["Standard Path: Full CI + Scoped Diff Review"]:::gate
+        P -->|"Tier 3: High Risk"| S["Gated Path: Full CI + Executive Review + Staging Gate"]:::gate
+        Q --> T["Trunk Main Branch (Feature Flagged)"]:::human
+        R --> T
+        S --> T
+        T --> U["Verified Release Candidate & Progressive Delivery"]:::human
+    end
+```
+
+```mermaid
+test
+```
