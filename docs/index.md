@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: ”AI Extreme Programming"
-  text: "Extreme Programming for Human-AI Teams of 1 to N"
-  tagline: "Working draft - brainstorm stage."
+  name: aiXP
+  text: ”AI Extreme Programming"
+  tagline: "Embracing Change at Machine Speeds"
   actions:
     - theme: brand
       text: Start reading
