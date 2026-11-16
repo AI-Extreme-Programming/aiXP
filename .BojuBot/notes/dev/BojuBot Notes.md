@@ -23,6 +23,6 @@ Concrete examples:
 - BROKEN: `[[Preface]]` (no backticks around wikilinks)
 ```
   
-  - it looks like settings changes, like changing the default skills folder, isn't getting picked up by the current session.  BojuBot's data.json should be rein
+  - it looks like settings changes, like changing the default skills folder, isn't getting picked up by the current session.  BojuBot's data.json should be reinjected, or at least the changed portion should be re-injected, when something changes
   - 
     
