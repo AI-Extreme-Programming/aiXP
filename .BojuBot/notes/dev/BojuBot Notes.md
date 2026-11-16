@@ -24,5 +24,6 @@ Concrete examples:
 ```
   
   - it looks like settings changes, like changing the default skills folder, isn't getting picked up by the current session.  BojuBot's data.json should be reinjected, or at least the changed portion should be re-injected, when something changes
-  - 
+  - should bojubot know to go read the documentation if it doesn't know how to do something - like if it's looking for an explanation of the skills schema?
+  - agy keeps trying to use it's default 
     
