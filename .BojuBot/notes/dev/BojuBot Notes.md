@@ -21,7 +21,8 @@ Concrete examples:
 - BROKEN: [Preface](file:///E:/vault/docs/00.01-preface.md) (no file:// schemes)
 - BROKEN: [`Preface`](docs/aixp/00.01-preface.md) (no backticks on link text)
 - BROKEN: `[[Preface]]` (no backticks around wikilinks)
-  ```
+```
   
-  - ttt
+  - it looks like settings changes, like changing the default skills folder, isn't getting picked up by the current session.  BojuBot's data.json should be rein
+  - 
     
