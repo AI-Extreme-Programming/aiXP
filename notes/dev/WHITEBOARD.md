@@ -307,3 +307,20 @@ Build assuming the agent will cut corners and then tell you it didn't, and instr
 
 object oriented programming timing and relationship
 
+---
+aixp chapters 
+- background
+- aixp isn't vibe coding
+- main thrust
+- manifesto
+- context management 
+- proposed branch/merge strategies
+- ci/cd
+- case for ai as human right
+- evolution of coding tools, from punchcards, to ai
+
+
+
+
+
+
