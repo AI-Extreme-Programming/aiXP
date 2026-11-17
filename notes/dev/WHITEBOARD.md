@@ -319,7 +319,20 @@ aixp chapters
 - case for ai as human right
 - evolution of coding tools, from punchcards, to ai
 
+---
+ai thoughts
 
+https://youtu.be/aBUniZHgCnE?si=8tVsRwfAwOm5FBfe
+
+maybe people that have trouble with ai are just seeing themselves in the mirror - it knows you're cheating or lying and it does the same
+
+---
+
+"Not a bug.": When Claude says something is, "not a bug," it most certainly is a bug.
+
+"Nothing breaks in either case": When Claude says nothing is broken, you can be sure it's covering for something that's broken. 
+
+#softwareEngineering #Claude #Anthropic #ai #Claude.ai #XP #aiXP 
 
 
 
