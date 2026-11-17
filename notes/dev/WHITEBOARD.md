@@ -141,7 +141,7 @@ flowchart TD
 test
 ```
 
-an ageentic approach to software engineering
+## an aeentic approach to software engineering
 
 a software engineering spproach to ai-native agentic development
 
