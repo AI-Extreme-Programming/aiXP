@@ -27,6 +27,6 @@ Concrete examples:
   - should bojubot know to go read the documentation if it doesn't know how to do something - like if it's looking for an explanation of the skills schema?
   - agy keeps trying to use it's default file tools rather than that ones it has access to through bojubot -- this requires a permission bump.  Can we make agy always default to trying to use it's bojubot toolset first, before using something that will escalate our permissions mode unnecessarily?
   - starting in a new vault, everything defaults to claude-code, and if I switch to antigravity, I don't have the opportunity to initialize my \_claude-context.md file - this is a pretty major bug -- I can find no way to recreate it once it's skipped - we should document the process of creating that file and maybe we need a command to create/regenerate it
-  - 
+  - wrapping doesn't work properly on long lines with no spaces - like directory listings - it's a bit confusing, but maybe acceptable
   - 
     
