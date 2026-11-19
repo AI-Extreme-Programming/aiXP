@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/AI-Extreme-Programming/aiXP/compare/v0.1.0...v0.1.1) (2026-11-19)
+
+
+### Bug Fixes
+
+* add a 7-day cooldown to Dependabot version updates ([81643f1](https://github.com/AI-Extreme-Programming/aiXP/commit/81643f1abf0512104b06f369ea3c56b740831b6d))
+* add Dependabot config for monthly grouped dependency updates ([e4b5999](https://github.com/AI-Extreme-Programming/aiXP/commit/e4b59996f17c090f70ae9a6018343b808a66b3ed))
+
 ## [0.1.0](https://github.com/AI-Extreme-Programming/aiXP/compare/v0.0.1...v0.1.0) (2026-11-14)
 
 
