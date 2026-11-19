@@ -334,6 +334,14 @@ maybe people that have trouble with ai are just seeing themselves in the mirror 
 
 #softwareEngineering #Claude #Anthropic #ai #Claude.ai #XP #aiXP 
 
+---
+
+Code review agent:
+
+read-only and will go through every line of the agent's source, skimming the tests. It's looking for dead code, repeated code, god classes and over-engineering, plus real defects like overflow or lifetime bugs. Each finding must point at a file and line, ranked by severity.
+
+---
+
 
 
 
