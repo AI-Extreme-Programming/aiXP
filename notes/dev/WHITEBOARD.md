@@ -341,7 +341,7 @@ Code review agent:
 read-only and will go through every line of the agent's source, skimming the tests. It's looking for dead code, repeated code, god classes and over-engineering, plus real defects like overflow or lifetime bugs. Each finding must point at a file and line, ranked by severity.
 
 ---
-a note here on the cookbook, and something i think is worth pointing out;  none of the recipes are about creative generation - they're about overcoming technical barriers, seeking clarity, and getting past the the very things that distract us from doing the creative 
+a note here on the cookbook:  none of the recipes are about creative generation - they're about overcoming technical barriers, seeking clarity, and overcoming the the very things that distract us from just getting down to brass tacks and doing the creative work
 
 
 
