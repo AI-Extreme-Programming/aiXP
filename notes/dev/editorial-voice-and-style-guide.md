@@ -72,3 +72,16 @@ When collaborating with an AI pair partner on this project:
 * **Field Cases:** Include short, authentic anecdotes from real terminal sessions (e.g. the Lunar Surface Shader opposition surge case study, hitting the 4-session working memory wall, or catching subtle Android IME glitches on physical devices).
 * **The 80/20 Polymath Pattern:** Emphasize that modern high-leverage builders acquire domain mental models using isolated, sandboxed AI tutors outside the production terminal, gated by the Feynman rule: *you haven't learned it until you can teach it.*
 * **Clear Diagrams:** Use simple Mermaid flowcharts and topologies (e.g. the human-AI verification loop, Agent Role Topology) to anchor complex ideas visually.
+
+---
+
+## 7. Page Review Checklist
+
+When auditing or polishing any manuscript page, test it against these five core questions before marking it complete in the backlog:
+
+1. **Story:** Is it telling a coherent story, or is it merely listing disconnected technical facts?
+2. **Coherence:** Does the logical flow follow an unbroken chain of reasoning from problem to mechanism to artifact?
+3. **Wandering:** Does the section stay strictly within its topic boundary, or does it drift into tangential philosophical or tooling debates?
+4. **Reader Momentum:** Does the prose maintain practitioner-first momentum and make the reader want to continue to the next section?
+5. **Open Threads:** Are all introduced concepts, analogies, or promises resolved, or are there dangling threads left untouched?
+
