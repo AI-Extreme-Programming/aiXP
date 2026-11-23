@@ -5,7 +5,7 @@
 "If I have seen further than others, it is by standing upon the shoulders of giants." — Isaac Newton
 
 
-formal spec type list:
+## Formal Spec Type List (Destination: Appendix Reference & Scoping Prompt)
 
 * Product & Requirements
    * Product Requirement Documents (PRDs)
