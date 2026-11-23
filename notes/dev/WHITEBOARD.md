@@ -4,22 +4,6 @@
 
 "If I have seen further than others, it is by standing upon the shoulders of giants." — Isaac Newton
 
-## Spec Development Pitfalls
-
-- [x] monkeys (Covered in Ch. 2 Context Stewardship & Ch. 7 Anti-Patterns: attention pollution from negative/deprecated tokens)
-- [x] recording history (Covered in Ch. 2 Living Context & Ch. 7: git holds history, spec/context holds current law only)
-- [ ] dropping engineer voice in lieu of a more narrative tone
-- [ ] building in shortcuts and dead ends:  "v1 doesn't include...." -- don't let the agent define release targets ("v1") or take certain things off the table.  When it does so, it can be creating a design that builds you into a corner, requiring a rewrite for future growth -- remind it that we're engineers, we don't take shortcuts, we do the hard work now to minimize user and maintainer friction in the future.
-- [ ] a good working boundary during spec design: 
-	- [ ] one question at a time, asked in full
-		- interview style works well, 
-		- allows you to explore a question until it's exhausted and fully scoped
-		- avoid the built in assumptions (answers to questions) that are required in order to ask every qeustion in one turn. Questions evolve.  Let them.
-	- [ ] plan ahead: design for requirements that can be seen coming. no built-in shortcuts.
-- [x] SRS, SDD, FMT, ATS, roadmap, TBD, README (Covered in Intro 00.02.70: constellation of living spec artifacts)
-- [x] writing your spec from a session with a lot of research context in it can often make the task difficult because of the agents propensity to make excuses and justify decisions - it will bring in unrelated references to projects and names it internally feels is important. (Covered in Ch. 2: Isolate the Learning Session)
-- [x] proposal - let the agent know that the spec is inherently a proposal, so it doesn't mark everything "proposed", which you'll just have to clean out and talk the agent through in the future. (Covered in Ch. 2: Living Context Stewardship)
-
 
 formal spec type list:
 
