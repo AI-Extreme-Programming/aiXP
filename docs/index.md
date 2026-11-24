@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "AI Extreme Programming"
-  text: "An AI-Native Engineering Discipline for Production-Grade Software"
-  tagline: "Trust & Human Creativity at Machine Speed: The Asymmetric Pair"
+  text: "Trust & Human Creativity at Machine Speed: The Asymmetric Pair"
+  tagline: "An AI-Native Engineering Discipline for Production-Grade Software"
   actions:
     - theme: brand
       text: Start reading

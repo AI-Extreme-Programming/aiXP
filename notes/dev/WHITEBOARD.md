@@ -34,9 +34,6 @@
   
 
 
-Extreme Programming for Machine-Speed Development  
-(or your current: Embrace Change at Machine Speed)
-
 
 ## A note on intent 
 
