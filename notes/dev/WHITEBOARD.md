@@ -38,33 +38,7 @@
 
 ---
 
-# developing good code vs slop
-
-- tools amplify capability, they don't replace it. 
-- ai clearly improves short term productivity
-- they do not damage maintainability
-- they DON'T remove the need for good engineering 
-	- don't remove the need for good design
-	- don't remove the broad experience and understanding that lets us produce these designs and solve engineering problems. 
-	-  don't remove rhe need for thinking hard about these problems - how to decompose them into smaller pieces that allow ai systems to handle them eddectively and to keep things modular and maintainable. 
-- compartmentalization through decomposition is fundamental to good software dev - with or witout ai - not understanding this is what differentiates good development and production quality software from slop. 
-- 
-
-https://youtu.be/b9EbCb5A408?is=1K6c1TPN2nfpWSRT
-
-https://codemanship.wordpress.com/2026/01/05/the-ai-ready-software-developer-conclusion-same-game-different-dice/
-
-*   Working in small batches, solving one problem at a time
-*   Iterating rapidly, with continuous testing, code review, refactoring and integration
-*   Architecting highly modular designs that localise the “blast radius” of changes
-*   Organising around end-to-end outcomes instead of around role or technology specialisms
-*   Working with high autonomy, making timely decisions on the ground instead of sending them up the chain of command
-
----
-- the ai is the developer, i'm the architect - the conflict is where the ai pushes back against me not letting it take a shortcut because i've got a medium to long term vision and see the problems or limits being built in by the shortcuts
-- ai tools are here ro make experts better - they aren't here to make non-experts capable of producing production ready software - that's just not what these tools are designed (or good) for. Saying otherwise is a lie that's been sold. prototypes? sure. scratch a personal itch or curiosity? yes. production ready, scalable, robust? no, no, no. 
-- vibe coders: frustrated product directors or business minded entrepreneurs
-- i'm using TDD now - just as before, but better and faster. 
+https://youtu.be/b9EbCb5A408?is=1K6c1TPN2nfpWSRT 
 
 ---
 
