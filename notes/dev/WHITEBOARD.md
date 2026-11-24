@@ -68,4 +68,52 @@ In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.m
 **The Seam:** Both arguments are sound, but juxtaposed directly, the transition is abrupt. The connective tissue is missing: corporate leadership's fatal mistake was taking those exact weekend hackathon demos and assuming they represented sustainable enterprise engineering. Adding that single conceptual bridge would unify the two sections.
 
 
+---
 
+### 2. The Core Economic Thesis Loop
+
+The foundational premise—_typing was never the bottleneck; generation is free, verification is expensive; AI increases the need for discipline_—is restated as a newly minted thesis in nearly every file:
+
+- **[00.01.50-preface.md#L17](app://obsidian.md/docs/aixp/00.01.50-preface.md#L17):** _"The central argument is the opposite: 'AI makes the discipline of software engineering more important, not less, because the cost of undisciplined code volume is no longer throttled by the speed we type.'"_
+- **[00.02.50-introduction.md#L3-L6](app://obsidian.md/docs/aixp/00.02.50-introduction.md#L3-L6):** _"typing code was never the bottleneck... knowing what to build, verifying that it actually works... When the cost of generating code approaches zero, traditional engineering assumptions invert."_
+- **[00.02.60-vibe-coding.md#L63](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md#L63):** _"AI does not reduce the need for engineering discipline; it amplifies the consequences of its absence. When code generation approaches zero cost..."_
+- **[00.02.80-what-changed.md#L3](app://obsidian.md/docs/aixp/00.02.80-what-changed.md#L3):** _"The simplest way to describe what changed: generation became cheap. Verification didn't."_
+- **[00.02.80-what-changed.md#L13](app://obsidian.md/docs/aixp/00.02.80-what-changed.md#L13):** _"When generation was the constraint, quality practices... slowed down the primary bottleneck. When verification is the constraint, those same practices become the engine of throughput."_
+
+_The Effect:_ By the end of the Introduction, the reader has been pitched the exact same economic deduction five times.
+
+---
+
+### 3. The Phraseological Echo: "Pair Programming Is No Longer a Special Event"
+
+The exact phrase and framing of pair programming as an "expensive special event" that is "now desktop reality" is reused four times:
+
+- **[00.01.50-preface.md#L11-L13](app://obsidian.md/docs/aixp/00.01.50-preface.md#L11-L13):** _"...watched 'pair programming' remain largely an occasional, special-event luxury among human engineers. Today, pairing is no longer a special event."_
+- **[00.01.70-conventions.md#L31](app://obsidian.md/docs/aixp/00.01.70-conventions.md#L31):** _"...where pairing is the daily baseline rather than an occasional event."_
+- **[00.02.70-xp-background.md#L12](app://obsidian.md/docs/aixp/00.02.70-xp-background.md#L12):** _"- Pair programming was treated as an expensive special event. Management balked at paying two salaries for one keyboard."_
+- **[00.02.70-xp-background.md#L25](app://obsidian.md/docs/aixp/00.02.70-xp-background.md#L25):** _"- Pair programming is no longer a special event. It is the default, minute-by-minute desktop reality."_
+
+---
+
+### 4. The "Team of 1" and Enterprise Discipline Triad
+
+The specific triad of enterprise disciplines brought to solo builders is mirrored across the Preface and the XP background:
+
+- **[00.01.50-preface.md#L19](app://obsidian.md/docs/aixp/00.01.50-preface.md#L19):** _"...how few working engineers have a coherent model of practices like regression suite maintenance, tiered release strategy, or versioning discipline... that individuals and small teams can actually master and run."_
+- **[00.02.70-xp-background.md#L13-L26](app://obsidian.md/docs/aixp/00.02.70-xp-background.md#L13-L26):** _"- It was never designed for a 'team of 1.' ... - The 'team of 1' gains institutional leverage. Running a continuous regression suite, a tiered release strategy, and formal versioning discipline historically required enterprise headcount: dedicated QA departments, release engineers, and DevOps squads."_
+
+---
+
+### 5. The "Happy-Path 30-Second Demo" Critique
+
+The phrase and mental picture of the "happy-path demo that runs for thirty seconds without crashing" appears as a defining trope in both:
+
+- **[00.01.70-conventions.md#L9](app://obsidian.md/docs/aixp/00.01.70-conventions.md#L9):** _"In consumer app culture, 'production' has often decayed into meaning anything that compiles, runs a happy-path demo, and doesn't crash within thirty seconds."_
+- **[00.02.60-vibe-coding.md#L18](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md#L18):** _"If the screen paints, the button clicks, and the happy path runs without an immediate crash, the software is declared done... a five-second demo proves nothing..."_
+- **[00.02.60-vibe-coding.md#L48](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md#L48):** _"watched a 30-second keynote demo of an agent scaffolding an app and drew a fatally naive conclusion..."_
+
+---
+
+### Summary
+
+The repetition is primarily an artifact of **atomic sub-note drafting**. When each sub-note was authored independently in Obsidian, each note felt complete in isolation because it established its own context, credentials, and thesis. But when compiled through `<!--@include: ...-->` into VitePress, the reader encounters the same anecdotes, slogans, and economic premises clustered within consecutive paragraphs.
