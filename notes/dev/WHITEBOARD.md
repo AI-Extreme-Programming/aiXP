@@ -34,21 +34,7 @@
   
 
 
----
-
-## an agentic approach to software engineering
-
-a software engineering spproach to ai-native agentic development
-
-- acceptance testing = behavior driven development
-- change as experiment - iterative refinement
-- adaptability - flexability
-- work in small steps - small, verifiable, safe, directed steps - evaluate if you're headed in the right direction
-- keeping the ai constrained because it wants to run ahead
-- when asking claude to read something or to use another document as reference or guidance, doublecheck that it read the full text - it frequently uses 'read' tools that return summaries and may miss contradictions, emphasis, anti-patterns, and open questions 
-- using sub agents forces a verification and acceptance testing feedback loop that's missing when you work directly with the coding agent.  a supervisor will test and verify the agent's claims skeptically - it will not do so with it's own work - it works from memory, assumes results, takes shorcuts, replies over optimistically when something only partially works - a non-crash is suddenly a success even when the functional goal was never met.
-- make sure sub agents use worktrees to avoid clashes
-- 
+--- 
 
 ---
 
