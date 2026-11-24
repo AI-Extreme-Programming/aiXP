@@ -58,4 +58,14 @@ However, [00.02.70-xp-background.md](app://obsidian.md/docs/aixp/00.02.70-xp-ba
 
 ---
 
+### 3. Tonal Whiplash in `00.02.60-vibe-coding.md`
+
+In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md):
+
+- Lines 28-43 (_The Case for Vibe_) warmly defend vibe coding for weekend prototyping, disposable spikes, and hackathons (_"intoxicatingly fun,"_ _"exhilarating creative experience"_).
+- Line 44 (_The Executive Delusion_) pivots immediately into a scathing indictment of corporate C-suites firing developers (_"epidemic of magical thinking,"_ _"staggering poverty of leadership ambition"_).
+
+**The Seam:** Both arguments are sound, but juxtaposed directly, the transition is abrupt. The connective tissue is missing: corporate leadership's fatal mistake was taking those exact weekend hackathon demos and assuming they represented sustainable enterprise engineering. Adding that single conceptual bridge would unify the two sections.
+
+
 
