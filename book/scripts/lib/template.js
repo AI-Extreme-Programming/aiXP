@@ -29,6 +29,7 @@ export function readBookMetadata(file) {
   return {
     title: data.title,
     subtitle: data.subtitle,
+    tagline: data.tagline ?? '',
     author: Array.isArray(data.author) ? data.author.join(', ') : data.author,
     publisher: data.publisher,
     rights: data.rights,

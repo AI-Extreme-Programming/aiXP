@@ -22,15 +22,17 @@ function fontFace(weight) {
 
 export function coverHtml(metadata, fonts = '') {
   const author = Array.isArray(metadata.author) ? metadata.author.join(', ') : metadata.author;
+  const taglineHtml = metadata.tagline ? `<div class="tagline">${escapeHtml(metadata.tagline)}</div>` : '';
   return `<!doctype html>
 <html><head><meta charset="utf-8"><style>
 ${fonts}
 html, body { margin: 0; width: ${COVER.width}px; height: ${COVER.height}px; }
 body { background: #1f2a36; color: #f4f1ea; font-family: "Cover Sans", sans-serif;
   display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; padding: 220px 150px 180px; }
-.title { font-size: 300px; font-weight: 700; line-height: 1; letter-spacing: -4px; }
-.subtitle { margin-top: 70px; font-size: 76px; line-height: 1.25; font-weight: 400; }
-.rule { margin-top: 90px; height: 12px; width: 420px; background: #c8a74a; }
+.title { font-size: 110px; font-weight: 700; line-height: 1.1; letter-spacing: -2px; color: #a5b4fc; }
+.subtitle { margin-top: 50px; font-size: 84px; line-height: 1.2; font-weight: 700; color: #f4f1ea; }
+.tagline { margin-top: 40px; font-size: 50px; line-height: 1.35; font-weight: 400; color: #94a3b8; }
+.rule { margin-top: 70px; height: 12px; width: 420px; background: #c8a74a; }
 .placeholder { align-self: stretch; border: 10px dashed #c8a74a; color: #c8a74a; text-align: center;
   padding: 50px 0 60px; font-size: 128px; font-weight: 700; letter-spacing: 12px; }
 .placeholder small { display: block; margin-top: 18px; font-size: 48px; letter-spacing: 2px; font-weight: 400; color: #f4f1ea; }
@@ -38,6 +40,7 @@ body { background: #1f2a36; color: #f4f1ea; font-family: "Cover Sans", sans-seri
 </style></head><body>
 <div><div class="title">${escapeHtml(metadata.title)}</div>
 <div class="subtitle">${escapeHtml(metadata.subtitle)}</div>
+${taglineHtml}
 <div class="rule"></div></div>
 <div class="placeholder">PLACEHOLDER<small>Cover artwork not final</small></div>
 <div class="author">${escapeHtml(author)}</div>
