@@ -70,17 +70,7 @@ In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.m
 
 ---
 
-### 2. The Core Economic Thesis Loop
 
-The foundational premise—_typing was never the bottleneck; generation is free, verification is expensive; AI increases the need for discipline_—is restated as a newly minted thesis in nearly every file:
-
-- **[00.01.50-preface.md#L17](app://obsidian.md/docs/aixp/00.01.50-preface.md#L17):** _"The central argument is the opposite: 'AI makes the discipline of software engineering more important, not less, because the cost of undisciplined code volume is no longer throttled by the speed we type.'"_
-- **[00.02.50-introduction.md#L3-L6](app://obsidian.md/docs/aixp/00.02.50-introduction.md#L3-L6):** _"typing code was never the bottleneck... knowing what to build, verifying that it actually works... When the cost of generating code approaches zero, traditional engineering assumptions invert."_
-- **[00.02.60-vibe-coding.md#L63](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md#L63):** _"AI does not reduce the need for engineering discipline; it amplifies the consequences of its absence. When code generation approaches zero cost..."_
-- **[00.02.80-what-changed.md#L3](app://obsidian.md/docs/aixp/00.02.80-what-changed.md#L3):** _"The simplest way to describe what changed: generation became cheap. Verification didn't."_
-- **[00.02.80-what-changed.md#L13](app://obsidian.md/docs/aixp/00.02.80-what-changed.md#L13):** _"When generation was the constraint, quality practices... slowed down the primary bottleneck. When verification is the constraint, those same practices become the engine of throughput."_
-
-_The Effect:_ By the end of the Introduction, the reader has been pitched the exact same economic deduction five times.
 
 ---
 
