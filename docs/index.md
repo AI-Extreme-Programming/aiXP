@@ -4,7 +4,7 @@ layout: home
 hero:
   name: aiXP
   text: "AI Extreme Programming"
-  tagline: "Embracing Change at Machine Speeds"
+  tagline: "Trust and Human Creativity at Machine Speed: The Asymmetric Pair"
   actions:
     - theme: brand
       text: Start reading

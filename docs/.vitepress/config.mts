@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'aiXP',
-  description: 'Extreme Programming for Human-AI Teams of 1 to N',
+  description: 'An AI-Native Engineering Discipline for Production-Grade Software',
   base: '/aiXP/',
 
   themeConfig: {
