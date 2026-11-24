@@ -74,14 +74,6 @@ In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.m
 
 ---
 
-### 3. The Phraseological Echo: "Pair Programming Is No Longer a Special Event"
-
-The exact phrase and framing of pair programming as an "expensive special event" that is "now desktop reality" is reused four times:
-
-- **[00.01.50-preface.md#L11-L13](app://obsidian.md/docs/aixp/00.01.50-preface.md#L11-L13):** _"...watched 'pair programming' remain largely an occasional, special-event luxury among human engineers. Today, pairing is no longer a special event."_
-- **[00.01.70-conventions.md#L31](app://obsidian.md/docs/aixp/00.01.70-conventions.md#L31):** _"...where pairing is the daily baseline rather than an occasional event."_
-- **[00.02.70-xp-background.md#L12](app://obsidian.md/docs/aixp/00.02.70-xp-background.md#L12):** _"- Pair programming was treated as an expensive special event. Management balked at paying two salaries for one keyboard."_
-- **[00.02.70-xp-background.md#L25](app://obsidian.md/docs/aixp/00.02.70-xp-background.md#L25):** _"- Pair programming is no longer a special event. It is the default, minute-by-minute desktop reality."_
 
 ---
 
