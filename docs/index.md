@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: aiXP
-  text: "AI Extreme Programming"
-  tagline: "Trust and Human Creativity at Machine Speed: The Asymmetric Pair"
+  name: "AI Extreme Programming"
+  text: "An AI-Native Engineering Discipline for Production-Grade Software"
+  tagline: "Trust & Human Creativity at Machine Speed: The Asymmetric Pair"
   actions:
     - theme: brand
       text: Start reading

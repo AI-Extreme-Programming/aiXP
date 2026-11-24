@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'aiXP',
+  title: 'AI Extreme Programming',
   description: 'An AI-Native Engineering Discipline for Production-Grade Software',
   base: '/aiXP/',
 
