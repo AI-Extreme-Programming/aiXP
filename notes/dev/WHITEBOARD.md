@@ -35,53 +35,6 @@
 
 
 ---
-suggested
-
-```mermaid
-flowchart TD
-    %% Styling
-    classDef human fill:#1f3a60,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef ai fill:#2d1b4e,stroke:#a855f7,stroke-width:2px,color:#fff;
-    classDef gate fill:#2a2a2a,stroke:#64748b,stroke-width:2px,color:#fff;
-    classDef memory fill:#14342b,stroke:#10b981,stroke-width:2px,color:#fff;
-
-    subgraph OuterLoop ["Outer Intent Loop: Acceptance Test-Driven Design (ATDD)"]
-        A["Incoming Change: Feature or Bug"]:::human --> B{"Domain Gap Known?"}:::gate
-        B -->|"No"| C["Sandboxed Tutor Session: Reverse-Grill & Feynman Bar"]:::ai
-        B -->|"Yes"| D["Author Living Micro-Spec: Contracts & Invariants"]:::human
-        C --> D
-        D --> E["Context Stewardship: Update CLAUDE.md & Prune Obsolete History"]:::memory
-    end
-
-    subgraph InnerLoop ["Inner Terminal Loop: Asymmetric TDD & Pairing"]
-        E --> F["Navigator: Define Bounded Task from Spec"]:::human
-        F --> G["Driver (AI): Generate Red Test to Spec"]:::ai
-        G --> H["Mechanical Runner: Confirm Expected Failure"]:::gate
-        H --> I["Driver (AI): Minimal Implementation (Green)"]:::ai
-        I --> J["Mechanical Runner: Confirm Tests Pass"]:::gate
-        J --> K["Driver & Navigator: Bounded Refactor (Zero Scope Creep)"]:::ai
-        K --> L["Navigator: Audit Diff (4 Rules of Simple Design)"]:::human
-        L --> M{"Vigilance Exhausted? (40th Diff / 60 Min)"}:::gate
-        M -->|"Yes: Cognitive Ceiling"| N["Mandatory Reset: Commit Clean State & Pause"]:::human
-        N -.-> F
-    end
-
-    subgraph ReleaseGates ["Release & Integration Gates: Risk-Tiered Merge"]
-        M -->|"No: Vigilance Intact"| O["Executive Code Review: Isolated, Context-Free Inspection"]:::ai
-        O --> P{"Risk Tier Assessment"}:::gate
-        P -->|"Tier 1: Low Risk"| Q["Autonomous Fast Path: Unit Tests + Lint"]:::gate
-        P -->|"Tier 2: Medium Risk"| R["Standard Path: Full CI + Scoped Diff Review"]:::gate
-        P -->|"Tier 3: High Risk"| S["Gated Path: Full CI + Executive Review + Staging Gate"]:::gate
-        Q --> T["Trunk Main Branch (Feature Flagged)"]:::human
-        R --> T
-        S --> T
-        T --> U["Verified Release Candidate & Progressive Delivery"]:::human
-    end
-```
-
-```mermaid
-test
-```
 
 ## an agentic approach to software engineering
 
