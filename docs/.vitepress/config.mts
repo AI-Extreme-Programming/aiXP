@@ -40,7 +40,7 @@ export default defineConfig({
         items: [
           { text: '5. Verification Strategy and Integration', link: '/aixp/02.05.50-verification-and-testing' },
           { text: '6. Delivery, Release, and Observability', link: '/aixp/02.06.50-delivery-and-release' },
-          { text: '7. What aiXP Is Not: Anti-Patterns and Traps', link: '/aixp/02.07.50-anti-patterns' },
+          { text: '7. The Field Traps: What aiXP Is Not', link: '/aixp/02.07.50-anti-patterns' },
         ]
       },
       {

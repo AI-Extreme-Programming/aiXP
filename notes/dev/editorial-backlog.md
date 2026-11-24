@@ -19,7 +19,7 @@ The manuscript is organized into a cohesive 9-chapter practitioner workflow, fra
 | [[docs/aixp/01.05.50-field-protocol.md\|Field Protocol]] | The Loop in Practice | n/a | Polished | Master 3-subgraph lifecycle diagram, Primary->Sub-Agent dispatch, git worktree isolation, Lessons Ratchet, QuKi-Notes PR #350 case study |
 | [[docs/aixp/02.05.50-verification-and-testing.md\|Chapter 5]] | Verification Strategy and Integration | n/a | Polished | 4-tier testing ladder, Agentic UI test-driving vs scripted assertions, Continuous Integration & Risk-Tiered Merge Authority |
 | [[docs/aixp/02.06.50-delivery-and-release.md\|Chapter 6]] | Delivery, Release, and Observability | n/a | In Progress | ScooterGitTemplate commit/release-please rules and Zero Attribution + no-blame `mistakes.md` traceability integrated |
-| [[docs/aixp/02.07.50-anti-patterns.md\|Chapter 7]] | What aiXP Is Not: Anti-Patterns and Traps | n/a | In Progress | Catalog of failure modes and traps: The Skimmed Read & Reassurance Trap callout integrated |
+| [[docs/aixp/02.07.50-anti-patterns.md\|Chapter 7]] | The Field Traps: What aiXP Is Not | n/a | Polished | Field cookbook complete: 10 structured traps with tripwires, psychological hooks, damage, escape hatches, and authentic QuKi-Notes/GOMAC field cases |
 | [[docs/aixp/03.08.50-scaling.md\|Chapter 8]] | Scaling Beyond the Solo Practitioner | n/a | Draft | Multi-human, multi-agent collaboration patterns |
 | [[docs/aixp/03.09.50-future-of-the-craft.md\|Chapter 9]] | The Future of the Craft | n/a | Draft | Long-horizon craft synthesis |
 | [[docs/aixp/04.01.50-appendix-original-12.md\|Appendix A]] | Original 12 XP Practices | n/a | Polished | Kent Beck 1999 Extreme Programming reference |
@@ -65,11 +65,11 @@ The manuscript is organized into a cohesive 9-chapter practitioner workflow, fra
 - [ ] **Chapter 6 ([02.06.50-delivery-and-release.md](docs/aixp/02.06.50-delivery-and-release.md)):**
   - [x] Integrated `ScooterGitTemplate` Conventional Commits + `release-please` + `pre-release-staging/{tag}` workflow and replaced false AI attribution claims with Zero AI Attribution + no-blame `mistakes.md` / `MEMORY.md` operational learning.
   - [ ] `report-relay_dev`: Zero-dependency 4-file Cloudflare Worker for in-app GitHub issue reporting.
-- [ ] **Chapter 7 ([02.07.50-anti-patterns.md](docs/aixp/02.07.50-anti-patterns.md)):**
-  - [x] Added `The Skimmed Read` anti-pattern (truncated tool reads missing negative constraints).
-  - [x] Added `The Reassurance Trap: When "Not a Bug" Is Definitely a Bug` callout.
-  - [ ] `QuKi-Notes_devops`: The "Green Test Mirage" - Phase 3.59 cold-launch Android keyboard focus marked "Complete" across four PRs in widget tests while failing on hardware, resolved by killing the code and changing the requirement (`#342`).
-  - [ ] `GOMAC` & `UE_StageHand`: Respecting air-gapped hardware (*TheFlea* on the Sprinter van) and unautomated lifecycle stages (live Unreal Editor Slate overlays).
+- [x] **Chapter 7 ([02.07.50-anti-patterns.md](docs/aixp/02.07.50-anti-patterns.md)):**
+  - [x] Refactored into a practitioner field cookbook with 10 structured traps (The Tripwire, The Psychological Hook, The Structural Damage, The Escape Hatch).
+  - [x] Integrated `The Skimmed Read` (Trap 3) and `The Reassurance Trap` crime-scene markers (Trap 5).
+  - [x] Integrated `QuKi-Notes_devops`: The "Green Test Mirage" (Trap 4) - Phase 3.59 cold-launch Android keyboard focus marked "Complete" across four PRs in widget tests while failing on hardware, resolved by deleting the code and changing the requirement (`#342`).
+  - [x] Integrated `GOMAC` & `UE_StageHand`: The "Phantom Pipeline" (Trap 8) - respecting air-gapped hardware (*TheFlea* on the Sprinter van) and interactive Unreal Editor Slate viewports.
 - [ ] **Chapter 8 ([03.08.50-scaling.md](docs/aixp/03.08.50-scaling.md)):**
   - `aiXP`: Git worktree isolation (`git worktree add ../aiXP-<slug>`) against background auto-commit daemons (`obsidian-git`).
   - `GOMAC`: Separating Claude-specific rules (`CLAUDE.md`) from tool-agnostic team docs (`notes/dev/gomac-project-overview.md`).
