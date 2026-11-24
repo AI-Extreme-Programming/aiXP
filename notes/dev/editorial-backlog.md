@@ -13,18 +13,18 @@ The manuscript is organized into a cohesive 9-chapter practitioner workflow, fra
 | **Front Matter**   | `00.01.50-preface.md`                  | `00.01.60-how-to-read.md`, `00.01.70-conventions.md`                               | Polished    | Single-page roll-up complete; author voice preserved verbatim                                                                 |
 | **Introduction**   | `00.02.50-introduction.md`             | `00.02.60-vibe-coding.md`, `00.02.70-xp-background.md`, `00.02.80-what-changed.md` | Polished    | Single-page roll-up complete; Kent Beck callouts integrated                                                                   |
 | **Chapter 1**      | `01.01.50-manifesto.md`                | n/a                                                                                | Polished    | Five pillars and operational rejection criteria complete                                                                      |
-| **Chapter 2**      | `01.02.50-intent-and-context.md`       | n/a                                                                                | Polished    | Authentic artifacts integrated from BojuBot, QuKi-Notes, and Lunar Shader case study                                          |
+| **Chapter 2**      | `01.02.50-intent-and-context.md`       | n/a                                                                                | Polished    | Authentic artifacts integrated from BojuBot, QuKi-Notes, and Lunar Shader case study; Context Stewardship & Document Tiering in |
 | **Chapter 3**      | `01.03.50-terminal-loop.md`            | n/a                                                                                | Polished    | Core bones, two-level loop, 3-tier risk triage, and BojuBot/QuKi-Notes artifacts in                                           |
-| **Chapter 4**      | `01.04.50-judgment-and-roles.md`       | n/a                                                                                | In Progress | Role topology, Load-Bearing vs. Reversible brief rule, multi-agent review interrogation, and Vigilance Budgeting aligned      |
-| **Field Protocol** | `01.05.50-field-protocol.md`           | n/a                                                                                | In Progress | Replaced synthetic 2-terminal/BojuBot #84 walkthrough with Primary->Sub-Agent dispatch and real QuKi-Notes PR #350 case study |
-| **Chapter 5**      | `02.05.50-verification-and-testing.md` | n/a                                                                                | In Progress | Risk-tiered merge authority aligned with 3-tier risk triage; integrate additional CI harnesses                                |
+| **Chapter 4**      | `01.04.50-judgment-and-roles.md`       | n/a                                                                                | Polished    | Role topology, Load-Bearing brief rule, multi-agent Executive Review template & interrogation, Vigilance Budgeting, Human Reserved List |
+| **Field Protocol** | `01.05.50-field-protocol.md`           | n/a                                                                                | Polished    | Master 3-subgraph lifecycle diagram, Primary->Sub-Agent dispatch, git worktree isolation, Lessons Ratchet, QuKi-Notes PR #350 case study |
+| **Chapter 5**      | `02.05.50-verification-and-testing.md` | n/a                                                                                | Polished    | 4-tier testing ladder, Agentic UI test-driving vs scripted assertions, Continuous Integration & Risk-Tiered Merge Authority    |
 | **Chapter 6**      | `02.06.50-delivery-and-release.md`     | n/a                                                                                | In Progress | ScooterGitTemplate commit/release-please rules and Zero Attribution + no-blame `mistakes.md` traceability integrated          |
-| **Chapter 7**      | `02.07.50-anti-patterns.md`            | n/a                                                                                | Draft       | Catalog of failure modes and traps                                                                                            |
+| **Chapter 7**      | `02.07.50-anti-patterns.md`            | n/a                                                                                | In Progress | Catalog of failure modes and traps: The Skimmed Read & Reassurance Trap callout integrated                                     |
 | **Chapter 8**      | `03.08.50-scaling.md`                  | n/a                                                                                | Draft       | Multi-human, multi-agent collaboration patterns                                                                               |
 | **Chapter 9**      | `03.09.50-future-of-the-craft.md`      | n/a                                                                                | Draft       | Long-horizon craft synthesis                                                                                                  |
 | **Appendix A**     | `04.01.50-appendix-original-12.md`     | n/a                                                                                | Polished    | Kent Beck 1999 Extreme Programming reference                                                                                  |
-| **Appendix B**     | `04.02.50-appendix-ai-native-sdlc.md`  | n/a                                                                                | Draft       | Compare against Anthropic AI-Native SDLC playbook and enterprise frameworks                                                   |
-| **Appendix C**     | `04.03.50-bibliography.md`             | n/a                                                                                | Polished    | Citations linked; drafting prompts removed                                                                                    |
+| **Appendix B**     | `04.02.50-appendix-ai-native-sdlc.md`  | n/a                                                                                | In Progress | Field Comparison against Anthropic AI-Native SDLC playbook; positioning and divergence mapped                                 |
+| **Appendix C**     | `04.03.50-bibliography.md`             | n/a                                                                                | Polished    | Citations linked; Jason Gorman, Dave Farley, Gojko Adzic, Kent Beck added                                                     |
 
 ---
 
@@ -47,10 +47,17 @@ The manuscript is organized into a cohesive 9-chapter practitioner workflow, fra
   - `CambrianaCore`: Formal `SRS` / `SDD` / `FMT` / `ATS` spec constellations for zero-tolerance systems.
 - [ ] **Chapter 4 ([01.04.50-judgment-and-roles.md](docs/aixp/01.04.50-judgment-and-roles.md)):**
   - [x] Aligned `Agent Role Topology`, `Executive Code Review`, and `Vigilance Budgeting` with Chapter 3's 3-tier risk-triage model and the `QuKi-Notes` / `CambrianaCore` **load-bearing vs. reversible** sub-agent briefing rule.
+  - [x] Added `The Human Reserved List` callout (destructive ops, security/auth, schema drops/rollbacks, budget ceilings).
+  - [x] Added executable prompt template for read-only Executive Code Review agent (dead code, god classes, real defects, ranked by severity).
   - [ ] `QuKi-Notes_devops`: Physical session directories (`Agents/quiki-spec`, `quiki-dev`, `quiki-devops`, `quiki-docs`) + independent Spec A/B test verification.
   - [ ] `BojuStudio_devops_agent`: Portable git-tracked agent memory (`notes/dev/memory/MEMORY.md`).
+- [ ] **Field Protocol ([01.05.50-field-protocol.md](docs/aixp/01.05.50-field-protocol.md)):**
+  - [x] Added master three-subgraph lifecycle diagram (Outer Intent Loop -> Inner Terminal Loop -> Release & Integration Gates).
+  - [x] Added Primary-to-Sub-Agent dispatch diagram, Git worktree isolation (`git worktree`), and `The Lessons Ratchet` callout.
+  - [x] Integrated real `QuKi-Notes` PR #350 case study across rounds 1-3.
 - [ ] **Chapter 5 ([02.05.50-verification-and-testing.md](docs/aixp/02.05.50-verification-and-testing.md)):**
   - [x] Aligned `Continuous Integration and Risk-Tiered Merge Authority` and `Regression Suite Maintenance` with the 3-tier risk-triage spectrum (including `RepoWatch`'s static source guard and low-stakes direct-to-`main` exception).
+  - [x] Added `Agentic UI Test-Driving vs. Scripted Assertions` (Playwright autonomous driver vs deterministic assertions).
   - [ ] `GitHubDHC`: Headless AppImage + `xvfb-run` WCAG AA contrast and DOM drift harness for a buildless CSS theme.
   - [ ] `PosseRenkei`: Live sandbox testing (`just live-test`) when vendor SDKs/docs lie (Bluesky video upload, GitHub API headers) + independent HTTP read-back verification.
   - [ ] `BojuVue`: Testing the packed tarball (`package.exports.test.ts`) for SSR and export map integrity.
@@ -59,8 +66,10 @@ The manuscript is organized into a cohesive 9-chapter practitioner workflow, fra
   - [x] Integrated `ScooterGitTemplate` Conventional Commits + `release-please` + `pre-release-staging/{tag}` workflow and replaced false AI attribution claims with Zero AI Attribution + no-blame `mistakes.md` / `MEMORY.md` operational learning.
   - [ ] `report-relay_dev`: Zero-dependency 4-file Cloudflare Worker for in-app GitHub issue reporting.
 - [ ] **Chapter 7 ([02.07.50-anti-patterns.md](docs/aixp/02.07.50-anti-patterns.md)):**
-  - `QuKi-Notes_devops`: The "Green Test Mirage" - Phase 3.59 cold-launch Android keyboard focus marked "Complete" across four PRs in widget tests while failing on hardware, resolved by killing the code and changing the requirement (`#342`).
-  - `GOMAC` & `UE_StageHand`: Respecting air-gapped hardware (*TheFlea* on the Sprinter van) and unautomated lifecycle stages (live Unreal Editor Slate overlays).
+  - [x] Added `The Skimmed Read` anti-pattern (truncated tool reads missing negative constraints).
+  - [x] Added `The Reassurance Trap: When "Not a Bug" Is Definitely a Bug` callout.
+  - [ ] `QuKi-Notes_devops`: The "Green Test Mirage" - Phase 3.59 cold-launch Android keyboard focus marked "Complete" across four PRs in widget tests while failing on hardware, resolved by killing the code and changing the requirement (`#342`).
+  - [ ] `GOMAC` & `UE_StageHand`: Respecting air-gapped hardware (*TheFlea* on the Sprinter van) and unautomated lifecycle stages (live Unreal Editor Slate overlays).
 - [ ] **Chapter 8 ([03.08.50-scaling.md](docs/aixp/03.08.50-scaling.md)):**
   - `aiXP`: Git worktree isolation (`git worktree add ../aiXP-<slug>`) against background auto-commit daemons (`obsidian-git`).
   - `GOMAC`: Separating Claude-specific rules (`CLAUDE.md`) from tool-agnostic team docs (`notes/dev/gomac-project-overview.md`).
