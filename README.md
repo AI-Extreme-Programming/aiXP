@@ -3,7 +3,7 @@
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
     <h1><a href="https://github.com/AI-Extreme-Programming/aiXP">AI-Extreme-Programming/aiXP</a></h1>
-  <h3>Extreme Programming for Human-AI Teams of 1 to N</h3>
+  <h3>An AI-Native Engineering Discipline for Production-Grade Software</h3>
   
   
 <!-- Badges -->
@@ -41,7 +41,7 @@
   </h4>
 </div>
 
-**aiXP** is a working draft of a proposed software engineering discipline: Extreme Programming for human-AI teams of 1 to N. It starts from XP's bet that tight feedback loops beat upfront certainty, argues that AI makes that bet stronger, and works out the practices for a world where the cost of software shifts from writing code to verifying, bounding and integrating it. It draws on classic XP, Lean and SRE, and on the author's daily practice pairing with Claude Code on real projects.
+**aiXP** is a working draft of a proposed software engineering discipline for AI-assisted development. It starts from XP's bet that tight feedback loops beat upfront certainty, argues that AI makes that bet stronger, and works out the practices for a world where the cost of software shifts from writing code to verifying, bounding and integrating it. It draws on classic XP, Lean and SRE, and on the author's daily practice pairing with Claude Code on real projects.
 
 The draft is at the brainstorm stage: chapters are incomplete, and open questions are kept in the text rather than resolved early.
 
