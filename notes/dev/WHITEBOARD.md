@@ -40,20 +40,6 @@
 
 https://youtu.be/b9EbCb5A408?is=1K6c1TPN2nfpWSRT 
 
----
-
-"Not a bug.": When Claude says something is, "not a bug," it most certainly is a bug.
-
-"Nothing breaks in either case": When Claude says nothing is broken, you can be sure it's covering for something that's broken. 
-
-#softwareEngineering #Claude #Anthropic #ai #Claude.ai #XP #aiXP 
-
----
-
-Code review agent:
-
-read-only and will go through every line of the agent's source, skimming the tests. It's looking for dead code, repeated code, god classes and over-engineering, plus real defects like overflow or lifetime bugs. Each finding must point at a file and line, ranked by severity.
-
 
 
 
