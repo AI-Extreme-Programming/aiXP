@@ -77,12 +77,7 @@ In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.m
 
 ---
 
-### 4. The "Team of 1" and Enterprise Discipline Triad
 
-The specific triad of enterprise disciplines brought to solo builders is mirrored across the Preface and the XP background:
-
-- **[00.01.50-preface.md#L19](app://obsidian.md/docs/aixp/00.01.50-preface.md#L19):** _"...how few working engineers have a coherent model of practices like regression suite maintenance, tiered release strategy, or versioning discipline... that individuals and small teams can actually master and run."_
-- **[00.02.70-xp-background.md#L13-L26](app://obsidian.md/docs/aixp/00.02.70-xp-background.md#L13-L26):** _"- It was never designed for a 'team of 1.' ... - The 'team of 1' gains institutional leverage. Running a continuous regression suite, a tiered release strategy, and formal versioning discipline historically required enterprise headcount: dedicated QA departments, release engineers, and DevOps squads."_
 
 ---
 
