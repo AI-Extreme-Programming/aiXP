@@ -47,7 +47,8 @@ export default defineConfig({
         text: 'Part III: The Horizon',
         items: [
           { text: '8. Scaling Beyond the Solo Practitioner', link: '/aixp/03.08.50-scaling' },
-          { text: '9. The Future of the Craft', link: '/aixp/03.09.50-future-of-the-craft' },
+          { text: '9. The Organizational Interface', link: '/aixp/03.09.50-organizational-interface' },
+          { text: '10. The Future of the Craft', link: '/aixp/03.10.50-future-of-the-craft' },
         ]
       },
       {
