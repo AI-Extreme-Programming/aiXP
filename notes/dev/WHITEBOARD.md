@@ -58,14 +58,7 @@ However, [00.02.70-xp-background.md](app://obsidian.md/docs/aixp/00.02.70-xp-ba
 
 ---
 
-### 3. Tonal Whiplash in `00.02.60-vibe-coding.md`
 
-In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md):
-
-- Lines 28-43 (_The Case for Vibe_) warmly defend vibe coding for weekend prototyping, disposable spikes, and hackathons (_"intoxicatingly fun,"_ _"exhilarating creative experience"_).
-- Line 44 (_The Executive Delusion_) pivots immediately into a scathing indictment of corporate C-suites firing developers (_"epidemic of magical thinking,"_ _"staggering poverty of leadership ambition"_).
-
-**The Seam:** Both arguments are sound, but juxtaposed directly, the transition is abrupt. The connective tissue is missing: corporate leadership's fatal mistake was taking those exact weekend hackathon demos and assuming they represented sustainable enterprise engineering. Adding that single conceptual bridge would unify the two sections.
 
 
 ---
@@ -81,13 +74,7 @@ In [00.02.60-vibe-coding.md](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.m
 
 ---
 
-### 5. The "Happy-Path 30-Second Demo" Critique
 
-The phrase and mental picture of the "happy-path demo that runs for thirty seconds without crashing" appears as a defining trope in both:
-
-- **[00.01.70-conventions.md#L9](app://obsidian.md/docs/aixp/00.01.70-conventions.md#L9):** _"In consumer app culture, 'production' has often decayed into meaning anything that compiles, runs a happy-path demo, and doesn't crash within thirty seconds."_
-- **[00.02.60-vibe-coding.md#L18](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md#L18):** _"If the screen paints, the button clicks, and the happy path runs without an immediate crash, the software is declared done... a five-second demo proves nothing..."_
-- **[00.02.60-vibe-coding.md#L48](app://obsidian.md/docs/aixp/00.02.60-vibe-coding.md#L48):** _"watched a 30-second keynote demo of an agent scaffolding an app and drew a fatally naive conclusion..."_
 
 ---
 
@@ -102,31 +89,3 @@ The repetition is primarily an artifact of **atomic sub-note drafting**. When e
 
 
 ---
-
-## Part III Structural Split: Team Mechanics vs. Enterprise Reality
-
-### Chapter 8: Scaling to the Engineering Team (The Mechanics of N > 1)
-- **Scope:** Technical infrastructure, branch hygiene, and pairing dynamics when multiple engineers share a codebase.
-- **Key Sections:**
-  - What stays at the desk (Spec-first, TDD, individual verification).
-  - Shared context infrastructure: The 3-Tier Architecture (Global `CLAUDE.md`, Subsystem `CONTEXT.md`, Local `.local.md`), collation precedence, and CI linters.
-  - Team agent role topology & authority matrix.
-  - What breaks at scale: Velocity estimation / story points replaced by Complexity & Blast Radius Gating.
-  - The PR bottleneck & Risk-Tiered Merge Authority (Tier 1/2/3).
-  - Sub-day trunk-based development: branch rot at machine speed, feature flags, decoupling deployment from release.
-  - Classic XP pair programming at machine speed: two humans at one keyboard, eliminating mechanical drag, burnout defense, and accelerated junior apprenticeship.
-
-### Chapter 9: The Organizational Interface and Enterprise Reality (The C-Suite & Culture)
-- **Scope:** How aiXP engineering teams interface with macro enterprise frameworks, leadership delusions, and economic shifts.
-- **Key Sections:**
-  - The Organizational Anti-Patterns:
-    - *Speed Governance Mismatch:* Accelerating code creation while choking on human-speed approval committees and 2-week sprint ceremonies.
-    - *Floundering in Silos:* Engineers left alone to invent ad-hoc AI habits, oscillating between unbridled vibe chaos and reactionary lock-down.
-    - *The Goodhart's Law Trap:* Bean counters measuring token burn or PR counts as "productivity," rewarding thrash over lean precision.
-    - *Demoting Engineers to QA:* Stripping creativity and turning developers into exhausted test-case auditors for machine sludge.
-  - The Incumbent Threat & Real Velocity: Solo indie devs and small pairs reverse-engineering calcified enterprise platforms in weeks; the executive call to courage.
-  - The Committed Artifact Interface: Interfacing cleanly with Scrum/SAFe without ideological enterprise rewrites.
-  - Developer Joy and Human Liberation: Restoring Kent Beck's sustainable pace, mutual respect, and the craft of software.
-
-### Chapter 10: The Future of the Craft
-- **Scope:** Philosophical horizon, developer identity, and what software engineering becomes when syntax generation is free.
