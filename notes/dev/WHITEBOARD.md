@@ -99,3 +99,34 @@ The repetition is primarily an artifact of **atomic sub-note drafting**. When e
 ---
 
 " None of these practices were imagined in advance and then tested. All of them were discovered under fire, named after the fact, and cross-checked against battle-tested engineering lineages where prior concepts already filled the gaps."  - something rubs me wrong about this - maybe it just doesn't add anything real to the story arc?  It definitely feels like an ai's voice more so than mine.
+
+
+---
+
+## Part III Structural Split: Team Mechanics vs. Enterprise Reality
+
+### Chapter 8: Scaling to the Engineering Team (The Mechanics of N > 1)
+- **Scope:** Technical infrastructure, branch hygiene, and pairing dynamics when multiple engineers share a codebase.
+- **Key Sections:**
+  - What stays at the desk (Spec-first, TDD, individual verification).
+  - Shared context infrastructure: The 3-Tier Architecture (Global `CLAUDE.md`, Subsystem `CONTEXT.md`, Local `.local.md`), collation precedence, and CI linters.
+  - Team agent role topology & authority matrix.
+  - What breaks at scale: Velocity estimation / story points replaced by Complexity & Blast Radius Gating.
+  - The PR bottleneck & Risk-Tiered Merge Authority (Tier 1/2/3).
+  - Sub-day trunk-based development: branch rot at machine speed, feature flags, decoupling deployment from release.
+  - Classic XP pair programming at machine speed: two humans at one keyboard, eliminating mechanical drag, burnout defense, and accelerated junior apprenticeship.
+
+### Chapter 9: The Organizational Interface and Enterprise Reality (The C-Suite & Culture)
+- **Scope:** How aiXP engineering teams interface with macro enterprise frameworks, leadership delusions, and economic shifts.
+- **Key Sections:**
+  - The Organizational Anti-Patterns:
+    - *Speed Governance Mismatch:* Accelerating code creation while choking on human-speed approval committees and 2-week sprint ceremonies.
+    - *Floundering in Silos:* Engineers left alone to invent ad-hoc AI habits, oscillating between unbridled vibe chaos and reactionary lock-down.
+    - *The Goodhart's Law Trap:* Bean counters measuring token burn or PR counts as "productivity," rewarding thrash over lean precision.
+    - *Demoting Engineers to QA:* Stripping creativity and turning developers into exhausted test-case auditors for machine sludge.
+  - The Incumbent Threat & Real Velocity: Solo indie devs and small pairs reverse-engineering calcified enterprise platforms in weeks; the executive call to courage.
+  - The Committed Artifact Interface: Interfacing cleanly with Scrum/SAFe without ideological enterprise rewrites.
+  - Developer Joy and Human Liberation: Restoring Kent Beck's sustainable pace, mutual respect, and the craft of software.
+
+### Chapter 10: The Future of the Craft
+- **Scope:** Philosophical horizon, developer identity, and what software engineering becomes when syntax generation is free.
