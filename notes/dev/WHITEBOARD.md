@@ -60,32 +60,3 @@ However, [00.02.70-xp-background.md](app://obsidian.md/docs/aixp/00.02.70-xp-ba
 
 
 
-
----
-
-
-
----
-
-
----
-
-
-
----
-
-
-
----
-
-### Summary
-
-The repetition is primarily an artifact of **atomic sub-note drafting**. When each sub-note was authored independently in Obsidian, each note felt complete in isolation because it established its own context, credentials, and thesis. But when compiled through `<!--@include: ...-->` into VitePress, the reader encounters the same anecdotes, slogans, and economic premises clustered within consecutive paragraphs.
-
-
----
-
-" None of these practices were imagined in advance and then tested. All of them were discovered under fire, named after the fact, and cross-checked against battle-tested engineering lineages where prior concepts already filled the gaps."  - something rubs me wrong about this - maybe it just doesn't add anything real to the story arc?  It definitely feels like an ai's voice more so than mine.
-
-
----
